@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Kaos KWU">
+  <defs>
+    <linearGradient id="bgF" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFF3E9"/><stop offset="1" stop-color="#FFE0C6"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgF)"/>
+  <circle cx="70" cy="80" r="70" fill="#1756A9" opacity=".1"/>
+  <ellipse cx="200" cy="342" rx="110" ry="13" fill="#102D50" opacity=".12"/>
+  <path d="M156 92h88l58 28c13 7 21 20 19 35l-8 46c-2 11-11 18-22 17l-23-3v122a12 12 0 0 1-12 12H144a12 12 0 0 1-12-12V215l-23 3c-11 1-20-6-22-17l-8-46c-2-15 6-28 19-35z" fill="#FFFFFF" stroke="#D8E1EC" stroke-width="4"/>
+  <path d="M156 92c10 20 24 30 44 30s34-10 44-30c-12-8-26-12-44-12s-32 4-44 12z" fill="#EFF4F9" stroke="#D8E1EC" stroke-width="4"/>
+  <rect x="168" y="176" width="64" height="64" rx="12" fill="#F47721"/>
+  <text x="200" y="206" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">KWU</text>
+  <path d="M186 222h28" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round"/>
+</svg>

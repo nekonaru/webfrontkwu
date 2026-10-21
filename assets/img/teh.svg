@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Teh melati KWU">
+  <defs>
+    <linearGradient id="bgL" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F1F8F1"/><stop offset="1" stop-color="#D9EDDA"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgL)"/>
+  <circle cx="324" cy="304" r="86" fill="#1756A9" opacity=".08"/>
+  <circle cx="72" cy="84" r="64" fill="#FFFFFF" opacity=".5"/>
+  <ellipse cx="200" cy="342" rx="104" ry="12" fill="#102D50" opacity=".12"/>
+  <path d="M128 106h144v14a12 12 0 0 1-12 12H140a12 12 0 0 1-12-12z" fill="#1756A9"/>
+  <path d="M120 132h160v180a16 16 0 0 1-16 16H136a16 16 0 0 1-16-16z" fill="#FFFFFF" stroke="#DCE7E0" stroke-width="4"/>
+  <rect x="120" y="196" width="160" height="96" fill="#F2F7F3"/>
+  <path d="M186 214c0-18 14-18 14-32 10 14 16 20 16 28a15 15 0 0 1-30 4z" fill="#3EA56C"/>
+  <text x="200" y="272" font-family="Segoe UI, Arial, sans-serif" font-size="22" font-weight="800" fill="#1756A9" text-anchor="middle">KWU TEA</text>
+  <rect x="148" y="154" width="104" height="8" rx="4" fill="#102D50" opacity=".5"/>
+</svg>

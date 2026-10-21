@@ -1,0 +1,73 @@
+<section class="page-head">
+  <div class="bg-grid"></div>
+  <div class="page-head__blob"></div>
+  <div class="container page-head__inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Beranda</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      <a href="katalog.html">Katalog</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      <span aria-current="page">Keranjang</span>
+    </nav>
+    <h1 class="h1">Keranjang Belanja</h1>
+    <p>Periksa item dan jumlahmu sebelum melanjutkan ke checkout. Data keranjang tersimpan di peramban ini.</p>
+  </div>
+</section>
+
+<section class="section is-tight">
+  <div class="container">
+    <div class="shop-layout">
+      <div>
+        <div class="row-between" style="margin-bottom:10px">
+          <span class="badge badge--orange" id="cartCountBadge">0 item</span>
+          <button class="cart-item__remove" id="clearCart">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V5h6v2M6 7l1 13h10l1-13"/></svg>
+            Kosongkan keranjang
+          </button>
+        </div>
+        <div class="panel" id="cartList"></div>
+
+        <div class="row-wrap" style="margin-top:20px">
+          <a class="btn btn--ghost" href="katalog.html">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:17px;height:17px"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+            Lanjut Belanja
+          </a>
+          <a class="link-arrow" href="akun-transaksi.html">Lihat riwayat transaksimu
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <aside class="summary-card">
+        <div class="panel">
+          <h3 style="font-size:1.1rem;margin-bottom:16px">Ringkasan Belanja</h3>
+          <div class="summary-row"><span>Subtotal</span><strong id="cartSubtotal">Rp 0</strong></div>
+          <div class="summary-row"><span>Biaya tambahan</span><strong>Rp 0</strong></div>
+          <div class="summary-row"><span>Pengiriman</span><strong>Tanpa antar-jemput</strong></div>
+          <div class="summary-row is-total"><span>Total sementara</span><strong id="cartTotal">Rp 0</strong></div>
+          <a class="btn btn--primary btn--block" id="toCheckout" href="checkout.html" style="margin-top:18px">
+            Lanjut ke Checkout
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:17px;height:17px"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <div class="summary-note">
+            Tidak ada biaya tersembunyi. Total di atas adalah jumlah akhir sebelum metode pembayaran dipilih.
+          </div>
+          <div class="row" style="gap:10px;margin-top:16px;align-items:flex-start">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" style="width:18px;height:18px;color:var(--success);flex:none;margin-top:2px"><path d="M12 3l8 3v6c0 5-3.4 8.3-8 9-4.6-.7-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+            <span class="small muted">Transaksi pada tahap ini hanya simulasi dan belum terhubung ke pembayaran resmi KWU.</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="section is-tight">
+  <div class="container">
+    <div class="section-head is-center">
+      <span class="eyebrow reveal">Tambahan</span>
+      <h2 class="h2 reveal" data-delay="1">Lengkapi pesananmu</h2>
+    </div>
+    <div class="grid grid-auto-lg" id="cartAddons"></div>
+  </div>
+</section>

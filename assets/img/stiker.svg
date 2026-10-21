@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Stiker dan phone holder KWU">
+  <defs>
+    <linearGradient id="bgK" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F1F5FA"/><stop offset="1" stop-color="#DCE6F2"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgK)"/>
+  <circle cx="66" cy="300" r="80" fill="#F47721" opacity=".1"/>
+  <ellipse cx="200" cy="344" rx="104" ry="12" fill="#102D50" opacity=".12"/>
+  <rect x="92" y="128" width="120" height="120" rx="18" fill="#FFFFFF" stroke="#DDE6F0" stroke-width="4"/>
+  <circle cx="152" cy="188" r="34" fill="#F47721"/>
+  <text x="152" y="196" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">KWU</text>
+  <rect x="186" y="214" width="16" height="16" rx="5" fill="#1756A9"/>
+  <rect x="104" y="270" width="150" height="14" rx="7" fill="#102D50" opacity=".14"/>
+  <rect x="232" y="112" width="94" height="150" rx="20" fill="#102D50"/>
+  <rect x="242" y="128" width="74" height="120" rx="12" fill="#F47721"/>
+  <circle cx="279" cy="166" r="22" fill="#FFFFFF" opacity=".9"/>
+  <path d="M279 152c8 10 12 15 12 20a12 12 0 0 1-24 0c0-5 4-10 12-20z" fill="#F47721"/>
+  <rect x="256" y="206" width="46" height="8" rx="4" fill="#FFFFFF" opacity=".85"/>
+  <rect x="248" y="272" width="62" height="46" rx="12" fill="#1756A9"/>
+  <rect x="256" y="282" width="46" height="26" rx="6" fill="#FFFFFF" opacity=".85"/>
+</svg>

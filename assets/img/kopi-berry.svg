@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Kemasan kopi berry KWU">
+  <defs>
+    <linearGradient id="bgB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EAF2FD"/><stop offset="1" stop-color="#C7DDF7"/>
+    </linearGradient>
+    <linearGradient id="bagB" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1756A9"/><stop offset="1" stop-color="#113F7D"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgB)"/>
+  <circle cx="80" cy="80" r="70" fill="#FFFFFF" opacity=".35"/>
+  <circle cx="330" cy="320" r="96" fill="#F47721" opacity=".12"/>
+  <ellipse cx="200" cy="336" rx="118" ry="15" fill="#102D50" opacity=".14"/>
+  <path d="M126 108h148a16 16 0 0 1 16 16v190a16 16 0 0 1-16 16H126a16 16 0 0 1-16-16V124a16 16 0 0 1 16-16z" fill="url(#bagB)"/>
+  <path d="M110 108h180l-14-24a10 10 0 0 0-8-5H132a10 10 0 0 0-8 5z" fill="#0E2748"/>
+  <rect x="140" y="150" width="120" height="120" rx="14" fill="#FFFFFF" opacity=".95"/>
+  <g fill="#F47721">
+    <circle cx="186" cy="196" r="15"/><circle cx="212" cy="196" r="15"/><circle cx="199" cy="222" r="15"/>
+  </g>
+  <path d="M199 176c-6 8-9 13-9 17a9 9 0 0 0 18 0c0-4-3-9-9-17z" fill="#1756A9"/>
+  <rect x="156" y="238" width="88" height="8" rx="4" fill="#102D50" opacity=".8"/>
+  <rect x="170" y="252" width="60" height="6" rx="3" fill="#102D50" opacity=".3"/>
+</svg>

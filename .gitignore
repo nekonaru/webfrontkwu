@@ -1,0 +1,14 @@
+# Dependency & cache
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Berkas sementara
+*.log
+*.tmp

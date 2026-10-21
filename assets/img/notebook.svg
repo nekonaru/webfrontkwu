@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Buku catatan KWU">
+  <defs>
+    <linearGradient id="bgD" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EAF2FD"/><stop offset="1" stop-color="#D3E4F9"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgD)"/>
+  <circle cx="66" cy="330" r="92" fill="#1756A9" opacity=".1"/>
+  <circle cx="336" cy="66" r="66" fill="#F47721" opacity=".12"/>
+  <ellipse cx="200" cy="340" rx="112" ry="14" fill="#102D50" opacity=".12"/>
+  <rect x="106" y="88" width="188" height="240" rx="14" fill="#102D50" transform="rotate(-7 200 208)"/>
+  <rect x="122" y="84" width="188" height="240" rx="14" fill="#1756A9" transform="rotate(-7 216 204)"/>
+  <rect x="150" y="150" width="120" height="9" rx="4.5" fill="#FFFFFF" opacity=".85" transform="rotate(-7 210 154)"/>
+  <rect x="150" y="172" width="86" height="7" rx="3.5" fill="#FFFFFF" opacity=".5" transform="rotate(-7 193 175)"/>
+  <rect x="150" y="194" width="104" height="7" rx="3.5" fill="#FFFFFF" opacity=".5" transform="rotate(-7 202 197)"/>
+  <rect x="108" y="104" width="26" height="18" rx="5" fill="#F47721" transform="rotate(-7 121 113)"/>
+</svg>

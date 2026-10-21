@@ -1,0 +1,229 @@
+<section class="page-head">
+  <div class="bg-grid"></div>
+  <div class="page-head__blob"></div>
+  <div class="container page-head__inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Beranda</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      <a href="kolaborasi.html">Bisnis &amp; Kolaborasi</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      <span aria-current="page">Kolaborasi Program</span>
+    </nav>
+    <h1 class="h1">Pengajuan Kolaborasi Program</h1>
+    <p>
+      Untuk event, proyek kreatif, promosi, dan program kewirausahaan. Jelaskan ide kegiatanmu,
+      target yang ingin dicapai, dan perkiraan jadwalnya.
+    </p>
+  </div>
+</section>
+
+<section class="section is-tight">
+  <div class="container">
+    <div class="shop-layout">
+      <div>
+        <form class="panel" data-request-form data-type="program" data-type-label="Kolaborasi Program" novalidate>
+          <div class="stepper" style="margin-bottom:26px">
+            <div class="step is-active">
+              <div class="step__dot">1</div>
+              <div class="step__label">Ide kegiatan</div>
+            </div>
+            <div class="step">
+              <div class="step__dot">2</div>
+              <div class="step__label">Rencana</div>
+            </div>
+            <div class="step">
+              <div class="step__dot">3</div>
+              <div class="step__label">Tinjauan</div>
+            </div>
+          </div>
+          <div class="progress-track" style="margin-bottom:30px">
+            <div class="progress-fill" data-progress style="width:0%"></div>
+          </div>
+
+          <!-- Langkah 1 -->
+          <div data-step="1">
+            <h2 style="font-size:1.25rem;margin-bottom:6px">Ide kegiatan</h2>
+            <p class="small muted" style="margin-bottom:22px">Ceritakan kegiatan yang ingin kamu wujudkan bersama KWU.</p>
+
+            <div class="form-grid">
+              <div class="field is-full">
+                <label class="field__label" for="eName">Nama kegiatan <span class="req">*</span></label>
+                <input class="input" id="eName" name="Nama kegiatan" placeholder="Contoh: Bazar Produk UKM" data-validate="required">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+              <div class="field is-full">
+                <label class="field__label">Jenis kolaborasi <span class="req">*</span></label>
+                <div class="grid grid-2" style="gap:10px">
+                  <label class="choice-card">
+                    <input type="radio" name="Jenis kolaborasi" value="Event" data-validate="required">
+                    <span>
+                      <span class="choice-card__title">Event</span>
+                      <span class="choice-card__desc">Bazar, Talkshow, workshop, atau seminar.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="Jenis kolaborasi" value="Proyek kreatif">
+                    <span>
+                      <span class="choice-card__title">Proyek kreatif</span>
+                      <span class="choice-card__desc">Karya bersama yang melibatkan mahasiswa.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="Jenis kolaborasi" value="Promosi">
+                    <span>
+                      <span class="choice-card__title">Promosi</span>
+                      <span class="choice-card__desc">Kampanye produk atau brand mahasiswa.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="Jenis kolaborasi" value="Program kewirausahaan">
+                    <span>
+                      <span class="choice-card__title">Program kewirausahaan</span>
+                      <span class="choice-card__desc">Pelatihan, mentoring, atau pendampingan.</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div class="field is-full">
+                <label class="field__label" for="eDesc">Deskripsi ide <span class="req">*</span></label>
+                <textarea class="textarea" id="eDesc" name="Deskripsi ide" placeholder="Jelaskan kegiatan, alasan kenapa ide ini menarik, dan hasilnya seperti apa" data-validate="required" data-minlength="30"></textarea>
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+                <div class="field__hint">Minimal 30 karakter.</div>
+              </div>
+              <div class="field is-full">
+                <label class="field__label" for="eTarget">Target yang ingin dicapai <span class="req">*</span></label>
+                <input class="input" id="eTarget" name="Target" placeholder="Contoh: menjangkau 200 peserta dan 20 mitra USA" data-validate="required">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Langkah 2 -->
+          <div data-step="2" class="hide">
+            <h2 style="font-size:1.25rem;margin-bottom:6px">Perkiraan jadwal</h2>
+            <p class="small muted" style="margin-bottom:22px">Isi rencana waktu dan informasi pengusul.</p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label class="field__label" for="eStart">Perkiraan mulai <span class="req">*</span></label>
+                <input class="input" id="eStart" name="Perkiraan mulai" type="date" data-validate="required">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="field__label" for="eEnd">Perkiraan selesai</label>
+                <input class="input" id="eEnd" name="Perkiraan selesai" type="date">
+              </div>
+              <div class="field is-full">
+                <label class="field__label" for="ePlace">Lokasi rencana <span class="req">*</span></label>
+                <input class="input" id="ePlace" name="Lokasi rencana" placeholder="Contoh: aula kampus / daring" data-validate="required">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+              <div class="field is-full">
+                <label class="field__label" for="eSupport"> Dukungan yang dibutuhkan</label>
+                <textarea class="textarea" id="eSupport" name="Dukungan yang dibutuhkan" placeholder="Contoh: ruang acara, perangkat suara, dukungan promosi" style="min-height:90px"></textarea>
+              </div>
+              <div class="field">
+                <label class="field__label" for="eName2">Nama pengusul <span class="req">*</span></label>
+                <input class="input" id="eName2" name="Nama pengusul" placeholder="Nama lengkap" data-validate="required">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="field__label" for="eOrg">Organisasi / komunitas</label>
+                <input class="input" id="eOrg" name="Organisasi" placeholder="Contoh: UKM Kreator">
+              </div>
+              <div class="field">
+                <label class="field__label" for="eEmail">Email pengusul <span class="req">*</span></label>
+                <input class="input" id="eEmail" name="Email pengusul" type="email" placeholder="nama@email.com" data-validate="required email">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+              <div class="field is-full">
+                <label class="field__label" for="ePhone">Nomor telepon / WhatsApp <span class="req">*</span></label>
+                <input class="input" id="ePhone" name="Nomor telepon" placeholder="08xx xxxx xxxx" data-validate="required tel">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Langkah 3 -->
+          <div data-step="3" class="hide">
+            <h2 style="font-size:1.25rem;margin-bottom:6px">Tinjau pengajuan</h2>
+            <p class="small muted" style="margin-bottom:22px">Pastikan data sudah benar sebelum dikirim.</p>
+            <div class="review-box" data-review></div>
+            <label class="checkbox" style="margin-top:20px">
+              <input type="checkbox" name="Setuju dengan dihubungi admin KWU" data-validate="required" checked>
+              <span>Saya setuju admin KWU menghubungi saya untuk konfirmasi kolaborasi program ini.</span>
+            </label>
+          </div>
+
+          <div class="row-between" style="margin-top:28px;padding-top:22px;border-top:1px solid var(--line)">
+            <button type="button" class="btn btn--ghost is-disabled" data-prev>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+              Sebelumnya
+            </button>
+            <button type="button" class="btn btn--primary" data-next>Berikutnya</button>
+          </div>
+        </form>
+
+        <div class="hide" data-success></div>
+      </div>
+
+      <aside class="summary-card">
+        <div class="panel">
+          <h3 style="font-size:1.05rem;margin-bottom:14px">Bantuan yang bisa diberikan KWU</h3>
+          <ul class="stack" style="--stack-gap:12px">
+            <li class="row" style="gap:10px;align-items:flex-start">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:17px;height:17px;color:var(--orange);flex:none;margin-top:3px"><path d="M3 11v2a2 2 0 0 0 2 2h2l9 5V4L7 9H5a2 2 0 0 0-2 2z"/><path d="M19 9a3 3 0 0 1 0 6"/></svg>
+              <span class="small">Publikasi kegiatan ke jaringan mahasiswa dan kanal KWU.</span>
+            </li>
+            <li class="row" style="gap:10px;align-items:flex-start">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:17px;height:17px;color:var(--orange);flex:none;margin-top:3px"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+              <span class="small">Pendampingan logistik dan penataan acara.</span>
+            </li>
+            <li class="row" style="gap:10px;align-items:flex-start">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:17px;height:17px;color:var(--orange);flex:none;margin-top:3px"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-5.5 6.5-5.5s6.5 1.9 6.5 5.5"/></svg>
+              <span class="small">Akses ke jejaring bisnis dan mentor usaha.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel" style="margin-top:18px">
+          <h3 style="font-size:1.05rem;margin-bottom:10px">Jalur lain</h3>
+          <div class="stack" style="--stack-gap:8px">
+            <a class="btn btn--ghost btn--sm btn--block" href="kolaborasi-grosir.html">Pengajuan Grosir</a>
+            <a class="btn btn--ghost btn--sm btn--block" href="kolaborasi-partnership.html">Partnership</a>
+            <a class="btn btn--ghost btn--sm btn--block" href="aktivitas.html">Lihat Aktivitas</a>
+          </div>
+        </div>
+
+        <div class="notice notice--orange" style="margin-top:18px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+          <div class="small">Pengajuan ini bersifat simulasi dan belum dikirim ke admin KWU.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>

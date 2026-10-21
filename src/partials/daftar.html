@@ -1,0 +1,122 @@
+<section class="auth-section">
+  <div class="auth-art" style="background:linear-gradient(150deg, var(--orange-600) 0%, var(--orange) 45%, #FFA45C 100%)">
+    <div class="bg-blob is-blue" style="width:340px;height:340px;bottom:-120px;left:-90px;opacity:.25"></div>
+    <div class="auth-art__inner">
+      <span class="eyebrow is-navy" style="background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.28);color:#FFFFFF">Gabung Sekarang</span>
+      <h2 style="margin:18px 0 14px">Bangun jejaring bisnismu di kampus</h2>
+      <p>
+        Satu akun untuk menyimpan produk favorit, mengirim pengajuan kerja sama,
+        dan melihat status transaksi tanpa harus mencari informasi berulang kali.
+      </p>
+
+      <div class="auth-feature">
+        <span class="auth-feature__icon" style="background:rgba(255,255,255,.2);color:#fff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4"/></svg>
+        </span>
+        <span>
+          <b>Gratis dan cepat</b>
+          <span>Isi data dasar, sisanya bisa dilengkapi nanti.</span>
+        </span>
+      </div>
+      <div class="auth-feature">
+        <span class="auth-feature__icon" style="background:rgba(255,255,255,.2);color:#fff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+        </span>
+        <span>
+          <b>Semua dalam satu tempat</b>
+          <span>Transaksi, pengajuan, dan wishlist tersimpan rapi.</span>
+        </span>
+      </div>
+      <div class="auth-feature">
+        <span class="auth-feature__icon" style="background:rgba(255,255,255,.2);color:#fff">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.4 8.3-8 9-4.6-.7-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <span>
+          <b>Data aman di perangkatmu</b>
+          <span>Tahap ini belum ada server, jadi data hanya tersimpan lokal.</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="auth-form-wrap">
+    <div class="auth-form">
+      <span class="eyebrow">Akun Baru</span>
+      <h1 style="margin-top:14px">Daftar akun KWU</h1>
+      <p class="small muted" style="margin-bottom:22px">Isi data dasar untuk mulai memakai seluruh fitur KWU.</p>
+
+      <form id="registerForm" novalidate>
+        <div class="field">
+          <label class="field__label" for="regName">Nama lengkap <span class="req">*</span></label>
+          <input class="input" id="regName" name="name" placeholder="Nama sesuai identitas" autocomplete="name">
+          <div class="field__error">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="regEmail">Email <span class="req">*</span></label>
+          <input class="input" id="regEmail" name="email" type="email" placeholder="nama@email.com" autocomplete="email">
+          <div class="field__error">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="field">
+            <label class="field__label" for="regPhone">Nomor telepon</label>
+            <input class="input" id="regPhone" name="phone" placeholder="08xx xxxx xxxx" autocomplete="tel">
+            <div class="field__error">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+              <span></span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field__label" for="regOrg">Organisasi / UKM</label>
+            <input class="input" id="regOrg" name="org" placeholder="Contoh: UKM Kewirausahaan">
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="regPassword">Kata sandi <span class="req">*</span></label>
+          <div class="input-group">
+            <input class="input" id="regPassword" name="password" type="password" placeholder="Minimal 6 karakter" autocomplete="new-password" style="padding-left:14px">
+            <button class="input-group__toggle" type="button" data-toggle-password aria-label="Tampilkan kata sandi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></svg>
+            </button>
+          </div>
+          <div class="field__error">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="field">
+          <label class="field__label" for="regConfirm">Konfirmasi kata sandi <span class="req">*</span></label>
+          <input class="input" id="regConfirm" name="confirm" type="password" placeholder="Ulangi kata sandi" autocomplete="new-password">
+          <div class="field__error">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+            <span></span>
+          </div>
+        </div>
+
+        <label class="checkbox" style="margin-bottom:8px">
+          <input type="checkbox" id="regTerms">
+          <span class="small">Saya menyetujui <a class="link-underline" href="syarat-ketentuan.html">Syarat dan Ketentuan</a> serta <a class="link-underline" href="kebijakan-privasi.html">Kebijakan Privasi</a>.</span>
+          <span class="field__error" style="display:none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+            <span></span>
+          </span>
+        </label>
+
+        <button class="btn btn--primary btn--block btn--lg" type="submit" style="margin-top:18px">Buat Akun</button>
+
+        <p class="small muted center" style="margin-top:20px">
+          Sudah punya akun? <a class="link-underline" href="login.html">Masuk di sini</a>
+        </p>
+      </form>
+    </div>
+  </div>
+</section>

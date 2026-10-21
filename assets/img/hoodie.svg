@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Hoodie KWU">
+  <defs>
+    <linearGradient id="bgE" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EEF2F7"/><stop offset="1" stop-color="#D9E2EC"/>
+    </linearGradient>
+    <linearGradient id="hoodE" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B3D68"/><stop offset="1" stop-color="#0F2A4A"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgE)"/>
+  <circle cx="322" cy="310" r="94" fill="#F47721" opacity=".1"/>
+  <ellipse cx="200" cy="344" rx="116" ry="14" fill="#102D50" opacity=".14"/>
+  <path d="M150 96h100l62 30c14 7 22 21 20 36l-10 62c-2 10-11 17-21 16l-31-3v108a14 14 0 0 1-14 14H144a14 14 0 0 1-14-14V237l-31 3c-10 1-19-6-21-16l-10-62c-2-15 6-29 20-36z" fill="url(#hoodE)"/>
+  <path d="M150 96c8 26 24 40 50 40s42-14 50-40c-16-12-30-16-50-16s-34 4-50 16z" fill="#26538C"/>
+  <path d="M170 140c10 14 20 20 30 20s20-6 30-20" fill="none" stroke="#F47721" stroke-width="7" stroke-linecap="round"/>
+  <rect x="168" y="196" width="64" height="46" rx="10" fill="#F47721" opacity=".92"/>
+  <text x="200" y="226" font-family="Segoe UI, Arial, sans-serif" font-size="20" font-weight="800" fill="#FFFFFF" text-anchor="middle">KWU</text>
+</svg>

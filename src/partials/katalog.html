@@ -1,0 +1,127 @@
+<section class="page-head">
+  <div class="bg-grid"></div>
+  <div class="page-head__blob"></div>
+  <div class="container page-head__inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Beranda</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      <span aria-current="page">Katalog</span>
+    </nav>
+    <h1 class="h1">Katalog Produk</h1>
+    <p>
+      Cari produk dari mitra usaha mahasiswa dan merchandise resmi KWU. Saring lewat kategori,
+      rentang harga, dan status stok. Semua data produk di halaman ini masih berupa data contoh.
+    </p>
+  </div>
+</section>
+
+<section class="section is-tight">
+  <div class="container">
+    <div class="catalog-layout">
+      <!-- Filter -->
+      <aside class="filter-panel" id="filterPanel" aria-label="Filter katalog">
+        <div class="row-between" style="margin-bottom:18px">
+          <h3 style="font-size:1.05rem">Filter</h3>
+          <button class="icon-btn" id="filterClose" aria-label="Tutup filter" style="display:none">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+          </button>
+        </div>
+
+        <div class="filter-group">
+          <h4>Kategori</h4>
+          <div class="filter-list" id="categoryFilter"></div>
+        </div>
+
+        <div class="filter-group">
+          <h4>Rentang harga</h4>
+          <div class="range-wrap">
+            <div class="range-values">
+              <span id="priceMin">Rp 0</span>
+              <span id="priceValue">Rp 200.000</span>
+            </div>
+            <input type="range" id="priceRange" min="0" max="200000" step="5000" value="200000" aria-label="Harga maksimum">
+            <div class="field__hint">Geser untuk mengatur batas harga maksimum.</div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <h4>Ketersediaan</h4>
+          <label class="checkbox">
+            <input type="checkbox" id="stockOnly">
+            <span>Stok tersedia saja</span>
+          </label>
+        </div>
+
+        <div class="filter-group">
+          <button class="btn btn--ghost btn--block btn--sm" id="filterReset">Reset Filter</button>
+          <div class="notice notice--orange" style="margin-top:16px">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+            <div class="small">Stok, harga, dan ulasan pada katalog ini adalah data contoh.</div>
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <button class="btn btn--primary btn--block" id="filterApply" style="display:none">Terapkan</button>
+        </div>
+      </aside>
+      <div class="filter-overlay" id="filterOverlay"></div>
+
+      <!-- Daftar produk -->
+      <div>
+        <div class="catalog-toolbar">
+          <div class="catalog-toolbar__search">
+            <div class="input-group">
+              <span class="input-group__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+              </span>
+              <input class="input" id="catalogSearch" type="search" placeholder="Cari nama produk atau kategori..." aria-label="Cari produk">
+            </div>
+          </div>
+
+          <button class="btn btn--ghost btn--sm filter-toggle" data-filter-open>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" style="width:17px;height:17px"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
+            Filter
+          </button>
+
+          <span class="catalog-toolbar__count" id="catalogCount">Memuat produk...</span>
+
+          <select class="select" id="catalogSort" aria-label="Urutkan produk" style="width:auto;min-width:170px">
+            <option value="terbaru">Terbaru</option>
+            <option value="populer">Paling Populer</option>
+            <option value="rating">Rating Tertinggi</option>
+            <option value="termurah">Harga Terendah</option>
+            <option value="termahal">Harga Tertinggi</option>
+          </select>
+
+          <div class="view-toggle" role="group" aria-label="Tampilan daftar">
+            <button data-view="grid" class="is-active" aria-label="Tampilan kisi">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            </button>
+            <button data-view="list" aria-label="Tampilan daftar">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 6h13M8 12h13M8 18h13M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-auto-lg" id="catalogGrid"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section is-tight">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div class="cta-band__inner">
+        <div>
+          <h2 class="h2">Butuh jumlah banyak?</h2>
+          <p>Ajukan RFQ grosir dan dapatkan penawaran harga sesuai kuantitas yang kamu butuhkan.</p>
+        </div>
+        <div class="cta-band__actions">
+          <a class="btn btn--light btn--lg" href="kolaborasi-grosir.html">Ajukan Grosir</a>
+          <a class="btn btn--outline-light btn--lg" href="bantuan.html">Baca Panduan</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

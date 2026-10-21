@@ -1,0 +1,14 @@
+{
+  "name": "kwu-campus-business-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "KWU Campus Business Hub - website frontend statis (HTML, CSS, JS)",
+  "scripts": {
+    "build": "node build.js",
+    "serve": "node tools/serve.js 8080",
+    "start": "node build.js && node tools/serve.js 8080",
+    "scan": "node tools/scan-text.js"
+  },
+  "keywords": ["kwu", "kampus", "frontend", "statis"],
+  "license": "UNLICENSED"
+}

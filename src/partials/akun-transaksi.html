@@ -1,0 +1,28 @@
+<section class="page-head">
+  <div class="bg-grid"></div>
+  <div class="page-head__blob"></div>
+  <div class="container page-head__inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Beranda</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      <span aria-current="page">Riwayat Transaksi</span>
+    </nav>
+    <h1 class="h1">Riwayat Transaksi</h1>
+    <p>Daftar pesanan beserta statusnya. Data transaksi contoh tersimpan di peramban kamu.</p>
+  </div>
+</section>
+
+<section class="section is-tight">
+  <div class="container">
+    <div class="row-wrap" style="margin-bottom:24px">
+      <button class="chip is-active" data-history-filter="semua">Semua</button>
+      <button class="chip" data-history-filter="menunggu_konfirmasi">Menunggu Konfirmasi</button>
+      <button class="chip" data-history-filter="menunggu_pembayaran">Menunggu Pembayaran</button>
+      <button class="chip" data-history-filter="diproses">Diproses</button>
+      <button class="chip" data-history-filter="selesai">Selesai</button>
+      <button class="chip" data-history-filter="dibatalkan">Dibatalkan</button>
+    </div>
+
+    <div class="grid grid-2" id="orderHistory"></div>
+  </div>
+</section>

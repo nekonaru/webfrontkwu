@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Pot planter KWU">
+  <defs>
+    <linearGradient id="bgG" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E9F6EF"/><stop offset="1" stop-color="#CFEBDD"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgG)"/>
+  <circle cx="320" cy="80" r="78" fill="#FFFFFF" opacity=".5"/>
+  <circle cx="60" cy="330" r="84" fill="#1756A9" opacity=".08"/>
+  <ellipse cx="200" cy="338" rx="104" ry="13" fill="#102D50" opacity=".12"/>
+  <path d="M200 92c-2 26-34 34-38 62 22-8 30-24 34-38 6 22 30 30 46 36 8-28-24-38-42-60z" fill="#2F8F5B"/>
+  <path d="M200 92c0 26 30 40 40 62-20-6-32-18-40-32z" fill="#3EA56C"/>
+  <path d="M144 208h112l-12 116a16 16 0 0 1-16 14h-56a16 16 0 0 1-16-14z" fill="#F47721"/>
+  <rect x="136" y="188" width="128" height="26" rx="10" fill="#DB6114"/>
+  <rect x="170" y="248" width="60" height="8" rx="4" fill="#FFFFFF" opacity=".9"/>
+</svg>

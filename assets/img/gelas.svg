@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Gelas keramik KWU">
+  <defs>
+    <linearGradient id="bgJ" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EAF2FD"/><stop offset="1" stop-color="#CBE0F8"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgJ)"/>
+  <circle cx="320" cy="96" r="80" fill="#FFFFFF" opacity=".45"/>
+  <ellipse cx="200" cy="340" rx="96" ry="12" fill="#102D50" opacity=".12"/>
+  <path d="M124 150h152v96a72 72 0 0 1-72 72h-8a72 72 0 0 1-72-72z" fill="#FFFFFF" stroke="#D6E3F1" stroke-width="4"/>
+  <path d="M276 176h18a30 30 0 0 1 0 60h-18z" fill="none" stroke="#D6E3F1" stroke-width="10"/>
+  <path d="M124 150h152v34H124z" fill="#1756A9"/>
+  <rect x="150" y="230" width="100" height="34" rx="10" fill="#F47721"/>
+  <text x="200" y="254" font-family="Segoe UI, Arial, sans-serif" font-size="18" font-weight="800" fill="#FFFFFF" text-anchor="middle">KWU</text>
+  <path d="M176 116c0-14 10-14 10-26M196 116c0-14 10-14 10-26" stroke="#1756A9" stroke-width="5" stroke-linecap="round" fill="none" opacity=".6"/>
+</svg>

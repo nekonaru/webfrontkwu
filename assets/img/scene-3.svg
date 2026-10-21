@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Ilustrasi lokakarya profil">
+  <defs>
+    <linearGradient id="u1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#EAF2FD"/><stop offset="1" stop-color="#C9DEF7"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#u1)"/>
+  <circle cx="120" cy="110" r="150" fill="#FFFFFF" opacity=".5"/>
+  <circle cx="700" cy="500" r="160" fill="#1756A9" opacity=".12"/>
+  <rect x="150" y="120" width="500" height="330" rx="26" fill="#FFFFFF"/>
+  <rect x="150" y="120" width="500" height="56" rx="26" fill="#1756A9"/>
+  <circle cx="184" cy="148" r="9" fill="#F47721"/>
+  <circle cx="212" cy="148" r="9" fill="#FFFFFF" opacity=".7"/>
+  <circle cx="240" cy="148" r="9" fill="#FFFFFF" opacity=".45"/>
+  <g fill="#102D50" opacity=".12">
+    <rect x="190" y="210" width="220" height="14" rx="7"/>
+    <rect x="190" y="244" width="300" height="14" rx="7"/>
+    <rect x="190" y="278" width="180" height="14" rx="7"/>
+  </g>
+  <rect x="190" y="320" width="200" height="90" rx="14" fill="#F47721" opacity=".9"/>
+  <rect x="410" y="320" width="200" height="90" rx="14" fill="#102D50" opacity=".85"/>
+  <g>
+    <circle cx="300" cy="500" r="38" fill="#F47721"/>
+    <path d="M242 560c0-32 26-52 58-52s58 20 58 52z" fill="#F47721"/>
+  </g>
+  <g>
+    <circle cx="520" cy="510" r="32" fill="#1756A9"/>
+    <path d="M470 560c0-27 22-45 50-45s50 18 50 45z" fill="#1756A9"/>
+  </g>
+</svg>

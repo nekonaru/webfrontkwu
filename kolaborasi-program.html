@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pengajuan Kolaborasi Program | KWU Campus Business Hub</title>
+  <meta name="description" content="Formulir kolaborasi untuk event, proyek kreatif, promosi, dan program kewirausahaan kampus.">
+  <meta name="theme-color" content="#F47721">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body class="">
+  <a class="skip-link" href="#main">Lewati ke konten utama</a>
+  
+<div class="topbar">
+  <div class="container row-between" style="gap:12px">
+    <span class="topbar__text">Tahap frontend · Data produk, transaksi, dan pengajuan di situs ini masih <b>data contoh</b>.</span>
+    <a class="topbar__link" href="bantuan.html">Cek halaman bantuan</a>
+  </div>
+</div>
+<header class="site-header">
+  <div class="container site-header__bar">
+    <a class="brand" href="index.html" aria-label="KWU Campus Business Hub, beranda">
+      <span class="brand__mark">KWU</span>
+      <span class="brand__text">
+        <span class="brand__name">KW<span>U</span></span>
+        <span class="brand__sub">Administrasi Niaga</span>
+      </span>
+    </a>
+
+    <nav class="main-nav" aria-label="Navigasi utama"><a href="index.html" class="">Beranda</a><a href="katalog.html" class="">Katalog</a><a href="kolaborasi.html" class="is-active">Bisnis & Kolaborasi</a><a href="tentang.html" class="">Tentang KWU</a></nav>
+
+    <div class="header-actions">
+      <button class="icon-btn" data-search-open aria-label="Buka pencarian" title="Cari produk (Ctrl+K)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+      <a class="icon-btn" href="keranjang.html" aria-label="Buka keranjang" title="Keranjang">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h2.5l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 7H5.5"/></svg>
+        <span class="icon-btn__count" data-cart-count aria-hidden="true">0</span>
+      </a>
+      <a class="btn btn--primary btn--sm btn--login" href="login.html" data-user-action>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg><span data-user-name>Masuk</span>
+      </a>
+      <button class="icon-btn hamburger" data-drawer-open aria-label="Buka menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="mobileDrawer">
+  <div class="drawer__overlay"></div>
+  <div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Menu navigasi">
+    <div class="drawer__head">
+      <a class="brand" href="index.html">
+        <span class="brand__mark">KWU</span>
+        <span class="brand__text">
+          <span class="brand__name">KW<span>U</span></span>
+          <span class="brand__sub">Administrasi Niaga</span>
+        </span>
+      </a>
+      <button class="icon-btn" data-drawer-close aria-label="Tutup menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <nav class="drawer__nav" aria-label="Navigasi seluler">
+      <a href="index.html" class="">Beranda<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a href="katalog.html" class="">Katalog<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a href="kolaborasi.html" class="is-active">Bisnis & Kolaborasi<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a><a href="tentang.html" class="">Tentang KWU<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a href="aktivitas.html" class="">Aktivitas &amp; Berita<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a href="bantuan.html" class="">Pusat Bantuan<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+      <a href="akun-transaksi.html" class="">Riwayat Transaksi<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+    </nav>
+    <div class="drawer__foot">
+      <a class="btn btn--primary btn--block" href="login.html" data-user-action><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg><span data-user-name>Masuk</span></a>
+      <a class="btn btn--ghost btn--block" href="keranjang.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h2.5l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 7H5.5"/></svg> Keranjang</a>
+    </div>
+  </div>
+</div>
+
+<div class="search-overlay" id="searchOverlay">
+  <div class="modal__overlay" data-search-close></div>
+  <div class="search-panel" role="dialog" aria-modal="true" aria-label="Pencarian produk">
+    <form>
+      <div class="input-group">
+        <span class="input-group__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></span>
+        <input class="input" type="search" placeholder="Cari produk, kategori, atau aktivitas..." aria-label="Kata kunci pencarian">
+      </div>
+      <div class="search-suggest">
+        <h5>Pencarian populer</h5>
+        <button data-suggest="kopi">Kopi bubuk</button>
+        <button data-suggest="merchandise">Merchandise</button>
+        <button data-suggest="notebook">Buku catatan</button>
+        <button data-suggest="paket">Paket hemat</button>
+      </div>
+    </form>
+  </div>
+</div>
+  <main id="main">
+<section class="page-head">
+  <div class="bg-grid"></div>
+  <div class="page-head__blob"></div>
+  <div class="container page-head__inner">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="index.html">Beranda</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      <a href="kolaborasi.html">Bisnis &amp; Kolaborasi</a>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+      <span aria-current="page">Kolaborasi Program</span>
+    </nav>
+    <h1 class="h1">Pengajuan Kolaborasi Program</h1>
+    <p>
+      Untuk event, proyek kreatif, promosi, dan program kewirausahaan. Jelaskan ide kegiatanmu,
+      target yang ingin dicapai, dan perkiraan jadwalnya.
+    </p>
+  </div>
+</section>
+
+<section class="section is-tight">
+  <div class="container">
+    <div class="shop-layout">
+      <div>
+        <form class="panel" data-request-form data-type="program" data-type-label="Kolaborasi Program" novalidate>
+          <div class="stepper" style="margin-bottom:26px">
+            <div class="step is-active">
+              <div class="step__dot">1</div>
+              <div class="step__label">Ide kegiatan</div>
+            </div>
+            <div class="step">
+              <div class="step__dot">2</div>
+              <div class="step__label">Rencana</div>
+            </div>
+            <div class="step">
+              <div class="step__dot">3</div>
+              <div class="step__label">Tinjauan</div>
+            </div>
+          </div>
+          <div class="progress-track" style="margin-bottom:30px">
+            <div class="progress-fill" data-progress style="width:0%"></div>
+          </div>
+
+          <!-- Langkah 1 -->
+          <div data-step="1">
+            <h2 style="font-size:1.25rem;margin-bottom:6px">Ide kegiatan</h2>
+            <p class="small muted" style="margin-bottom:22px">Ceritakan kegiatan yang ingin kamu wujudkan bersama KWU.</p>
+
+            <div class="form-grid">
+              <div class="field is-full">
+                <label class="field__label" for="eName">Nama kegiatan <span class="req">*</span></label>
+                <input class="input" id="eName" name="Nama kegiatan" placeholder="Contoh: Bazar Produk UKM" data-validate="required">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+              <div class="field is-full">
+                <label class="field__label">Jenis kolaborasi <span class="req">*</span></label>
+                <div class="grid grid-2" style="gap:10px">
+                  <label class="choice-card">
+                    <input type="radio" name="Jenis kolaborasi" value="Event" data-validate="required">
+                    <span>
+                      <span class="choice-card__title">Event</span>
+                      <span class="choice-card__desc">Bazar, Talkshow, workshop, atau seminar.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="Jenis kolaborasi" value="Proyek kreatif">
+                    <span>
+                      <span class="choice-card__title">Proyek kreatif</span>
+                      <span class="choice-card__desc">Karya bersama yang melibatkan mahasiswa.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="Jenis kolaborasi" value="Promosi">
+                    <span>
+                      <span class="choice-card__title">Promosi</span>
+                      <span class="choice-card__desc">Kampanye produk atau brand mahasiswa.</span>
+                    </span>
+                  </label>
+                  <label class="choice-card">
+                    <input type="radio" name="Jenis kolaborasi" value="Program kewirausahaan">
+                    <span>
+                      <span class="choice-card__title">Program kewirausahaan</span>
+                      <span class="choice-card__desc">Pelatihan, mentoring, atau pendampingan.</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div class="field is-full">
+                <label class="field__label" for="eDesc">Deskripsi ide <span class="req">*</span></label>
+                <textarea class="textarea" id="eDesc" name="Deskripsi ide" placeholder="Jelaskan kegiatan, alasan kenapa ide ini menarik, dan hasilnya seperti apa" data-validate="required" data-minlength="30"></textarea>
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+                <div class="field__hint">Minimal 30 karakter.</div>
+              </div>
+              <div class="field is-full">
+                <label class="field__label" for="eTarget">Target yang ingin dicapai <span class="req">*</span></label>
+                <input class="input" id="eTarget" name="Target" placeholder="Contoh: menjangkau 200 peserta dan 20 mitra USA" data-validate="required">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Langkah 2 -->
+          <div data-step="2" class="hide">
+            <h2 style="font-size:1.25rem;margin-bottom:6px">Perkiraan jadwal</h2>
+            <p class="small muted" style="margin-bottom:22px">Isi rencana waktu dan informasi pengusul.</p>
+
+            <div class="form-grid">
+              <div class="field">
+                <label class="field__label" for="eStart">Perkiraan mulai <span class="req">*</span></label>
+                <input class="input" id="eStart" name="Perkiraan mulai" type="date" data-validate="required">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="field__label" for="eEnd">Perkiraan selesai</label>
+                <input class="input" id="eEnd" name="Perkiraan selesai" type="date">
+              </div>
+              <div class="field is-full">
+                <label class="field__label" for="ePlace">Lokasi rencana <span class="req">*</span></label>
+                <input class="input" id="ePlace" name="Lokasi rencana" placeholder="Contoh: aula kampus / daring" data-validate="required">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+              <div class="field is-full">
+                <label class="field__label" for="eSupport"> Dukungan yang dibutuhkan</label>
+                <textarea class="textarea" id="eSupport" name="Dukungan yang dibutuhkan" placeholder="Contoh: ruang acara, perangkat suara, dukungan promosi" style="min-height:90px"></textarea>
+              </div>
+              <div class="field">
+                <label class="field__label" for="eName2">Nama pengusul <span class="req">*</span></label>
+                <input class="input" id="eName2" name="Nama pengusul" placeholder="Nama lengkap" data-validate="required">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+              <div class="field">
+                <label class="field__label" for="eOrg">Organisasi / komunitas</label>
+                <input class="input" id="eOrg" name="Organisasi" placeholder="Contoh: UKM Kreator">
+              </div>
+              <div class="field">
+                <label class="field__label" for="eEmail">Email pengusul <span class="req">*</span></label>
+                <input class="input" id="eEmail" name="Email pengusul" type="email" placeholder="nama@email.com" data-validate="required email">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+              <div class="field is-full">
+                <label class="field__label" for="ePhone">Nomor telepon / WhatsApp <span class="req">*</span></label>
+                <input class="input" id="ePhone" name="Nomor telepon" placeholder="08xx xxxx xxxx" data-validate="required tel">
+                <div class="field__error">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5v5M12 16h.01"/></svg>
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Langkah 3 -->
+          <div data-step="3" class="hide">
+            <h2 style="font-size:1.25rem;margin-bottom:6px">Tinjau pengajuan</h2>
+            <p class="small muted" style="margin-bottom:22px">Pastikan data sudah benar sebelum dikirim.</p>
+            <div class="review-box" data-review></div>
+            <label class="checkbox" style="margin-top:20px">
+              <input type="checkbox" name="Setuju dengan dihubungi admin KWU" data-validate="required" checked>
+              <span>Saya setuju admin KWU menghubungi saya untuk konfirmasi kolaborasi program ini.</span>
+            </label>
+          </div>
+
+          <div class="row-between" style="margin-top:28px;padding-top:22px;border-top:1px solid var(--line)">
+            <button type="button" class="btn btn--ghost is-disabled" data-prev>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:16px;height:16px"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
+              Sebelumnya
+            </button>
+            <button type="button" class="btn btn--primary" data-next>Berikutnya</button>
+          </div>
+        </form>
+
+        <div class="hide" data-success></div>
+      </div>
+
+      <aside class="summary-card">
+        <div class="panel">
+          <h3 style="font-size:1.05rem;margin-bottom:14px">Bantuan yang bisa diberikan KWU</h3>
+          <ul class="stack" style="--stack-gap:12px">
+            <li class="row" style="gap:10px;align-items:flex-start">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:17px;height:17px;color:var(--orange);flex:none;margin-top:3px"><path d="M3 11v2a2 2 0 0 0 2 2h2l9 5V4L7 9H5a2 2 0 0 0-2 2z"/><path d="M19 9a3 3 0 0 1 0 6"/></svg>
+              <span class="small">Publikasi kegiatan ke jaringan mahasiswa dan kanal KWU.</span>
+            </li>
+            <li class="row" style="gap:10px;align-items:flex-start">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:17px;height:17px;color:var(--orange);flex:none;margin-top:3px"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>
+              <span class="small">Pendampingan logistik dan penataan acara.</span>
+            </li>
+            <li class="row" style="gap:10px;align-items:flex-start">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="width:17px;height:17px;color:var(--orange);flex:none;margin-top:3px"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-5.5 6.5-5.5s6.5 1.9 6.5 5.5"/></svg>
+              <span class="small">Akses ke jejaring bisnis dan mentor usaha.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="panel" style="margin-top:18px">
+          <h3 style="font-size:1.05rem;margin-bottom:10px">Jalur lain</h3>
+          <div class="stack" style="--stack-gap:8px">
+            <a class="btn btn--ghost btn--sm btn--block" href="kolaborasi-grosir.html">Pengajuan Grosir</a>
+            <a class="btn btn--ghost btn--sm btn--block" href="kolaborasi-partnership.html">Partnership</a>
+            <a class="btn btn--ghost btn--sm btn--block" href="aktivitas.html">Lihat Aktivitas</a>
+          </div>
+        </div>
+
+        <div class="notice notice--orange" style="margin-top:18px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+          <div class="small">Pengajuan ini bersifat simulasi dan belum dikirim ke admin KWU.</div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+  </main>
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <a class="brand" href="index.html">
+          <span class="brand__mark">KWU</span>
+          <span class="brand__text">
+            <span class="brand__name">KW<span>U</span></span>
+            <span class="brand__sub">Administrasi Niaga</span>
+          </span>
+        </a>
+        <p>
+          KWU Campus Business Hub menyatukan katalog produk, transaksi, pengajuan kerja sama,
+          dan informasi kegiatan dalam satu pengalaman digital untuk mahasiswa, mitra usaha,
+          dan institusi.
+        </p>
+        <div class="socials" aria-label="Media sosial">
+          <a href="#" aria-label="Instagram KWU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a href="#" aria-label="Facebook KWU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a href="#" aria-label="LinkedIn KWU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+        </div>
+        <div class="footer-note">
+          Logo, alamat, nomor kontak, dan tautan media sosial resmi belum dipublikasikan.
+          Tautan di atas hanya bagian dari desain antarmuka.
+        </div>
+      </div>
+      
+    <div>
+      <h4>Jelajahi</h4>
+      <ul><li><a href="index.html">Beranda</a></li><li><a href="katalog.html">Katalog</a></li><li><a href="tentang.html">Tentang KWU</a></li><li><a href="aktivitas.html">Aktivitas</a></li></ul>
+    </div>
+      
+    <div>
+      <h4>Layanan</h4>
+      <ul><li><a href="akun-transaksi.html">Transaksi</a></li><li><a href="kolaborasi-grosir.html">Grosir</a></li><li><a href="kolaborasi-partnership.html">Partnership</a></li><li><a href="kolaborasi-program.html">Kolaborasi Program</a></li><li><a href="bantuan.html">Bantuan</a></li></ul>
+    </div>
+      
+    <div>
+      <h4>Informasi</h4>
+      <ul><li><a href="kebijakan-privasi.html">Kebijakan Privasi</a></li><li><a href="syarat-ketentuan.html">Syarat dan Ketentuan</a></li><li><a href="kebijakan-transaksi.html">Kebijakan Transaksi</a></li><li><a href="tentang.html">Tentang</a></li><li><a href="akun.html">Akun</a></li></ul>
+    </div>
+    </div>
+    <div class="site-footer__bottom">
+      <span>&copy; <span data-year>2026</span> KWU Administrasi Niaga · Campus Business Hub</span>
+      <span>Tempat Ide Bertemu Peluang.</span>
+    </div>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" aria-label="Kembali ke atas">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+</button>
+
+<div class="chat-fab" id="chatFab" role="button" tabindex="0" aria-expanded="false" aria-label="Buka Asisten KWU">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1-5.2A8 8 0 0 1 13 4a8 8 0 0 1 8 8z"/></svg>
+  <span class="chat-fab__label">Asisten KWU</span>
+</div>
+
+<div class="chat-panel" id="chatPanel" role="dialog" aria-label="Asisten KWU">
+  <div class="chat-head">
+    <span class="chat-head__avatar">KWU</span>
+    <div>
+      <h4>Asisten KWU</h4>
+      <p><span class="chat-head__dot"></span> Contoh jawaban otomatis</p>
+    </div>
+    <button class="chat-close" data-chat-close aria-label="Tutup asisten">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+  </div>
+  <div class="chat-body"></div>
+  <div class="chat-quick">
+    <button>Cari produk</button>
+    <button>Kerja sama</button>
+    <button>Bantuan transaksi</button>
+    <button>Hubungi admin</button>
+  </div>
+  <div class="chat-note">Simulasi antarmuka. Belum terhubung ke AI atau sistem KWU.</div>
+</div>
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/store.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/render.js"></script>
+  <script src="assets/js/forms.js"></script>
+</body>
+</html>

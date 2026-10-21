@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Kue expires KWU">
+  <defs>
+    <linearGradient id="bgI" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFF0E4"/><stop offset="1" stop-color="#FFD3B0"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgI)"/>
+  <circle cx="72" cy="76" r="66" fill="#FFFFFF" opacity=".45"/>
+  <ellipse cx="200" cy="340" rx="110" ry="13" fill="#102D50" opacity=".12"/>
+  <g>
+    <circle cx="150" cy="150" r="42" fill="#D89A55"/>
+    <circle cx="134" cy="138" r="8" fill="#5A3A1C"/><circle cx="166" cy="142" r="7" fill="#5A3A1C"/><circle cx="150" cy="166" r="7" fill="#5A3A1C"/>
+  </g>
+  <g>
+    <circle cx="244" cy="196" r="38" fill="#C98A48"/>
+    <circle cx="230" cy="186" r="7" fill="#5A3A1C"/><circle cx="258" cy="190" r="6" fill="#5A3A1C"/><circle cx="246" cy="210" r="6" fill="#5A3A1C"/>
+  </g>
+  <g>
+    <circle cx="166" cy="250" r="36" fill="#E0A863"/>
+    <circle cx="154" cy="240" r="6" fill="#5A3A1C"/><circle cx="178" cy="244" r="6" fill="#5A3A1C"/>
+  </g>
+  <path d="M108 214h184v106a14 14 0 0 1-14 14H122a14 14 0 0 1-14-14z" fill="#F47721" opacity=".92"/>
+  <path d="M108 214h184v26H108z" fill="#DB6114"/>
+  <rect x="140" y="264" width="120" height="44" rx="10" fill="#FFFFFF" opacity=".95"/>
+  <text x="200" y="294" font-family="Segoe UI, Arial, sans-serif" font-size="19" font-weight="800" fill="#102D50" text-anchor="middle">KWU SNACK</text>
+</svg>
