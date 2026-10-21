@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — auth.js
+   KWU Campus Business Hub - auth.js
    Halaman login dan pendaftaran (tampilan + simulasi lokal).
    ========================================================= */
 

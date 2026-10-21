@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — catalog.js
+   KWU Campus Business Hub - catalog.js
    Halaman katalog: pencarian, filter, harga, stok, urutan, tampilan.
    ========================================================= */
 
@@ -46,7 +46,7 @@ function initCatalog() {
       state.category = btn.dataset.cat;
       catList.querySelectorAll('button').forEach(b => b.classList.toggle('is-active', b === btn));
       render();
-      closeFilterPanel();
+      // Di HP, panel filter tetap terbuka sampai pengguna menekan "Terapkan".
     });
   }
 
@@ -195,14 +195,18 @@ function initCatalog() {
       grid.querySelector('[data-empty-reset]')?.addEventListener('click', () => els.reset?.click());
     }, 180);
 
-    // Sinkronkan URL
+    // Sinkronkan URL (dilewati bila dibuka langsung lewat file://)
     const params = new URLSearchParams();
     if (state.q) params.set('q', state.q);
     if (state.category !== 'semua') params.set('kategori', state.category);
     if (state.maxPrice < maxCatalogPrice) params.set('max', state.maxPrice);
     if (state.sort !== 'terbaru') params.set('sort', state.sort);
     const query = params.toString();
-    history.replaceState(null, '', query ? '?' + query : location.pathname);
+    try {
+      history.replaceState(null, '', query ? '?' + query : location.pathname);
+    } catch (err) {
+      /* mode file:// tidak selalu mengizinkan replaceState */
+    }
   }
 
   showSkeleton();

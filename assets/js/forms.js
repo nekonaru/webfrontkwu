@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — forms.js
+   KWU Campus Business Hub - forms.js
    Formulir pengajuan kerja sama (RFQ, partnership, program)
    dengan langkah, validasi inline, tinjauan, dan nomor pengajuan.
    ========================================================= */
@@ -118,7 +118,7 @@ function initRequestForm(form) {
   }
 
   /* ---------- Navigasi langkah ---------- */
-  function showStep(index) {
+  function showStep(index, scroll = true) {
     current = index;
     steps.forEach((s, i) => s.classList.toggle('hide', i !== index));
     stepDots.forEach((d, i) => {
@@ -129,7 +129,7 @@ function initRequestForm(form) {
     prevBtn?.classList.toggle('is-disabled', index === 0);
     if (nextBtn) nextBtn.textContent = index === steps.length - 1 ? 'Kirim Pengajuan' : 'Berikutnya';
     if (index === steps.length - 1) renderReview();
-    form.closest('section, .container')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (scroll) form.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
   function collect(stepEl) {
@@ -252,7 +252,7 @@ function initRequestForm(form) {
     toast('Pengajuan contoh berhasil dibuat.', 'success', 'Nomor pengajuan terbit');
   });
 
-  showStep(0);
+  showStep(0, false);
 }
 
 /* ---------- Formulir kontak di Pusat Bantuan ---------- */

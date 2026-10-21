@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — store.js
+   KWU Campus Business Hub - store.js
    Penyimpanan lokal (localStorage) untuk simulasi keranjang,
    wishlist, akun, transaksi, dan pengajuan.
    CATATAN: belum ada backend. Semua data hanya di peramban ini.
@@ -11,6 +11,7 @@ const KWU_STORE_KEYS = {
   user: 'kwu_user_v1',
   orders: 'kwu_orders_v1',
   requests: 'kwu_requests_v1',
+  reviews: 'kwu_reviews_v1',
   seed: 'kwu_seed_v1'
 };
 
@@ -229,6 +230,52 @@ const KWU = (() => {
     return request;
   };
 
+  /* ---------- Ulasan ---------- */
+  const getUserReviews = () => read(KWU_STORE_KEYS.reviews, {});
+
+  const getReviews = (productId) => {
+    const seeds = (KWU_DATA.reviews && KWU_DATA.reviews[productId]) || [];
+    const mine = getUserReviews()[productId] || [];
+    return [...mine, ...seeds];
+  };
+
+  const addReview = (productId, payload) => {
+    const store = getUserReviews();
+    const list = store[productId] || [];
+    const review = {
+      id: makeCode('REV'),
+      author: payload.author || 'Tamu',
+      rating: Math.min(5, Math.max(1, Number(payload.rating) || 5)),
+      title: (payload.title || 'Ulasan saya').trim(),
+      text: (payload.text || '').trim(),
+      date: new Date().toISOString(),
+      mine: true
+    };
+    list.unshift(review);
+    store[productId] = list;
+    write(KWU_STORE_KEYS.reviews, store);
+    document.dispatchEvent(new CustomEvent('kwu:review-change', { detail: { productId } }));
+    return review;
+  };
+
+  const reviewSummary = (productId) => {
+    const list = getReviews(productId);
+    if (!list.length) return { count: 0, average: 0, mine: 0, breakdown: [0, 0, 0, 0, 0] };
+    const breakdown = [0, 0, 0, 0, 0];
+    let total = 0;
+    list.forEach(r => {
+      const idx = Math.min(5, Math.max(1, Number(r.rating) || 5)) - 1;
+      breakdown[idx]++;
+      total += r.rating;
+    });
+    return {
+      count: list.length,
+      average: total / list.length,
+      mine: list.filter(r => r.mine).length,
+      breakdown
+    };
+  };
+
   /* ---------- Badge keranjang ---------- */
   function updateCartBadge() {
     const count = cartCount();
@@ -238,27 +285,27 @@ const KWU = (() => {
     });
   }
 
-  /* ---------- Data contoh awal ---------- */
+  /* ---------- Data awal ---------- */
   function seed() {
     if (read(KWU_STORE_KEYS.seed, false)) return;
     const orders = [
       {
         id: 'KWU-7H2A01', createdAt: '2026-10-02T09:12:00.000Z', status: 'selesai',
         items: [
-          { id: 'p01', name: 'Kopi Bubuk KWU 250 g', price: 42000, qty: 2, unit: 'pack', image: 'assets/img/kopi-bubuk.svg' },
-          { id: 'p04', name: 'Tote Bag Kanvas KWU', price: 35000, qty: 1, unit: 'pcs', image: 'assets/img/tote-bag.svg' }
+          { id: 'm02', name: 'Cookies Cokelat Chip', price: 32000, qty: 2, unit: 'box', image: 'assets/img/produk/biskuit-0.jpg' },
+          { id: 'mn01', name: 'Kopi Susu Gula Aren 250 ml', price: 28000, qty: 3, unit: 'botol', image: 'assets/img/produk/kopisusu-1.jpg' }
         ],
-        subtotal: 119000, shipping: 0, total: 119000,
+        subtotal: 148000, shipping: 0, total: 148000,
         payment: 'qris', paymentLabel: 'QRIS',
         buyer: { name: 'Pengguna Contoh', email: 'contoh@email.test', phone: '0800 0000 000', address: 'Kampus KWU' },
-        note: 'Data contoh untuk tampilan riwayat.', simulation: true
+        note: 'Pengiriman dicek bersama admin KWU.', simulation: true
       },
       {
         id: 'KWU-5B9C22', createdAt: '2026-09-21T14:40:00.000Z', status: 'diproses',
         items: [
-          { id: 'p05', name: 'Hoodie Navy KWU', price: 145000, qty: 4, unit: 'pcs', image: 'assets/img/hoodie.svg' }
+          { id: 'mc01', name: 'Kaos Katun Heavy 30s', price: 89000, qty: 4, unit: 'pcs', image: 'assets/img/produk/kaos-0.jpg' }
         ],
-        subtotal: 580000, shipping: 0, total: 580000,
+        subtotal: 356000, shipping: 0, total: 356000,
         payment: 'transfer', paymentLabel: 'Transfer Bank',
         buyer: { name: 'Pengguna Contoh', email: 'contoh@email.test', phone: '0800 0000 000', address: 'Kampus KWU' },
         note: '', simulation: true
@@ -266,9 +313,9 @@ const KWU = (() => {
       {
         id: 'KWU-3K7D33', createdAt: '2026-09-04T08:05:00.000Z', status: 'menunggu_pembayaran',
         items: [
-          { id: 'p13', name: 'Paket Hemat Ngopi', price: 89000, qty: 1, unit: 'paket', image: 'assets/img/kopi-berry.svg' }
+          { id: 'pk01', name: 'Paket Sarapan Kantor', price: 129000, qty: 1, unit: 'paket', image: 'assets/img/produk/hadiah-0.jpg' }
         ],
-        subtotal: 89000, shipping: 0, total: 89000,
+        subtotal: 129000, shipping: 0, total: 129000,
         payment: 'transfer', paymentLabel: 'Transfer Bank',
         buyer: { name: 'Pengguna Contoh', email: 'contoh@email.test', phone: '0800 0000 000', address: 'Kampus KWU' },
         note: '', simulation: true
@@ -280,13 +327,13 @@ const KWU = (() => {
       {
         id: 'RFQ-2K8M11', type: 'grosir', typeLabel: 'Pembelian Grosir / RFQ',
         createdAt: '2026-09-11T10:00:00.000Z', status: 'ditinjau',
-        data: { organisasi: 'Toko Serbaguna Contoh', kontak: 'Rani', email: 'rani@contoh.test', kebutuhan: 'Kopi bubuk 250 g', jumlah: '60 pack', tanggal: '2026-10-20', lokasi: 'Kampus KWU' },
+        data: { 'Nama organisasi': 'Toko Serbaguna Contoh', 'Nama kontak': 'Rani', 'Email bisnis': 'rani@contoh.test', 'Daftar produk': 'Kopi Susu Gula Aren 250 ml (60)', 'Tanggal kebutuhan': '2026-10-20', 'Lokasi tujuan': 'Kampus KWU' },
         simulation: true
       },
       {
         id: 'PTN-9Q1R22', type: 'partnership', typeLabel: 'Partnership',
         createdAt: '2026-08-19T13:20:00.000Z', status: 'diterima',
-        data: { organisasi: 'UMKM Contoh', bidang: 'F&B', bentuk: 'Distribusi produk', tujuan: 'Distribusi produk KWU di jaringan toko', kontak: 'Dimas', email: 'dimas@contoh.test' },
+        data: { 'Nama organisasi': 'UMKM Contoh', 'Bidang usaha': 'F&B', 'Bentuk kemitraan': 'Distribusi dan reseller', 'Tujuan kemitraan': 'Distribusi produk KWU di jaringan toko', 'Nama kontak': 'Dimas', 'Email bisnis': 'dimas@contoh.test' },
         simulation: true
       }
     ];
@@ -302,6 +349,7 @@ const KWU = (() => {
     currentUser, register, login, logout, updateProfile,
     getOrders, createOrder, getOrder, updateOrderStatus,
     getRequests, createRequest,
+    getReviews, addReview, reviewSummary,
     updateCartBadge, seed
   };
 })();

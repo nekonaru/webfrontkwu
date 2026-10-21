@@ -1,25 +1,28 @@
 # KWU Campus Business Hub
 
 Website frontend **KWU Administrasi Niaga** yang dibangun hanya dengan **HTML, CSS, dan JavaScript**
-(tanpa framework, tanpa build tool wajib). Seluruh halaman dibuat statis, cepat, dan bisa langsung
+(tanpa framework, tanpa proses build wajib). Seluruh halaman dibuat statis, cepat, dan bisa langsung
 dibuka di peramban.
 
 Tagline: **Tempat Ide Bertemu Peluang.** · Hero: **IDE BESAR. PELUANG NYATA.**
+
+> KWU bukan brand dagang. Seluruh brand, produk, harga, dan ulasan di katalog ini adalah karangan
+> untuk keperluan demonstrasi antarmuka, bukan barang asli maupun penawaran resmi.
 
 ---
 
 ## Menjalankan
 
 ```bash
-# 1. Bangun ulang halaman (opsional, sudah ada hasil build)
+# 1. Bangun ulang halaman (opsional, hasil build sudah tersedia)
 node build.js
 
 # 2. Jalankan server statis
 node tools/serve.js 8080
 ```
 
-Buka `http://localhost:8080`. alternatively, klik dua kali `index.html` — situs tetap berjalan
-dengan `file://` karena tidak memakai modul ES.
+Buka `http://localhost:8080`. Situs juga tetap berjalan dengan klik dua kali `index.html`
+karena tidak memakai modul ES.
 
 ---
 
@@ -27,33 +30,42 @@ dengan `file://` karena tidak memakai modul ES.
 
 ```
 ├── index.html ... 22 halaman hasil build (langsung bisa dipakai)
-├── build.js                 penyusun halaman dari layout + partial
+├── build.js                 penyusun halaman dari layout dan partial
+├── CREDITS.md               daftar kredit foto dari Unsplash
 ├── assets/
 │   ├── css/
 │   │   ├── main.css         token desain, reset, tipografi, utilitas, animasi
 │   │   ├── components.css   tombol, kartu, header, footer, formulir, chatbot, toast
-│   │   └── pages.css        komposisi khusus tiap halaman
+│   │   ├── pages.css        komposisi khusus tiap halaman
+│   │   └── mobile.css       desain khusus layar kecil (dimuat terakhir)
 │   ├── js/
-│   │   ├── data.js          data contoh (produk, kategori, aktivitas, FAQ, status)
-│   │   ├── store.js         state di localStorage (keranjang, wishlist, akun, transaksi)
+│   │   ├── data.js          katalog, kategori, ulasan, FAQ, status
+│   │   ├── store.js         state di localStorage (keranjang, wishlist, akun, transaksi, ulasan)
 │   │   ├── ui.js            ikon, toast, dialog, header, drawer, chatbot, reveal
 │   │   ├── render.js        pembantu render kartu produk dan badge status
+│   │   ├── review.js        ulasan produk: ringkasan, daftar, form tulis
 │   │   ├── home.js          beranda
 │   │   ├── catalog.js       katalog (filter, urutan, tampilan)
 │   │   ├── product.js       detail produk
 │   │   ├── cart.js          keranjang
-│   │   ├── checkout.js      checkout + konfirmasi transaksi
-│   │   ├── forms.js         formulir 3 langkah + FAQ + kontak
+│   │   ├── checkout.js      checkout dan konfirmasi transaksi
+│   │   ├── forms.js         formulir 3 langkah, FAQ, kontak
 │   │   ├── account.js       akun dan riwayat transaksi
 │   │   ├── auth.js          login dan pendaftaran
 │   │   ├── activity.js      halaman aktivitas
 │   │   └── admin.js         panel admin
-│   └── img/                 ilustrasi SVG buatan sendiri (tanpa aset pihak ketiga)
-├── src/partials/            sumber isi tiap halaman (diassin oleh build.js)
+│   └── img/
+│       ├── produk/          foto produk dan suasana (Unsplash, lihat CREDITS.md)
+│       └── *.svg            logo, favicon, ilustrasi vektor buatan sendiri
+├── src/partials/            sumber isi tiap halaman (dibangun oleh build.js)
 └── tools/
     ├── serve.js             server statis untuk pratinjau
-    ├── scan-text.js         deteksi karakter asing yang tidak sengaja masuk
-    └── mobile-preview.html  pratinjau responsif (HP, tablet, desktop)
+    ├── fetch-images.js      unduh foto produk
+    ├── make-credits.js      buat CREDITS.md
+    ├── scan-text.js         deteksi karakter asing atau em dash
+    ├── cleanup-copy.js      konsistensi kalimat pada teks
+    ├── mobile-preview.html  pratinjau tampilan layar kecil
+    └── desktop-preview.html pratinjau tampilan desktop
 ```
 
 ---
@@ -64,24 +76,42 @@ dengan `file://` karena tidak memakai modul ES.
 | --- | --- | --- |
 | Beranda | `index.html` | Hero, kategori, produk unggulan, jalur kerja sama, cerita, CTA penutup |
 | Katalog | `katalog.html` | Pencarian, filter kategori, rentang harga, stok, urutan, tampilan grid/list |
-| Detail produk | `produk.html?slug=...` | Galeri, harga, jumlah, stok, spesifikasi, tab, produk terkait |
+| Detail produk | `produk.html?slug=...` | Galeri, harga, jumlah, stok, spesifikasi, tab, ulasan, produk terkait |
+| Ulasan | bagian dalam detail produk | Ringkasan rating, daftar ulasan, form menulis ulasan |
 | Keranjang | `keranjang.html` | Ubah jumlah, hapus, simpan ke wishlist, ringkasan |
 | Checkout | `checkout.html` | Data pembeli, metode pembayaran, konfirmasi pesanan |
 | Konfirmasi | `transaksi.html?id=...` | Nomor transaksi, status, timeline, ringkasan |
-| Riwayat transaksi | `akun-transaksi.html` | Daftar pesanan + filter status |
+| Riwayat transaksi | `akun-transaksi.html` | Daftar pesanan plus filter status |
 | Bisnis & Kolaborasi | `kolaborasi.html` | Tiga jalur, tabel perbandingan, alur, FAQ |
-| Pengajuan grosir | `kolaborasi-grosir.html` | Formulir RFQ 3 langkah |
-| Partnership | `kolaborasi-partnership.html` | Formulir kemitraan 3 langkah |
-| Kolaborasi program | `kolaborasi-program.html` | Formulir program 3 langkah |
+| Pengajuan grosir | `kolaborasi-grosir.html` | Formulir RFQ tiga langkah |
+| Partnership | `kolaborasi-partnership.html` | Formulir kemitraan tiga langkah |
+| Kolaborasi program | `kolaborasi-program.html` | Formulir program tiga langkah |
 | Tentang KWU | `tentang.html` | Identitas, tujuan, layanan, kontribusi, data yang menunggu konfirmasi |
 | Aktivitas | `aktivitas.html` | Daftar berita, filter kategori, agenda kegiatan |
-| Login | `login.html` | Formulir masuk + isi data demo |
+| Login | `login.html` | Formulir masuk dan isi data demo |
 | Daftar | `daftar.html` | Formulir pendaftaran |
 | Akun | `akun.html` | Profil, transaksi, pengajuan, wishlist, pengaturan |
-| Bantuan | `bantuan.html` | Panduan, FAQ, formulir kontak |
+| Bantuan | `bantuan.html` | Panduan, FAQ dengan pencarian, formulir kontak |
 | Kebijakan | `kebijakan-privasi.html`, `syarat-ketentuan.html`, `kebijakan-transaksi.html` | Kerangka dokumen legal |
-| Admin | `admin.html` | Panel pengelolaan data (tidak ada di navigasi publik) |
+| Admin | `admin.html` | Panel pengelolaan data, tidak ada di navigasi publik |
 | 404 | `404.html` | Halaman tidak ditemukan |
+
+---
+
+## Katalog
+
+Lima kategori, 37 produk dengan brand fiktif seperti *Sari Banih*,
+*Rumah Biskuit*, *Kopi Kanduri*, *Ink Line*, dan *Serat Lokal*.
+
+| Kategori | Isi |
+| --- | --- |
+| Makanan | Keripik, cookies, kue lapis, sambal, kerupuk, brownies, biskuit, jelly, es krim, snack box |
+| Minuman | Kopi susu gula aren, kopi bubuk, teh celup, sirup markisa, jus mangga, susu UHT, matcha, madu hutan |
+| Merchandise & Aksesoris | Kaos, hoodie, tote bag, topi, tumbler, mug keramik, ransel |
+| Alat Tulis & Kreativitas | Buku tulis, set pulpen, set spidol, sticky notes, pensil warna, penghapus, organizer, binder clip, penggaris |
+| Paket Hemat | Paket Sarapan Kantor, Paket Alat Tulis, Paket Merchandise Tim |
+
+Setiap produk punya foto, harga, minimum pembelian, spesifikasi, rating, dan ulasan.
 
 ---
 
@@ -89,47 +119,50 @@ dengan `file://` karena tidak memakai modul ES.
 
 **Sistem desain**
 - Palet: KWU Orange `#F47721`, KWU Blue `#1756A9`, Deep Navy `#102D50`, putih.
-- Font Plus Jakarta Sans (dengan fallback sistem).
-- Sudut kartu 10–18 px, bayangan lembut, ruang lega, tipografi besar dan tegas.
-- Wordmark "KWU" + teks kecil "Administrasi Niaga" (sementara,menunggu logo resmi).
+- Font Plus Jakarta Sans dengan fallback sistem.
+- Sudut kartu 10 sampai 18 px, bayangan lembut, ruang lega, tipografi besar dan tegas.
+- Wordmark "KWU" dengan teks kecil "Administrasi Niaga".
 
 **Animasi**
-- Reveal saat elemen masuk layar (IntersectionObserver, dengan jeda bertingkat).
-- Hero: parallax ringan, kartu melayang, blob bergerak, marquee kategori.
-- Tombol: lift, sheen, keadaan loading.
+- Reveal berjenjang saat elemen masuk layar.
+- Hero melayang, blob bergerak, marquee kategori.
+- Tombol lift dan sheen, keadaan loading.
 - Header menyusut saat digulir, drawer dan panel filter meluncur.
-- Transisi halaman, angka statistik menghitung naik, toast masuk halus.
-- `prefers-reduced-motion` dihormati.
+- Angka statistik menghitung naik, toast masuk halus, transisi halaman.
 
 **Fungsional**
-- Katalog: pencarian langsung, filter kategori, rentang harga, filter stok, 5 pilihan urutan,
-  tampilan grid/list, URL ikut berubah, empty state, skeleton loading.
+- Katalog: pencarian langsung, filter kategori, rentang harga, filter stok, lima pilihan urutan,
+  tampilan grid dan list, URL ikut berubah, empty state, skeleton loading.
 - Detail produk: galeri, stepper jumlah, tambah ke keranjang, wishlist, bagikan, tab,
   produk terkait, prefill RFQ.
-- Keranjang: ubah jumlah, hapus (dengan dialog konfirmasi), simpan ke wishlist, subtotal transparan.
+- Ulasan: ringkasan rating dengan grafik batang, daftar ulasan, form tulis ulasan yang
+  tersimpan di peramban dan langsung tampil di daftar.
+- Keranjang: ubah jumlah, hapus dengan dialog konfirmasi, simpan ke wishlist, subtotal transparan.
 - Checkout: validasi inline, metode pembayaran, ringkasan, nomor transaksi, status.
 - Tiga formulir kerja sama: indikator langkah, validasi inline, halaman tinjauan, nomor pengajuan.
 - Akun: profil, riwayat transaksi, status pengajuan, wishlist, pengaturan, hapus data lokal.
-- FAQ dengan pencarian dan filter kategori, akordeon.
-- Chatbot: tombol mengambang, quick replies, typing indicator, jawaban berbasis kata kunci.
+- FAQ dengan pencarian dan filter, akordeon.
+- Chatbot dengan 28 topik, tombol mengambang, quick replies, typing indicator.
 - Toast, ConfirmDialog, tombol kembali ke atas, pencarian cepat `Ctrl+K`.
-- Responsif untuk HP, tablet, dan desktop. Tanpa layanan antar-jemput.
+
+**Desain khusus layar kecil**
+- Navigasi bawah dengan empat menu utama, bukan hanya hamburger.
+- Panel aksi produk yang menempel di bawah layar, menggantikan navigasi bawah.
+- Kartu produk jadi dua kolom dengan tombol ringkas, rating disembunyikan.
+- Tipografi, jarak, dan target sentuh diatur ulang, bukan sekadar dikecilkan.
+- Formulir memakai font 16 px agar tidak memicu zoom otomatis di iOS.
+- Panel filter jadi sheet layar penuh dengan header dan footer menempel.
 
 ---
 
 ## Catatan kejujuran data
 
-Situs ini adalah **tahap frontend**. Semua isi bersifat simulasi dan ditandai di dalam antarmuka:
-
-- Produk, harga, stok, ulasan, dan aktivitas adalah **data contoh**.
-- Login, pembayaran, dan pengiriman pengajuan **belum terhubung ke server**.
+- Brand, produk, harga, ulasan, dan isi halaman adalah karangan untuk demonstrasi antarmuka.
+- Login, pembayaran, dan pengiriman pengajuan belum terhubung ke server.
 - Data tersimpan di `localStorage` peramban saja.
-- Logo, alamat, nomor kontak, akun media sosial, visi-misi, dan naskah kebijakan resmi
-  **belum dipublikasikan** — bagian tersebut sengaja tidak dikarang.
+- Logo resmi, alamat, nomor kontak, media sosial, visi-misi, dan naskah kebijakan resmi
+  belum dipublikasikan, bagian tersebut sengaja tidak dikarang.
 - Tidak ada fitur antar-jemput.
-
-Sebelum peluncuran, isi `assets/js/data.js`, konfirmasi identitas resmi, dan lengkapi
-dokumen kebijakan sesuai ketentuan KWU.
 
 ---
 
@@ -137,9 +170,9 @@ dokumen kebijakan sesuai ketentuan KWU.
 
 1. Edit partial terkait di `src/partials/`.
 2. Jalankan `node build.js`.
-3. Header, footer, navigasi, dan sidebar chatbot berasal dari `build.js` sehingga tetap konsisten.
+3. Header, footer, navigasi bawah, dan chatbot berasal dari `build.js` sehingga tetap konsisten.
 
-Pemeriksaan cepat karakter yang tidak sengaja masuk (misalnya huruf Mandarin/Cyrillic):
+Pemeriksaan cepat karakter asing atau em dash:
 
 ```bash
 node tools/scan-text.js

@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — activity.js
+   KWU Campus Business Hub - activity.js
    Halaman Aktivitas & Berita: daftar kegiatan dan agenda.
    ========================================================= */
 

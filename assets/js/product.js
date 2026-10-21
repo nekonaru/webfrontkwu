@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — product.js
+   KWU Campus Business Hub - product.js
    Halaman detail produk: galeri, jumlah, keranjang, RFQ, terkait.
    ========================================================= */
 
@@ -38,12 +38,15 @@ function initProduct() {
         </div>
         <div class="notice notice--orange" style="margin-top:18px">
           ${icon('info')}
-          <div>Gambar dan spesifikasi pada halaman ini memakai <strong>data contoh</strong> untuk demonstrasi antarmuka.</div>
+          <div>Foto dan spesifikasi produk pada halaman ini disusun sebagai contoh tampilan.</div>
         </div>
       </div>
 
       <div class="pd-info">
-        <span class="product-card__cat">${categoryName(product.category)}</span>
+        <div class="row" style="gap:8px;flex-wrap:wrap">
+          <span class="product-card__cat">${product.brand || categoryName(product.category)}</span>
+          <span class="badge badge--neutral badge--plain">${categoryName(product.category)}</span>
+        </div>
         <h1 class="pd-title">${product.name}</h1>
 
         <div class="row" style="gap:10px;flex-wrap:wrap">
@@ -87,7 +90,7 @@ function initProduct() {
         <div class="pd-mini" style="margin-top:18px">
           <span>${icon('shield')} Transaksi aman (simulasi)</span>
           <span>${icon('tag')} Harga grosir tersedia</span>
-          <span>${icon('truck')} Tanpa antar-jemput</span>
+          <span>${icon('file')} Nomor pesanan tercatat</span>
         </div>
 
         <div class="pd-block" style="margin-top:8px">
@@ -106,7 +109,7 @@ function initProduct() {
               </div>
             </div>
             <div class="tab-panel hide" data-tab-panel-id="ship" style="padding-top:18px">
-              <p class="muted" style="line-height:1.8">KWU tidak menyediakan layanan antar-jemput. Pengambilan produk dilakukan sesuai jadwal yang disepakati dengan admin KWU. Ketentuan resmi berlaku setelah dikonfirmasi KWU Administrasi Niaga.</p>
+              <p class="muted" style="line-height:1.8">Produk diambil atau dikirim sesuai jadwal yang disepakati dengan admin KWU. Ketentuan resmi berlaku setelah dikonfirmasi KWU Administrasi Niaga.</p>
             </div>
           </div>
         </div>
@@ -186,6 +189,33 @@ function initProduct() {
   });
 
   initTabs();
+  initReviews(product.id);
+
+  /* Panel aksi khusus layar kecil */
+  const bar = document.createElement('div');
+  bar.className = 'product-bar';
+  bar.innerHTML = `
+    <div class="product-bar__info">
+      <span>Total</span>
+      <b>${KWU.rupiah(product.price)}</b>
+    </div>
+    <button class="btn btn--primary" data-bar-add ${product.stock === 0 ? 'disabled' : ''}>
+      ${icon('cart')} Tambah
+    </button>`;
+  document.body.appendChild(bar);
+  document.body.classList.add('has-product-bar');
+
+  bar.querySelector('[data-bar-add]')?.addEventListener('click', () => {
+    const qty = Math.max(1, Number(document.getElementById('qtyInput')?.value) || 1);
+    const result = KWU.addToCart(product.id, qty);
+    if (result.ok) {
+      toast(result.message, 'success', 'Masuk keranjang');
+      bar.querySelector('[data-bar-add]').classList.add('is-loading');
+      setTimeout(() => bar.querySelector('[data-bar-add]').classList.remove('is-loading'), 700);
+    } else {
+      toast(result.message, 'error', 'Tidak bisa ditambahkan');
+    }
+  });
 
   /* Produk terkait */
   const related = document.getElementById('relatedProducts');

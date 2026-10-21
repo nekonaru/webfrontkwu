@@ -1,7 +1,7 @@
 /* =========================================================
-   KWU Campus Business Hub — admin.js
+   KWU Campus Business Hub - admin.js
    Tampilan '/admin' dengan sistem desain yang sama, bekerja
-   pada data contoh yang tersimpan di peramban.
+   pada data yang tersimpan di peramban.
    ========================================================= */
 
 function initAdmin() {
@@ -23,7 +23,7 @@ function initAdmin() {
   root.innerHTML = `
     <div class="notice notice--orange" style="margin-bottom:22px">
       ${icon('info')}
-      <div>Halaman <b>/admin</b> memakai sistem desain yang sama dengan situs publik, namun datanya masih <b>data contoh</b> dari peramban. Akses admin resmi belum tersedia di tahap frontend.</div>
+      <div>Halaman <b>/admin</b> memakai sistem desain yang sama dengan situs publik, namun datanya dibaca dari peramban. Akses admin resmi belum tersedia.</div>
     </div>
 
     <div class="grid grid-4" style="margin-bottom:26px">
@@ -71,7 +71,7 @@ function initAdmin() {
     <div class="panel" style="margin-top:22px">
       <h3 style="font-size:1.05rem;margin-bottom:14px">Aksi cepat</h3>
       <div class="row-wrap">
-        <button class="btn btn--ghost btn--sm" id="adminSeed">Muat ulang data contoh</button>
+        <button class="btn btn--ghost btn--sm" id="adminSeed">Muat ulang data awal</button>
         <a class="btn btn--ghost btn--sm" href="katalog.html">Lihat katalog</a>
         <a class="btn btn--ghost btn--sm" href="akun-transaksi.html">Riwayat transaksi</a>
       </div>
@@ -80,7 +80,7 @@ function initAdmin() {
   document.getElementById('adminSeed')?.addEventListener('click', () => {
     ['kwu_cart_v1', 'kwu_wishlist_v1', 'kwu_orders_v1', 'kwu_requests_v1', 'kwu_seed_v1'].forEach(k => localStorage.removeItem(k));
     KWU.seed();
-    toast('Data contoh dimuat ulang.', 'success');
+    toast('Data awal dimuat ulang.', 'success');
     setTimeout(() => location.reload(), 700);
   });
 }

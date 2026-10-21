@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>Contact sheet foto produk</title>
+<style>
+  body { margin: 0; font-family: system-ui, sans-serif; background: #16202f; color: #fff; font-size: 12px; }
+  .grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; padding: 12px; }
+  figure { margin: 0; background: #22314a; border-radius: 8px; overflow: hidden; }
+  img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  figcaption { padding: 6px 8px; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="grid" id="g"></div>
+<script>
+  const names = ['keripik','kue','sambal','kerupuk','brownies','biskuit','jelly','eskrim','snackbox','kopisusu','kopibiji','teh','sirup','jusmangga','susu','matcha','madu','kaos','hoodie','totebag','topi','tumbler','mug','ransel','buku','pulpen','marker','sticky','pensil','penghapus','organizer','binderclip','penggaris','hadiah'];
+  const g = document.getElementById('g');
+  names.forEach(n => {
+    for (let i = 0; i < 4; i++) {
+      g.insertAdjacentHTML('beforeend',
+        '<figure><img src="/assets/img/produk/' + n + '-' + i + '.jpg" onerror="this.parentElement.style.display=\'none\'"><figcaption>' + n + '-' + i + '</figcaption></figure>');
+    }
+  });
+</script>
+</body>
+</html>

@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — cart.js
+   KWU Campus Business Hub - cart.js
    Halaman keranjang: ubah jumlah, hapus, simpan, ringkasan.
    ========================================================= */
 

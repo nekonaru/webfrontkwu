@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — render.js
+   KWU Campus Business Hub - render.js
    Pembantu render komponen yang dipakai di beberapa halaman.
    ========================================================= */
 
@@ -51,12 +51,12 @@ function productCardHTML(product, delay = 1) {
       </button>
     </div>
     <div class="product-card__body">
-      <span class="product-card__cat">${categoryName(product.category)}</span>
+      <span class="product-card__cat">${product.brand || categoryName(product.category)}</span>
       <h3 class="product-card__name"><a href="produk.html?slug=${product.slug}">${product.name}</a></h3>
-      <div class="row" style="gap:8px;font-size:.8rem;color:var(--muted)">
+      <div class="row product-card__rating" style="gap:8px;font-size:.8rem;color:var(--muted)">
         <span class="rating">${icon('star')}</span>
         <span>${product.rating.toFixed(1)}</span>
-        <span>(${product.reviews} ulasan contoh)</span>
+        <span>(${product.reviews} ulasan)</span>
       </div>
       <div class="product-card__meta">
         <span class="product-card__price">
@@ -68,7 +68,7 @@ function productCardHTML(product, delay = 1) {
     </div>
     <div class="product-card__actions">
       ${product.stock > 0
-        ? `<button class="btn btn--primary btn--sm" data-add="${product.id}">${icon('cart')} Tambah ke Keranjang</button>`
+        ? `<button class="btn btn--primary btn--sm" data-add="${product.id}">${icon('cart')}<span class="only-wide">Tambah ke Keranjang</span><span class="only-mobile">Tambah</span></button>`
         : `<button class="btn btn--ghost btn--sm" disabled>Stok Habis</button>`}
     </div>
   </article>`;

@@ -16,7 +16,8 @@ function walk(p) {
 }
 roots.forEach(walk);
 
-const bad = /[\u0400-\u04FF\u3000-\u30FF\u4E00-\u9FFF\uFF00-\uFFEF\u0600-\u06FF\u0400-\u04FF\u2020-\u206F\u0080-\u009F]/g;
+const bad = /[\u0400-\u04FF\u3000-\u30FF\u4E00-\u9FFF\uFF00-\uFFEF\u0600-\u06FF\u2020-\u206F\u0080-\u009F]/g;
+const dash = /[\u2014\u2013]/g;
 let found = 0;
 
 files.forEach(f => {
@@ -27,7 +28,11 @@ files.forEach(f => {
       found++;
       console.log(`${f}:${i + 1}  [${matches.join(' ')}]  ${line.trim().slice(0, 160)}`);
     }
+    if (dash.test(line)) {
+      found++;
+      console.log(`${f}:${i + 1}  [em/en dash]  ${line.trim().slice(0, 160)}`);
+    }
   });
 });
 
-console.log(found ? `\n${found} baris perlu diperiksa.` : '\nTidak ada karakter asing yang terdeteksi.');
+console.log(found ? `\n${found} baris perlu diperiksa.` : '\nTidak ada karakter asing atau em dash yang terdeteksi.');

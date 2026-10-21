@@ -1,0 +1,199 @@
+/* =========================================================
+   KWU Campus Business Hub - mobile.css
+   Desain khusus layar kecil. Dimuat terakhir supaya override
+   Against desktop benar-benar berlaku.
+   Semua elemen dibuat lebih rapat dan lebih ramah jempol,
+   bukan sekadar dikecilkan.
+   ========================================================= */
+
+@media (max-width: 860px) {
+  :root {
+    --fs-display: clamp(2.05rem, 9.2vw, 2.9rem);
+    --fs-h1: clamp(1.55rem, 6.8vw, 2.05rem);
+    --fs-h2: clamp(1.3rem, 5.4vw, 1.7rem);
+    --fs-h3: clamp(1.08rem, 4.4vw, 1.3rem);
+    --gutter: 16px;
+    --header-h: 58px;
+  }
+
+  /* ---------- Tipografi dan jarak ---------- */
+  .section { padding: 38px 0; }
+  .section.is-tight { padding: 28px 0; }
+  .section-head { margin-bottom: 24px; }
+  .section-head h2 { margin: 10px 0 8px; }
+  .lead { font-size: .97rem; line-height: 1.62; }
+  .container { padding-inline: 16px; }
+  .grid { gap: 14px; }
+  .eyebrow { font-size: .68rem; padding: 6px 12px; }
+
+  /* ---------- Tombol dan target sentuh ---------- */
+  .btn { min-height: 44px; padding: 12px 20px; }
+  .btn--sm { min-height: 38px; padding: 10px 15px; font-size: .86rem; }
+  .btn--lg { min-height: 48px; padding: 14px 22px; font-size: .96rem; }
+  .btn--icon { width: 44px; height: 44px; }
+  .icon-btn { width: 44px; height: 44px; }
+  .icon-btn svg { width: 22px; height: 22px; }
+  .chip { padding: 8px 13px; font-size: .8rem; }
+  .qty button { width: 40px; height: 40px; }
+  .qty input { width: 38px; font-size: .95rem; }
+  .icon-btn__count { min-width: 18px; height: 18px; font-size: .6rem; }
+
+  /* ---------- Formulir ---------- */
+  .input, .select, .textarea { font-size: 16px; padding: 12px 13px; }
+  .textarea { min-height: 110px; }
+  .field { margin-bottom: 16px; }
+  .field__label { font-size: .87rem; margin-bottom: 6px; }
+  .field__hint { font-size: .76rem; }
+  .form-grid { grid-template-columns: 1fr; gap: 0; }
+  .panel { padding: 18px; }
+  .card--pad { padding: 18px; }
+  .choice-card { padding: 13px 14px; }
+  .step { flex: 1 0 104px; min-width: 104px; }
+  .step__dot { width: 32px; height: 32px; font-size: .8rem; }
+  .step__label { font-size: .68rem; }
+  .step:not(:last-child)::after { top: 16px; left: calc(50% + 20px); right: calc(-50% + 20px); }
+
+  /* ---------- Kartu produk ---------- */
+  .product-card__body { padding: 12px; gap: 4px; }
+  .product-card__name { font-size: .88rem; }
+  .product-card__cat { font-size: .62rem; letter-spacing: .08em; }
+  .product-card__price { font-size: .98rem; }
+  .product-card__price s { font-size: .72rem; }
+  .product-card__media { aspect-ratio: 1/1; }
+  .product-card__actions { padding: 0 12px 12px; }
+  .product-card__actions .btn { min-height: 36px; padding: 9px 10px; font-size: .8rem; gap: 6px; }
+  .product-card__actions .btn .icon { width: 16px; height: 16px; }
+  .product-card__tags { top: 8px; left: 8px; gap: 4px; }
+  .tag { font-size: .58rem; padding: 4px 7px; letter-spacing: .03em; }
+  .product-card__wish { width: 30px; height: 30px; top: 7px; right: 7px; }
+  .product-card__wish svg { width: 15px; height: 15px; }
+  .product-card__rating { display: none; }
+  .grid-auto, .grid-auto-lg { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .only-wide { display: none !important; }
+  .only-mobile { display: inline !important; }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 26px 0 38px; }
+  .hero__badge { font-size: .74rem; padding: 6px 12px 6px 6px; }
+  .hero__desc { font-size: .97rem; margin-bottom: 22px; }
+  .hero__cta { gap: 10px; }
+  .hero__cta .btn { flex: 1; min-width: 132px; }
+  .hero__stats { gap: 18px; }
+  .hero__stat b { font-size: 1.45rem; }
+  .hero__stat span { font-size: .74rem; }
+  .hero__float { padding: 9px 11px; gap: 9px; }
+  .hero__float img { width: 32px; height: 32px; }
+  .hero__float b { font-size: .78rem; }
+  .hero__float span { font-size: .66rem; }
+
+  /* ---------- Kartu kategori ---------- */
+  .cat-tile { padding: 13px; }
+  .cat-tile__media { aspect-ratio: 16/9; margin-bottom: 11px; }
+  .cat-tile h3 { font-size: .93rem; }
+  .cat-tile p { font-size: .76rem; }
+  .cat-tile__count { font-size: .74rem; margin-top: 9px; }
+
+  /* ---------- Header ---------- */
+  .topbar { font-size: .68rem; padding: 6px 0; }
+  .site-header__bar { gap: 8px; }
+  .drawer__panel { width: 88vw; }
+  .drawer__nav a { padding: 12px 12px; font-size: .95rem; }
+
+  /* ---------- Katalog ---------- */
+  .catalog-toolbar { padding: 12px; gap: 10px; }
+  .catalog-toolbar__search { min-width: 100%; }
+  .catalog-toolbar .view-toggle { display: none; }
+  .catalog-toolbar__count { font-size: .8rem; }
+  .page-head { padding: 26px 0 22px; }
+  .page-head h1 { margin: 12px 0 10px; }
+  .page-head p { font-size: .93rem; }
+  .breadcrumb { font-size: .78rem; }
+
+  /* ---------- Detail produk ---------- */
+  .gallery__main { aspect-ratio: 4/3; border-radius: var(--r-lg); }
+  .gallery__thumbs { gap: 8px; margin-top: 10px; }
+  .gallery__thumb { width: 58px; height: 58px; }
+  .pd-title { font-size: 1.4rem; margin: 8px 0 8px; }
+  .pd-price b { font-size: 1.6rem; }
+  .pd-price { margin: 12px 0 4px; }
+  .pd-actions { gap: 10px; }
+  .pd-actions .btn { min-width: 0; flex: 1 1 100%; }
+  .pd-block { padding: 16px 0; }
+  .pd-mini { gap: 10px; font-size: .78rem; }
+  .tabs .tab { padding: 10px 12px; font-size: .86rem; }
+
+  /* ---------- Ulasan ---------- */
+  .review-summary { padding: 18px; }
+  .review-summary__score { display: flex; align-items: center; justify-content: center; gap: 14px; }
+  .review-summary__score b { font-size: 2.2rem; }
+  .review-summary__score .rating { margin: 0; }
+  .review-item { padding: 15px; }
+  .review-item__head { gap: 10px; }
+  .review-item__stars { margin-left: auto; }
+  .review-form { padding: 18px; margin-top: 20px; }
+  .star-input__btn { width: 34px; height: 34px; }
+  .star-input__btn svg { width: 22px; height: 22px; }
+
+  /* ---------- Keranjang ---------- */
+  .cart-item { grid-template-columns: 66px 1fr; gap: 12px; padding: 14px 0; }
+  .cart-item__name { font-size: .9rem; }
+  .cart-item__controls { gap: 12px; margin-top: 8px; }
+  .cart-item__price { font-size: .95rem; }
+  .summary-row { font-size: .87rem; padding: 6px 0; }
+  .summary-row.is-total strong { font-size: 1.2rem; }
+  .summary-note { font-size: .76rem; }
+
+  /* ---------- Akun ---------- */
+  .account-nav { padding: 8px; gap: 4px; }
+  .account-nav a { padding: 10px 12px; font-size: .84rem; white-space: nowrap; }
+  .account-user { display: none; }
+
+  /* ---------- Footer ---------- */
+  .site-footer { padding: 42px 0 22px; }
+  .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 24px 18px; }
+  .site-footer__brand { grid-column: 1 / -1; }
+  .site-footer h4 { font-size: .66rem; margin-bottom: 12px; }
+  .site-footer li a { font-size: .82rem; padding: 4px 0; }
+  .site-footer__bottom { flex-direction: column; align-items: flex-start; gap: 6px; font-size: .76rem; }
+  .site-footer__brand p { font-size: .86rem; }
+
+  /* ---------- Overlay dan notifikasi ---------- */
+  .notice { padding: 12px 13px; gap: 10px; font-size: .84rem; }
+  .notice svg { width: 18px; height: 18px; }
+  .toast-stack { left: 12px; right: 12px; bottom: 84px; max-width: none; }
+  .empty-state { padding: 40px 16px; }
+  .empty-state__icon { width: 68px; height: 68px; }
+  .empty-state__icon svg { width: 30px; height: 30px; }
+
+  /* ---------- Chat ---------- */
+  .chat-quick { padding: 10px 12px; gap: 6px; }
+  .chat-quick button { font-size: .74rem; padding: 6px 11px; }
+  .chat-msg { max-width: 88%; font-size: .84rem; }
+  .chat-input { padding: 8px 10px; }
+  .chat-input .input { font-size: 16px; padding: 9px 11px; }
+  .chat-input__send { width: 38px; height: 38px; }
+
+  /* ---------- Kartu jalur dan fitur ---------- */
+  .path-card { padding: 20px; }
+  .path-card__icon { width: 46px; height: 46px; border-radius: 14px; margin-bottom: 14px; }
+  .path-card h3 { font-size: 1.08rem; }
+  .value-card { padding: 20px; }
+  .help-card { padding: 18px; }
+  .article-card__body { padding: 14px; }
+  .article-card h3 { font-size: .95rem; }
+  .article-card p { font-size: .82rem; }
+  .event-item { gap: 12px; padding: 12px 0; }
+  .event-date { width: 56px; }
+  .event-date b { font-size: 1.15rem; }
+  .cta-band { border-radius: var(--r-lg); padding: 26px 20px; }
+  .cta-band__actions .btn { flex: 1; }
+  .step-flow { grid-template-columns: repeat(2, 1fr); gap: 18px 12px; }
+  .step-flow__item b { font-size: .92rem; }
+  .step-flow__item p { font-size: .8rem; }
+}
+
+@media (max-width: 400px) {
+  .grid-auto, .grid-auto-lg { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero__cta .btn { min-width: 0; flex: 1 1 100%; }
+  .site-footer__grid { grid-template-columns: 1fr; }
+}

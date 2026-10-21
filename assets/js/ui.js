@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — ui.js
+   KWU Campus Business Hub - ui.js
    Komponen antarmuka bersama: ikon, toast, dialog, header,
    drawer, pencarian, chatbot, animasi scroll, tab, akordeon.
    ========================================================= */
@@ -127,7 +127,11 @@ function confirmDialog(options = {}) {
     document.body.classList.add('is-locked');
     requestAnimationFrame(() => modal.classList.add('is-open'));
 
+    const onKey = (e) => {
+      if (e.key === 'Escape') { close(false); }
+    };
     const close = (result) => {
+      document.removeEventListener('keydown', onKey);
       modal.classList.remove('is-open');
       document.body.classList.remove('is-locked');
       setTimeout(() => modal.remove(), 320);
@@ -135,13 +139,13 @@ function confirmDialog(options = {}) {
     };
     modal.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', () => close(false)));
     modal.querySelector('[data-confirm]').addEventListener('click', () => close(true));
-    document.addEventListener('keydown', function esc(e) {
-      if (e.key === 'Escape') { close(false); document.removeEventListener('keydown', esc); }
-    });
+    document.addEventListener('keydown', onKey);
   });
 }
 
 /* ---------------- Scroll reveal ---------------- */
+let revealObserver = null;
+
 function initReveal() {
   const items = document.querySelectorAll('.reveal');
   if (!items.length) return;
@@ -149,15 +153,21 @@ function initReveal() {
     items.forEach(i => i.classList.add('is-visible'));
     return;
   }
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('is-visible');
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
-  items.forEach(i => io.observe(i));
+  if (!revealObserver) {
+    revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  }
+  // Amati ulang hanya elemen yang masih ada di dokumen (mencegah penumpukan observer)
+  revealObserver.disconnect();
+  items.forEach(i => {
+    if (!i.classList.contains('is-visible')) revealObserver.observe(i);
+  });
 }
 
 /* ---------------- Counter angka ---------------- */
@@ -203,11 +213,13 @@ function initHeader() {
     drawer.classList.add('is-open');
     document.body.classList.add('is-locked');
     drawer.querySelector('.drawer__panel').setAttribute('aria-hidden', 'false');
+    drawer.querySelector('.drawer__panel').focus?.();
   };
   const closeDrawer = () => {
     if (!drawer) return;
     drawer.classList.remove('is-open');
     document.body.classList.remove('is-locked');
+    drawer.querySelector('.drawer__panel').setAttribute('aria-hidden', 'true');
   };
 
   document.querySelectorAll('[data-drawer-open]').forEach(btn => btn.addEventListener('click', openDrawer));
@@ -263,6 +275,14 @@ function initHeader() {
   });
 
   KWU.updateCartBadge();
+
+  /* Navigasi bawah khusus layar kecil */
+  document.body.classList.add('has-mobile-nav');
+  const path = location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.mobile-nav__item').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === path || (path === '' && href === 'index.html')) link.classList.add('is-active');
+  });
 }
 
 /* ---------------- Tombol kembali ke atas ---------------- */
@@ -278,15 +298,20 @@ function initBackToTop() {
 /* ---------------- Tab ---------------- */
 function initTabs() {
   document.querySelectorAll('[data-tabs]').forEach(group => {
+    const name = group.dataset.tabs;
     const tabs = group.querySelectorAll('.tab');
-    const panels = document.querySelectorAll(`[data-tab-panel="${group.dataset.tabs}"]`);
+    // Panel anak berada di dalam wadah [data-tab-panel="<nama>"]
+    const panels = document.querySelectorAll(`[data-tab-panel="${name}"] [data-tab-panel-id]`);
+    if (!tabs.length || !panels.length) return;
+
     tabs.forEach(tab => {
       tab.addEventListener('click', () => {
         tabs.forEach(t => t.classList.remove('is-active'));
         tab.classList.add('is-active');
         panels.forEach(p => {
-          p.classList.toggle('hide', p.dataset.tabPanelId !== tab.dataset.tab);
-          if (p.dataset.tabPanelId === tab.dataset.tab) {
+          const match = p.dataset.tabPanelId === tab.dataset.tab;
+          p.classList.toggle('hide', !match);
+          if (match) {
             p.classList.remove('tab-panel');
             void p.offsetWidth;
             p.classList.add('tab-panel');
@@ -321,43 +346,116 @@ function initAccordion() {
 /* ---------------- Chatbot asisten KWU ---------------- */
 const CHAT_RULES = [
   {
-    keys: ['produk', 'beli', 'katalog', 'cari', 'harga'],
-    reply: 'Bisa. Buka <a href="katalog.html">Katalog KWU</a> untuk mencari produk contoh. Kamu juga bisa menyaring lewat kategori, rentang harga, dan status stok. Kalau butuh jumlah besar, ajukan <a href="kolaborasi-grosir.html">RFQ grosir</a>.'
+    keys: ['produk', 'beli', 'belanja', 'katalog', 'cari', 'harga', 'daftar produk'],
+    reply: 'Bisa. Buka <a href="katalog.html">Katalog KWU</a> untuk mencari produk. Kamu bisa menyaring lewat kategori, rentang harga, dan status stok. Kalau butuh jumlah besar, ajukan <a href="kolaborasi-grosir.html">RFQ grosir</a>.'
   },
   {
-    keys: ['grosir', 'rfq', 'organisasi', 'pembelian besar'],
+    keys: ['kategori', 'jenis produk', 'jenis barang', 'apa aja produknya', 'katalognya berisi'],
+    reply: 'Katalog dibagi lima kategori: <b>Makanan</b>, <b>Minuman</b>, <b>Merchandise &amp; Aksesoris</b>, <b>Alat Tulis &amp; Kreativitas</b>, dan <b>Paket Hemat</b>. Semuanya bisa dibuka dari <a href="katalog.html">Katalog</a>.'
+  },
+  {
+    keys: ['makanan', 'camilan', 'snack', 'kue', 'keripik', 'jajanan', 'bakery'],
+    reply: 'Kategori <b>Makanan</b> berisi keripik pisang, cookies cokelat, kue lapis, sambal bawang, kerupuk udang, brownies, biskuit, jelly buah, es krim, dan snack box 8 varian. Buka <a href="katalog.html?kategori=makanan">katalog makanan</a>.'
+  },
+  {
+    keys: ['minuman', 'kopi', 'teh', 'susu', 'jus', 'matcha', 'madu', 'sirup', 'minuman apa'],
+    reply: 'Kategori <b>Minuman</b> berisi kopi susu gula aren, kopi bubuk, teh celup melati, sirup markisa, jus mangga, susu UHT, matcha latte, dan madu hutan. Buka <a href="katalog.html?kategori=minuman">katalog minuman</a>.'
+  },
+  {
+    keys: ['merchandise', 'baju', 'kaos', 'hoodie', 'tas', 'totebag', 'topi', 'tumbler', 'mug', 'ransel', 'aksesoris', 'fashion', 'merch'],
+    reply: 'Ada kategori <b>Merchandise &amp; Aksesoris</b> berisi kaos, hoodie, tote bag kanvas, topi baseball, tumbler stainless, mug keramik, dan ransel. Buka <a href="katalog.html?kategori=merchandise">katalog merchandise</a>.'
+  },
+  {
+    keys: ['alat tulis', 'buku', 'pulpen', 'spidol', 'sticky', 'pensil', 'penghapus', 'organizer', 'binder', 'penggaris', 'kertas', 'stationery'],
+    reply: 'Kategori <b>Alat Tulis &amp; Kreativitas</b> berisi buku tulis A5, set pulpen 12 warna, set spidol, sticky notes, pensil warna 24, penghapus dan correction pen, box organizer, binder clip, serta set penggaris dan jangka. Buka <a href="katalog.html?kategori=alat-tulis">katalog alat tulis</a>.'
+  },
+  {
+    keys: ['paket', 'bundling', 'paket hemat', 'souvenir paket', 'paket sarapan', 'paket alat tulis'],
+    reply: 'Ada <b>Paket Hemat</b> berisi Paket Sarapan Kantor, Paket Alat Tulis, dan Paket Merchandise Tim. Harganya sudah per paket, lebih hemat daripada beli satuan. Buka <a href="katalog.html?kategori=paket">katalog paket</a>.'
+  },
+  {
+    keys: ['grosir', 'rfq', 'organisasi', 'pembelian besar', 'kuantitas', 'partai', 'beli banyak', 'qty'],
     reply: 'Untuk pembelian besar, isi formulir <a href="kolaborasi-grosir.html">Pengajuan Grosir</a>. Isi organisasi, kontak, daftar produk, jumlah, dan tanggal kebutuhan. Nomor pengajuan langsung terbit setelah kirim.'
   },
   {
-    keys: ['mitra', 'partnership', 'kemitraan', 'perusahaan', 'umkm'],
-    reply: 'Kemitraan untuk perusahaan, pemasok, UMKM, dan institusi dibuka lewat formulir <a href="kolaborasi-partnership.html">Partnership</a>. Isi profil organisasi, bentuk kemitraan, dan tujuan kerja sama.'  },
+    keys: ['mitra', 'partnership', 'kemitraan', 'perusahaan', 'umkm', 'pemasok', 'supplier', 'institusi', 'kerjasama'],
+    reply: 'Kemitraan untuk perusahaan, pemasok, UMKM, dan institusi dibuka lewat formulir <a href="kolaborasi-partnership.html">Partnership</a>. Isi profil organisasi, bidang usaha, bentuk kemitraan, dan tujuan kerja sama.'
+  },
   {
-    keys: ['event', 'kolaborasi', 'program', 'workshop'],
+    keys: ['event', 'kolaborasi', 'program', 'workshop', 'bazar', 'promosi', 'seminar', 'kegiatan', 'usulan'],
     reply: 'Untuk event, proyek kreatif, dan program kewirausahaan, isi <a href="kolaborasi-program.html">Usulan Kolaborasi Program</a>. Sertakan nama kegiatan, jenis kolaborasi, target, dan perkiraan jadwal.'
   },
   {
-    keys: ['bayar', 'pembayaran', 'qris', 'transfer', 'transaksi', 'keranjang', 'checkout'],
-    reply: 'Di tahap frontend ini transaksi masih simulasi: <a href="keranjang.html">Keranjang</a> dan <a href="checkout.html">Checkout</a> menyimpan pesanan contoh di peramban saja. Metode pembayaran final mengikuti prosedur resmi KWU.'
+    keys: ['bayar', 'pembayaran', 'qris', 'transfer', 'bank', 'tunai', 'cicilan', 'kartu kredit', 'cara bayar'],
+    reply: 'Metode pembayaran yang ditampilkan: <b>QRIS</b>, <b>Transfer Bank</b>, dan <b>Tunai di KWU</b>. Pembayaran sungguhan mengikuti prosedur resmi KWU. Buka <a href="checkout.html">Checkout</a> untuk melihat detail biayanya.'
   },
   {
-    keys: ['status', 'lacak', 'tracking', 'nomor'],
+    keys: ['biaya', 'ongkos', 'gratis', 'total', 'bayar berapa', 'harga total', 'diskon', 'promo', 'voucher', 'potongan'],
+    reply: 'Tidak ada biaya tersembunyi. Ringkasan di <a href="keranjang.html">Keranjang</a> dan <a href="checkout.html">Checkout</a> menampilkan subtotal, biaya tambahan, dan total akhir apa adanya.'
+  },
+  {
+    keys: ['transaksi', 'keranjang', 'checkout', 'pesan', 'order', 'memesan', 'membeli produk'],
+    reply: 'Alurnya: pilih produk di <a href="katalog.html">Katalog</a>, masukkan ke <a href="keranjang.html">Keranjang</a>, isi data pembeli di <a href="checkout.html">Checkout</a>, lalu konfirmasi. Nomor transaksi otomatis terbit.'
+  },
+  {
+    keys: ['status', 'lacak', 'tracking', 'nomor', 'pesanan saya', 'sudah diproses', 'sudah dikirim', 'status pesanan'],
     reply: 'Nomor transaksi dan pengajuan bisa dilihat di <a href="akun-transaksi.html">Riwayat Transaksi</a> dan <a href="akun.html">Halaman Akun</a>. Statusnya: diterima, ditinjau, butuh informasi, atau ditanggapi.'
   },
   {
-    keys: ['bantuan', 'faq', 'panduan', 'cara'],
-    reply: 'Pusat bantuan ada di <a href="bantuan.html">Pusat Bantuan</a>. Isinya FAQ, panduan langkah transaksi, dan formulir kontak untuk menghubungi admin KWU.'
+    keys: ['ulasan', 'review', 'rating', 'bintang', 'komentar', 'tidak puas', 'balasan'],
+    reply: 'Setiap produk punya bagian <b>Ulasan</b> dengan ringkasan rating dan komentar pembeli. Buka halaman detail produk lalu scroll ke bagian Ulasan untuk menulis ulasanmu sendiri.'
   },
   {
-    keys: ['admin', 'kontak', 'hubungi', 'telp', 'email'],
-    reply: 'Untuk menghubungi admin KWU, isi formulir kontak di <a href="bantuan.html#kontak">Pusat Bantuan</a>. Alamat dan nomor resmi belum dipublikasikan di tahap frontend ini, jadi pesan dicatat sebagai simulasi.'
+    keys: ['login', 'masuk', 'akun', 'daftar', 'registrasi', 'password', 'sandi', 'lupa sandi'],
+    reply: 'Katalog bisa dibuka tanpa login. Masuk lewat <a href="login.html">Masuk</a> atau buat akun baru di <a href="daftar.html">Daftar</a>. Akun dipakai untuk menyimpan wishlist, mengisi formulir, dan memantau transaksi.'
   },
   {
-    keys: ['tentang', 'profil', 'kwu', 'sejarah'],
+    keys: ['wishlist', 'favorit', 'simpan', 'disukai', 'sukai', 'terfavorit', 'simpanan'],
+    reply: 'Tekan ikon hati pada kartu produk untuk menyimpannya. Daftarmu ada di <a href="akun.html#wishlist">Akun, bagian Wishlist</a>.'
+  },
+  {
+    keys: ['pengambilan', 'diambil', 'pengiriman', 'kirim', 'kurir', 'antar', 'jemput', 'jadwal kirim', 'ongkir'],
+    reply: 'Jadwal pengambilan atau pengiriman disepakati bersama admin KWU setelah pesanan berstatus Diproses. Simpan nomor transaksi sebagai rujukan saat konfirmasi.'
+  },
+  {
+    keys: ['bantuan', 'faq', 'panduan', 'cara', 'tutorial', 'tips', 'panduan lengkap'],
+    reply: 'Pusat bantuan ada di <a href="bantuan.html">Pusat Bantuan</a>. Isinya panduan transaksi, FAQ, dan formulir kontak untuk menghubungi admin KWU.'
+  },
+  {
+    keys: ['admin', 'kontak', 'hubungi', 'telp', 'telepon', 'email', 'alamat', 'lokasi', 'jam buka'],
+    reply: 'Untuk menghubungi admin KWU, isi formulir kontak di <a href="bantuan.html#kontak">Pusat Bantuan</a>. Alamat dan nomor resmi belum dipublikasikan, jadi pesanmu tersimpan di peramban.'
+  },
+  {
+    keys: ['tentang', 'profil', 'kwu', 'sejarah', 'visi', 'misi', 'unit', 'administrasi niaga'],
     reply: 'Profil KWU Administrasi Niaga ada di <a href="tentang.html">Tentang KWU</a>. Isinya identitas, tujuan, layanan, dan kontribusi KWU bagi kewirausahaan kampus.'
   },
   {
-    keys: ['aktivitas', 'berita', 'kegiatan', 'event', 'agenda'],
-    reply: 'Berita dan agenda kegiatan ada di <a href="aktivitas.html">Aktivitas</a>. Isinya cerita kegiatan, workshop, dan program yang pernah berjalan.'
+    keys: ['aktivitas', 'berita', 'cerita', 'kegiatan', 'agenda', 'kalender', 'jadwal', 'event terdekat'],
+    reply: 'Berita dan agenda kegiatan ada di <a href="aktivitas.html">Aktivitas</a>. Isinya cerita kegiatan, workshop, program, dan jadwal acara berikutnya.'
+  },
+  {
+    keys: ['minimum', 'min beli', 'minimum pembelian', 'minimal order', 'minimum order'],
+    reply: 'Setiap produk punya minimum pembelian sendiri, umumnya mulai dari 4 sampai 24 pcs. Detailnya tampil di bagian Jumlah pada halaman produk.'
+  },
+  {
+    keys: ['stok', 'tersedia', 'habis', 'kosong', 'ready', 'stock', 'sisa'],
+    reply: 'Status stok tampil di setiap kartu produk: hijau berarti tersedia, kuning berarti menipis, merah berarti habis. Kamu juga bisa menyaring lewat filter "Stok tersedia saja" di katalog.'
+  },
+  {
+    keys: ['produk baru', 'terbaru', 'baru saja', 'rekomendasi', 'might like', 'pilihan editor'],
+    reply: 'Produk terbaru ada di <a href="katalog.html?sort=terbaru">Katalog urut terbaru</a>. Katalog juga bisa disortir berdasarkan popularitas, rating, dan harga.'
+  },
+  {
+    keys: ['komplain', 'keluhan', 'retur', 'tukar', 'kembalikan', 'rusak', 'tidak sesuai', 'refund', 'barang cacat'],
+    reply: 'Bawa nomor transaksi saat menghubungi admin KWU lewat <a href="bantuan.html#kontak">Pusat Bantuan</a>. Ketentuan penukaran mengikuti prosedur resmi KWU dan belum dipublikasikan di versi ini.'
+  },
+  {
+    keys: ['resep', 'cara buat', 'cara minum', 'cara pakai', 'saran saji', 'saran penyajian'],
+    reply: 'Lihat di deskripsi tiap produk. Kalau masih bingung, tanya saja di sini dan nanti kami arahkan ke halaman produk yang tepat.'
+  },
+  {
+    keys: ['admin panel', 'panel admin', 'kelola', 'dashboard', 'data pemesanan'],
+    reply: 'Panel interno ada di <a href="admin.html">/admin</a> dengan tampilan pengelolaan data. Halaman ini tidak ditampilkan di navigasi publik.'
   }
 ];
 
@@ -367,7 +465,7 @@ function initChatbot() {
   if (!fab || !panel) return;
   const body = panel.querySelector('.chat-body');
   const quick = panel.querySelector('.chat-quick');
-  const input = panel.querySelector('.chat-input');
+  const input = panel.querySelector('.chat-input input');
 
   const addMessage = (text, who = 'bot') => {
     const el = document.createElement('div');
@@ -388,10 +486,33 @@ function initChatbot() {
   });
 
   const answer = (text) => {
-    const q = text.toLowerCase();
-    const rule = CHAT_RULES.find(r => r.keys.some(k => q.includes(k)));
-    if (rule) return rule.reply;
-    return 'Saya belum menemukan jawaban yang pas untuk itu. Coba pilih salah satu topik di bawah, atau tulis pertanyaan seperti <b>cari produk</b>, <b>keranjang</b>, <b>grosir</b>, atau <b>bantuan</b>. Untuk pertanyaan spesifik, hubungi admin lewat <a href="bantuan.html#kontak">Pusat Bantuan</a>.';
+    const q = text.toLowerCase().trim();
+
+    // Skor: keyword lebih panjang lebih spesifik, posisi lebih awal lebih sesuai maksud
+    let best = null;
+    let bestScore = 0;
+    CHAT_RULES.forEach(rule => {
+      let score = 0;
+      rule.keys.forEach(key => {
+        const pos = q.indexOf(key);
+        if (pos < 0) return;
+        const value = key.length * 10 - pos * 0.5;
+        if (value > score) score = value;
+      });
+      if (score > bestScore) { bestScore = score; best = rule; }
+    });
+    if (best) return best.reply;
+
+    // Coba tebak maksud dari kata umum
+    const guesses = [
+      { keys: ['terima kasih', 'makasih', 'thanks', 'oke', 'ok'], reply: 'Sama-sama. Kalau ada pertanyaan lain, tulis saja di sini ya.' },
+      { keys: ['halo', 'hai', 'hello', 'hi'], reply: 'Halo! Saya <b>Asisten KWU</b>. Tanya saja soal katalog, harga, transaksi, atau kerja sama.' },
+      { keys: ['nama kamu', 'siapa kamu', 'kamu siapa'], reply: 'Saya <b>Asisten KWU</b>, asisten percakapan di situs ini. Saya bisa mengarahkan ke katalog, keranjang, checkout, formulir kerja sama, dan pusat bantuan.' }
+    ];
+    const guess = guesses.find(g => g.keys.some(k => q.includes(k)));
+    if (guess) return guess.reply;
+
+    return 'Saya belum menemukan jawaban yang pas untuk itu. Coba pilih salah satu topik di bawah, atau tulis pertanyaan seperti <b>cari produk</b>, <b>kelompok makanan</b>, <b>keranjang</b>, <b>grosir</b>, <b>ulasan</b>, atau <b>bantuan</b>. Untuk pertanyaan spesifik, hubungi admin lewat <a href="bantuan.html#kontak">Pusat Bantuan</a>.';
   };
 
   const send = async (text) => {
@@ -455,6 +576,16 @@ function initPasswordToggles() {
   });
 }
 
+/* ---------------- Tautan placeholder (mis. media sosial) ---------------- */
+function initPlaceholders() {
+  document.querySelectorAll('[data-social-placeholder]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      toast('Akun media sosial resmi KWU belum dipublikasikan.', 'info', 'Belum tersedia');
+    });
+  });
+}
+
 /* ---------------- Inisialisasi global ---------------- */
 document.addEventListener('DOMContentLoaded', () => {
   KWU.seed();
@@ -466,5 +597,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initAccordion();
   initChatbot();
   initPasswordToggles();
+  initPlaceholders();
   setYear();
 });

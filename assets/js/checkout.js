@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — checkout.js
+   KWU Campus Business Hub - checkout.js
    Halaman checkout (form + ringkasan) dan konfirmasi transaksi.
    ========================================================= */
 
@@ -160,8 +160,8 @@ function initTransaction() {
     root.innerHTML = `
       <div class="empty-state">
         <div class="empty-state__icon">${icon('file')}</div>
-        <h3>Transaksi tidak ditemukan</h3>
-        <p>Nomor transaksi tidak ditemukan pada perangkat ini. Data transaksi pada tahap frontend ini hanya tersimpan di peramban Anda.</p>
+        <h1 class="h2" style="margin-bottom:10px">Transaksi tidak ditemukan</h1>
+        <p>Nomor transaksi tidak ditemukan pada perangkat ini. Data transaksi pada versi ini hanya tersimpan di peramban Anda.</p>
         <a class="btn btn--primary" href="akun-transaksi.html">Lihat Riwayat Transaksi</a>
       </div>`;
     return;

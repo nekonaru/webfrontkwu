@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — account.js
+   KWU Campus Business Hub - account.js
    Halaman akun (profil, transaksi, pengajuan, wishlist, pengaturan)
    dan halaman riwayat transaksi.
    ========================================================= */
@@ -42,7 +42,7 @@ function initAccount() {
       <div class="row-between" style="margin-bottom:20px">
         <div>
           <h2 class="h3" style="margin-bottom:2px">${titles[section]}</h2>
-          <p class="small muted">Data contoh yang tersimpan di peramban kamu.</p>
+          <p class="small muted">Data yang tersimpan di peramban kamu.</p>
         </div>
       </div>
       <div id="accountContent">${sections[section]()}</div>`;
@@ -235,7 +235,7 @@ function initAccount() {
 
         <div class="card card--pad">
           <h3 style="font-size:1.05rem;margin-bottom:6px">Data lokal</h3>
-          <p class="small muted" style="margin-bottom:18px">Frontend ini belum memakai server. Semua data contoh tersimpan di peramban ini.</p>
+          <p class="small muted" style="margin-bottom:18px">Versi ini belum memakai server. Semua data tersimpan di peramban ini.</p>
           <div class="row-wrap">
             <button class="btn btn--ghost" id="clearLocalBtn">Hapus Data Lokal</button>
             <button class="btn btn--navy" id="logoutBtn">${icon('logout')} Keluar dari Akun</button>

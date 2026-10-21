@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — build.js
+   KWU Campus Business Hub - build.js
    Menggabungkan layout + partial menjadi halaman HTML statis.
    Jalankan: node build.js
    ========================================================= */
@@ -17,7 +17,10 @@ const svg = {
   user: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg>',
   menu: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>',
   close: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
-  chevron: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>'
+  chevron: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>',
+  send: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></svg>',
+  home: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.8V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.8"/></svg>',
+  grid: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>'
 };
 
 /* ---------------- Header ---------------- */
@@ -36,8 +39,8 @@ function header(active) {
   return `
 <div class="topbar">
   <div class="container row-between" style="gap:12px">
-    <span class="topbar__text">Tahap frontend · Data produk, transaksi, dan pengajuan di situs ini masih <b>data contoh</b>.</span>
-    <a class="topbar__link" href="bantuan.html">Cek halaman bantuan</a>
+    <span class="topbar__text">Prototipe antarmuka. Brand, produk, harga, dan ulasan di katalog ini adalah karangan, bukan produk resmi KWU.</span>
+    <a class="topbar__link" href="tentang.html">Tentang KWU</a>
   </div>
 </div>
 <header class="site-header">
@@ -138,13 +141,13 @@ function footer() {
           dan institusi.
         </p>
         <div class="socials" aria-label="Media sosial">
-          <a href="#" aria-label="Instagram KWU">${svg.chevron}</a>
-          <a href="#" aria-label="Facebook KWU">${svg.chevron}</a>
-          <a href="#" aria-label="LinkedIn KWU">${svg.chevron}</a>
+          <a href="#" data-social-placeholder aria-label="Instagram KWU">${svg.chevron}</a>
+          <a href="#" data-social-placeholder aria-label="Facebook KWU">${svg.chevron}</a>
+          <a href="#" data-social-placeholder aria-label="LinkedIn KWU">${svg.chevron}</a>
         </div>
         <div class="footer-note">
-          Logo, alamat, nomor kontak, dan tautan media sosial resmi belum dipublikasikan.
-          Tautan di atas hanya bagian dari desain antarmuka.
+          KWU bukan brand dagang. Seluruh brand, produk, harga, dan ulasan di situs ini
+          adalah karangan untuk demonstrasi antarmuka, bukan penawaran barang asli.
         </div>
       </div>
       ${col('Jelajahi', [['Beranda', 'index.html'], ['Katalog', 'katalog.html'], ['Tentang KWU', 'tentang.html'], ['Aktivitas', 'aktivitas.html']])}
@@ -161,6 +164,13 @@ function footer() {
 <button class="to-top" id="toTop" aria-label="Kembali ke atas">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
+
+<nav class="mobile-nav" aria-label="Navigasi utama untuk layar kecil">
+  <a href="index.html" class="mobile-nav__item">${svg.home}<span>Beranda</span></a>
+  <a href="katalog.html" class="mobile-nav__item">${svg.grid}<span>Katalog</span></a>
+  <a href="keranjang.html" class="mobile-nav__item mobile-nav__item--cart">${svg.cart}<span>Keranjang</span><em class="mobile-nav__badge" data-cart-count>0</em></a>
+  <a href="akun.html" class="mobile-nav__item">${svg.user}<span>Akun</span></a>
+</nav>
 
 <div class="chat-fab" id="chatFab" role="button" tabindex="0" aria-expanded="false" aria-label="Buka Asisten KWU">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1-5.2A8 8 0 0 1 13 4a8 8 0 0 1 8 8z"/></svg>
@@ -181,11 +191,17 @@ function footer() {
   <div class="chat-body"></div>
   <div class="chat-quick">
     <button>Cari produk</button>
-    <button>Kerja sama</button>
-    <button>Bantuan transaksi</button>
+    <button>Kategori apa saja?</button>
+    <button>Cara pesan grosir</button>
+    <button>Ulasan produk</button>
+    <button>Status pesanan</button>
     <button>Hubungi admin</button>
   </div>
-  <div class="chat-note">Simulasi antarmuka. Belum terhubung ke AI atau sistem KWU.</div>
+  <div class="chat-input">
+    <input class="input" type="text" placeholder="Tulis pertanyaanmu..." aria-label="Tulis pesan ke asisten">
+    <button class="chat-input__send" data-chat-send aria-label="Kirim pesan">${svg.send}</button>
+  </div>
+  <div class="chat-note">Jawaban contoh untuk prototipe antarmuka. Belum terhubung ke sistem KWU.</div>
 </div>`;
 }
 
@@ -211,6 +227,8 @@ function layout({ title, desc, active, body, scripts = [], bodyClass = '' }) {
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/mobile.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="${bodyClass}">
   <a class="skip-link" href="#main">Lewati ke konten utama</a>
@@ -233,7 +251,7 @@ ${scripts.map(s => `  <script src="${s}"></script>`).join('\n')}
 const PAGES = [
   { file: 'index.html', partial: 'beranda', active: 'beranda', title: 'KWU Campus Business Hub | Tempat Ide Bertemu Peluang', desc: 'KWU Campus Business Hub memuat katalog produk, transaksi, pengajuan kerja sama, dan aktivitas kewirausahaan kampus dalam satu pengalaman digital.', scripts: ['assets/js/home.js'] },
   { file: 'katalog.html', partial: 'katalog', active: 'katalog', title: 'Katalog Produk | KWU Campus Business Hub', desc: 'Jelajahi katalog produk KWU: kopi, merchandise, alat tulis, paket hemat, dan lainnya. Cari, saring, dan pesan dengan mudah.', scripts: ['assets/js/catalog.js'] },
-  { file: 'produk.html', partial: 'produk', active: 'katalog', title: 'Detail Produk | KWU Campus Business Hub', desc: 'Lihat foto, harga, spesifikasi, stok, dan pilihan pembelian produk KWU.', scripts: ['assets/js/product.js'] },
+  { file: 'produk.html', partial: 'produk', active: 'katalog', title: 'Detail Produk | KWU Campus Business Hub', desc: 'Lihat foto, harga, spesifikasi, stok, ulasan, dan pilihan pembelian produk KWU.', scripts: ['assets/js/product.js', 'assets/js/review.js'] },
   { file: 'keranjang.html', partial: 'keranjang', active: 'katalog', title: 'Keranjang Belanja | KWU Campus Business Hub', desc: 'Kelola item dan jumlah pembelianmu di keranjang KWU sebelum melanjutkan ke checkout.', scripts: ['assets/js/cart.js'] },
   { file: 'checkout.html', partial: 'checkout', active: 'katalog', title: 'Checkout | KWU Campus Business Hub', desc: 'Isi data pembeli, pilih metode pembayaran, dan konfirmasi pesananmu di KWU Campus Business Hub.', scripts: ['assets/js/checkout.js'] },
   { file: 'transaksi.html', partial: 'transaksi', active: 'transaksi', title: 'Konfirmasi Transaksi | KWU Campus Business Hub', desc: 'Ringkasan pesanan, status transaksi, dan langkah berikutnya untuk pesananmu di KWU.', scripts: ['assets/js/checkout.js'] },
@@ -244,8 +262,8 @@ const PAGES = [
   { file: 'kolaborasi-program.html', partial: 'kolaborasi-program', active: 'kolaborasi', title: 'Pengajuan Kolaborasi Program | KWU Campus Business Hub', desc: 'Formulir kolaborasi untuk event, proyek kreatif, promosi, dan program kewirausahaan kampus.', scripts: ['assets/js/forms.js'] },
   { file: 'tentang.html', partial: 'tentang', active: 'tentang', title: 'Tentang KWU | KWU Campus Business Hub', desc: 'Profil, tujuan, layanan, dan kontribusi KWU Administrasi Niaga bagi kewirausahaan kampus.' },
   { file: 'aktivitas.html', partial: 'aktivitas', active: 'aktivitas', title: 'Aktivitas & Berita | KWU Campus Business Hub', desc: 'Berita, workshop, program, dan agenda kegiatan kewirausahaan yang tersedia di KWU Campus Business Hub.', scripts: ['assets/js/activity.js'] },
-  { file: 'login.html', partial: 'login', active: 'login', title: 'Masuk | KWU Campus Business Hub', desc: 'Masuk ke akun KWU untuk menyimpan wishlist, mengisi formulir kerja sama, dan menyelesaikan transaksi.' },
-  { file: 'daftar.html', partial: 'daftar', active: 'login', title: 'Daftar Akun | KWU Campus Business Hub', desc: 'Buat akun KWU Campus Business Hub untuk menyimpan transaksi, pengajuan, dan wishlist produk.' },
+  { file: 'login.html', partial: 'login', active: 'login', title: 'Masuk | KWU Campus Business Hub', desc: 'Masuk ke akun KWU untuk menyimpan wishlist, mengisi formulir kerja sama, dan menyelesaikan transaksi.', scripts: ['assets/js/auth.js'] },
+  { file: 'daftar.html', partial: 'daftar', active: 'login', title: 'Daftar Akun | KWU Campus Business Hub', desc: 'Buat akun KWU Campus Business Hub untuk menyimpan transaksi, pengajuan, dan wishlist produk.', scripts: ['assets/js/auth.js'] },
   { file: 'akun.html', partial: 'akun', active: 'akun', title: 'Akun Saya | KWU Campus Business Hub', desc: 'Kelola profil, riwayat transaksi, status pengajuan kerja sama, wishlist, dan pengaturan akun.', scripts: ['assets/js/account.js'] },
   { file: 'bantuan.html', partial: 'bantuan', active: 'bantuan', title: 'Pusat Bantuan | KWU Campus Business Hub', desc: 'FAQ, panduan transaksi, dan formulir kontak untuk_admin KWU Campus Business Hub.', scripts: ['assets/js/forms.js'] },
   { file: 'kebijakan-privasi.html', partial: 'kebijakan-privasi', active: 'bantuan', title: 'Kebijakan Privasi | KWU Campus Business Hub', desc: 'Kebijakan privasi KWU Campus Business Hub.' },
@@ -258,6 +276,7 @@ const PAGES = [
 /* ---------------- Build ---------------- */
 let built = 0;
 const missing = [];
+const warnings = [];
 
 PAGES.forEach(page => {
   const partialPath = path.join(PARTIALS, page.partial + '.html');
@@ -266,12 +285,25 @@ PAGES.forEach(page => {
     return;
   }
   const body = fs.readFileSync(partialPath, 'utf8').trim();
+  const scripts = page.scripts || [];
+
+  // Pengaman: halaman yang punya <form> wajib punya skrip penangan
+  if (/<form[\s>]/.test(body) && scripts.length === 0) {
+    warnings.push(`${page.file}: memuat <form> tetapi tidak punya skrip JS.`);
+  }
+  // Pengaman: elemen yang butuh JS tapi tidak ada skrip
+  const needsJs = ['data-request-form', 'id="catalogGrid"', 'id="productDetail"', 'id="cartList"', 'id="checkoutForm"', 'id="transactionDetail"', 'id="accountPanel"', 'id="orderHistory"', 'id="adminPanel"', 'id="faqAccordion"', 'id="contactForm"', 'id="loginForm"', 'id="registerForm"', 'id="homeFeatured"', 'id="activityList"'];
+  const missingJs = needsJs.filter(sel => body.includes(sel) && scripts.length === 0);
+  if (missingJs.length) {
+    warnings.push(`${page.file}: butuh JS untuk ${missingJs.join(', ')} tetapi tidak punya skrip.`);
+  }
+
   const html = layout({
     title: page.title,
     desc: page.desc,
     active: page.active,
     body,
-    scripts: page.scripts || []
+    scripts
   });
   fs.writeFileSync(path.join(ROOT, page.file), html, 'utf8');
   built++;
@@ -280,4 +312,8 @@ PAGES.forEach(page => {
 console.log(`Selesai: ${built} halaman dibangun.`);
 if (missing.length) {
   console.log('Partial belum ada: ' + missing.join(', '));
+}
+if (warnings.length) {
+  console.log('\nPERINGATAN:');
+  warnings.forEach(w => console.log('  - ' + w));
 }

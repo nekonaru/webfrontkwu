@@ -1,5 +1,5 @@
 /* =========================================================
-   KWU Campus Business Hub — home.js
+   KWU Campus Business Hub - home.js
    Render bagian dinamis pada beranda.
    ========================================================= */
 

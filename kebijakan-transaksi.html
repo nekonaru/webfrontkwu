@@ -13,14 +13,16 @@
   <link rel="stylesheet" href="assets/css/main.css">
   <link rel="stylesheet" href="assets/css/components.css">
   <link rel="stylesheet" href="assets/css/pages.css">
+  <link rel="stylesheet" href="assets/css/mobile.css">
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body class="">
   <a class="skip-link" href="#main">Lewati ke konten utama</a>
   
 <div class="topbar">
   <div class="container row-between" style="gap:12px">
-    <span class="topbar__text">Tahap frontend · Data produk, transaksi, dan pengajuan di situs ini masih <b>data contoh</b>.</span>
-    <a class="topbar__link" href="bantuan.html">Cek halaman bantuan</a>
+    <span class="topbar__text">Prototipe antarmuka. Brand, produk, harga, dan ulasan di katalog ini adalah karangan, bukan produk resmi KWU.</span>
+    <a class="topbar__link" href="tentang.html">Tentang KWU</a>
   </div>
 </div>
 <header class="site-header">
@@ -144,15 +146,14 @@
 
       <h2>4. Pengambilan barang</h2>
       <p>
-        KWU tidak menyediakan layanan antar-jemput. Pengambilan atau pengiriman produk
-        mengikuti jadwal yang disepakati dengan admin KWU. Ketentuan lengkap akan ditulis
-        pada versi resmi dokumen ini.
+        Pengambilan atau pengiriman produk dilakukan sesuai jadwal yang disepakati dengan
+        admin KWU. Ketentuan lengkap akan ditulis pada versi resmi dokumen ini.
       </p>
 
       <h2>5. Pembatalan dan pengembalian</h2>
       <p>
         Pesanan dapat dibatalkan sebelum berstatus Diproses. Ketentuan pengembalian dana
-        mengikuti masing-masing metode pembayaran dan belum tersedia pada tahap frontend ini.
+        mengikuti masing-masing metode pembayaran dan baru berlaku setelah prosedur resmi ditetapkan.
       </p>
 
       <h2>6. Status transaksi</h2>
@@ -185,13 +186,13 @@
           dan institusi.
         </p>
         <div class="socials" aria-label="Media sosial">
-          <a href="#" aria-label="Instagram KWU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
-          <a href="#" aria-label="Facebook KWU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
-          <a href="#" aria-label="LinkedIn KWU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a href="#" data-social-placeholder aria-label="Instagram KWU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a href="#" data-social-placeholder aria-label="Facebook KWU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
+          <a href="#" data-social-placeholder aria-label="LinkedIn KWU"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg></a>
         </div>
         <div class="footer-note">
-          Logo, alamat, nomor kontak, dan tautan media sosial resmi belum dipublikasikan.
-          Tautan di atas hanya bagian dari desain antarmuka.
+          KWU bukan brand dagang. Seluruh brand, produk, harga, dan ulasan di situs ini
+          adalah karangan untuk demonstrasi antarmuka, bukan penawaran barang asli.
         </div>
       </div>
       
@@ -221,6 +222,13 @@
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
 </button>
 
+<nav class="mobile-nav" aria-label="Navigasi utama untuk layar kecil">
+  <a href="index.html" class="mobile-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5L12 3l9 7.5"/><path d="M5 9.8V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.8"/></svg><span>Beranda</span></a>
+  <a href="katalog.html" class="mobile-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Katalog</span></a>
+  <a href="keranjang.html" class="mobile-nav__item mobile-nav__item--cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/><path d="M2 3h2.5l2.4 12.2a2 2 0 0 0 2 1.6h8.6a2 2 0 0 0 2-1.6L21 7H5.5"/></svg><span>Keranjang</span><em class="mobile-nav__badge" data-cart-count>0</em></a>
+  <a href="akun.html" class="mobile-nav__item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-6.5 8-6.5s8 2.5 8 6.5"/></svg><span>Akun</span></a>
+</nav>
+
 <div class="chat-fab" id="chatFab" role="button" tabindex="0" aria-expanded="false" aria-label="Buka Asisten KWU">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H7l-4 3 1-5.2A8 8 0 0 1 13 4a8 8 0 0 1 8 8z"/></svg>
   <span class="chat-fab__label">Asisten KWU</span>
@@ -240,11 +248,17 @@
   <div class="chat-body"></div>
   <div class="chat-quick">
     <button>Cari produk</button>
-    <button>Kerja sama</button>
-    <button>Bantuan transaksi</button>
+    <button>Kategori apa saja?</button>
+    <button>Cara pesan grosir</button>
+    <button>Ulasan produk</button>
+    <button>Status pesanan</button>
     <button>Hubungi admin</button>
   </div>
-  <div class="chat-note">Simulasi antarmuka. Belum terhubung ke AI atau sistem KWU.</div>
+  <div class="chat-input">
+    <input class="input" type="text" placeholder="Tulis pertanyaanmu..." aria-label="Tulis pesan ke asisten">
+    <button class="chat-input__send" data-chat-send aria-label="Kirim pesan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 3L10 14M21 3l-7 18-4-7-7-4z"/></svg></button>
+  </div>
+  <div class="chat-note">Jawaban contoh untuk prototipe antarmuka. Belum terhubung ke sistem KWU.</div>
 </div>
   <script src="assets/js/data.js"></script>
   <script src="assets/js/store.js"></script>
