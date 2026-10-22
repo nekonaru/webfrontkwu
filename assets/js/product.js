@@ -22,7 +22,11 @@ function initProduct() {
   }
 
   document.title = `${product.name} | KWU Campus Business Hub`;
-  const stock = stockInfo(product.stock);
+  const isService = product.type === 'layanan';
+  const isSameDay = product.type === 'makanan-sehari';
+  const stock = isService
+    ? { cls: 'stock--in', label: 'Layanan kampus' }
+    : stockInfo(product.stock);
   const discount = product.comparePrice ? Math.round((1 - product.price / product.comparePrice) * 100) : 0;
   const gallery = (product.gallery && product.gallery.length) ? product.gallery : [product.image];
 
@@ -46,6 +50,8 @@ function initProduct() {
         <div class="row" style="gap:8px;flex-wrap:wrap">
           <span class="product-card__cat">${product.brand || categoryName(product.category)}</span>
           <span class="badge badge--neutral badge--plain">${categoryName(product.category)}</span>
+          ${isService ? '<span class="badge badge--blue">Layanan</span>' : ''}
+          ${isSameDay ? '<span class="badge badge--orange">Untuk hari yang sama</span>' : ''}
         </div>
         <h1 class="pd-title">${product.name}</h1>
 
@@ -63,7 +69,7 @@ function initProduct() {
         <p class="pd-note">Harga per ${product.unit}. ${product.minOrder > 1 ? `Minimum pembelian grosir ${product.minOrder} ${product.unit}.` : 'Minimum pembelian 1 ' + product.unit + '.'}</p>
 
         <div class="pd-block">
-          <h4>Jumlah</h4>
+          <h4>${isService ? 'Jumlah pesanan' : 'Jumlah'}</h4>
           <div class="row" style="gap:18px;flex-wrap:wrap">
             <div class="qty">
               <button type="button" data-qty-minus aria-label="Kurangi jumlah">${icon('minus')}</button>
@@ -72,11 +78,13 @@ function initProduct() {
             </div>
             <span class="stock-line ${stock.cls}">${stock.label}</span>
           </div>
+          ${isService ? '<div class="field__hint" style="margin-top:8px">Untuk layanan, jumlah berarti jumlah lembar, eksemplar, atau berkas yang dikerjakan.</div>' : ''}
+          ${isSameDay ? '<div class="field__hint" style="margin-top:8px">Pesanan makanan siap makan hanya dilayani untuk hari yang sama.</div>' : ''}
         </div>
 
         <div class="pd-actions">
           <button class="btn btn--primary" data-add-detail="${product.id}" ${product.stock === 0 ? 'disabled' : ''}>
-            ${icon('cart')} Tambah ke Keranjang
+            ${icon(isService ? 'file' : 'cart')} ${isService ? 'Pesan Layanan' : 'Tambah ke Keranjang'}
           </button>
           <a class="btn btn--blue" href="kolaborasi-grosir.html?produk=${encodeURIComponent(product.name)}">
             ${icon('file')} Ajukan Grosir

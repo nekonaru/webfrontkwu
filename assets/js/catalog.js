@@ -10,6 +10,7 @@ function initCatalog() {
   const state = {
     q: qs('q') || '',
     category: qs('kategori') || 'semua',
+    sub: qs('sub') || 'semua',
     maxPrice: Number(qs('max')) || 300000,
     inStock: false,
     sort: qs('sort') || 'terbaru',
@@ -142,6 +143,30 @@ function initCatalog() {
   document.getElementById('filterClose')?.addEventListener('click', closeFilterPanel);
   document.getElementById('filterApply')?.addEventListener('click', closeFilterPanel);
 
+  /* ---------- Filter sub-kategori ---------- */
+  const subWrap = document.getElementById('subFilter');
+  const subTrack = document.getElementById('subFilterTrack');
+
+  function renderSubFilter() {
+    if (!subWrap || !subTrack) return;
+    const pool = KWU_DATA.products.filter(p => state.category === 'semua' || p.category === state.category);
+    const subs = [...new Set(pool.map(p => p.sub).filter(Boolean))];
+    if (subs.length < 2) { subWrap.hidden = true; return; }
+    subWrap.hidden = false;
+    subTrack.innerHTML = [
+      `<button class="subfilter__chip ${state.sub === 'semua' ? 'is-active' : ''}" data-sub="semua">Semua</button>`,
+      ...subs.map(s => `<button class="subfilter__chip ${state.sub === s ? 'is-active' : ''}" data-sub="${s}">${s}</button>`)
+    ].join('');
+  }
+
+  subTrack?.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-sub]');
+    if (!btn) return;
+    state.sub = btn.dataset.sub;
+    subTrack.querySelectorAll('.subfilter__chip').forEach(b => b.classList.toggle('is-active', b === btn));
+    render();
+  });
+
   /* ---------- Render ---------- */
   function showSkeleton() {
     grid.innerHTML = Array.from({ length: 6 }).map(() => `
@@ -159,11 +184,12 @@ function initCatalog() {
   function filtered() {
     let list = KWU_DATA.products.filter(p => {
       const q = state.q.toLowerCase();
-      const matchQ = !q || p.name.toLowerCase().includes(q) || categoryName(p.category).toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
+      const matchQ = !q || p.name.toLowerCase().includes(q) || categoryName(p.category).toLowerCase().includes(q) || (p.sub || '').toLowerCase().includes(q) || p.desc.toLowerCase().includes(q);
       const matchCat = state.category === 'semua' || p.category === state.category;
+      const matchSub = state.sub === 'semua' || p.sub === state.sub;
       const matchPrice = p.price <= state.maxPrice;
       const matchStock = !state.inStock || p.stock > 0;
-      return matchQ && matchCat && matchPrice && matchStock;
+      return matchQ && matchCat && matchSub && matchPrice && matchStock;
     });
 
     switch (state.sort) {
@@ -177,6 +203,7 @@ function initCatalog() {
   }
 
   function render() {
+    renderSubFilter();
     const list = filtered();
     if (els.count) {
       els.count.textContent = `${list.length} produk ditemukan`;
@@ -199,6 +226,7 @@ function initCatalog() {
     const params = new URLSearchParams();
     if (state.q) params.set('q', state.q);
     if (state.category !== 'semua') params.set('kategori', state.category);
+    if (state.sub !== 'semua') params.set('sub', state.sub);
     if (state.maxPrice < maxCatalogPrice) params.set('max', state.maxPrice);
     if (state.sort !== 'terbaru') params.set('sort', state.sort);
     const query = params.toString();

@@ -37,12 +37,6 @@ function header(active) {
   ).join('');
 
   return `
-<div class="topbar">
-  <div class="container row-between" style="gap:12px">
-    <span class="topbar__text">Prototipe antarmuka. Brand, produk, harga, dan ulasan di katalog ini adalah karangan, bukan produk resmi KWU.</span>
-    <a class="topbar__link" href="tentang.html">Tentang KWU</a>
-  </div>
-</div>
 <header class="site-header">
   <div class="container site-header__bar">
     <a class="brand" href="index.html" aria-label="KWU Campus Business Hub, beranda">
@@ -146,8 +140,12 @@ function footer() {
           <a href="#" data-social-placeholder aria-label="LinkedIn KWU">${svg.chevron}</a>
         </div>
         <div class="footer-note">
-          KWU bukan brand dagang. Seluruh brand, produk, harga, dan ulasan di situs ini
-          adalah karangan untuk demonstrasi antarmuka, bukan penawaran barang asli.
+          <div class="footer-contact">
+            <span class="footer-contact__label">Alamat layanan</span>
+            <span class="footer-contact__value">Gedung S Lantai 1, Politeknik Negeri Padang</span>
+          </div>
+          KWU adalah unit Processedorman kampus, bukan brand dagang. Seluruh brand, produk, harga,
+          dan ulasan di situs ini adalah karangan untuk demonstrasi antarmuka, bukan penawaran barang asli.
         </div>
       </div>
       ${col('Jelajahi', [['Beranda', 'index.html'], ['Katalog', 'katalog.html'], ['Tentang KWU', 'tentang.html'], ['Aktivitas', 'aktivitas.html']])}

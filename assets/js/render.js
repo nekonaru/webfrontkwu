@@ -25,7 +25,10 @@ function tagLabel(tag) {
 }
 
 function productCardHTML(product, delay = 1) {
-  const stock = stockInfo(product.stock);
+  const isService = product.type === 'layanan';
+  const stock = isService
+    ? { cls: 'stock--in', label: 'Layanan kampus' }
+    : stockInfo(product.stock);
   const tags = (product.tags || []).map(t => {
     const meta = tagLabel(t);
     return `<span class="tag ${meta.cls}">${meta.text}</span>`;
@@ -34,6 +37,7 @@ function productCardHTML(product, delay = 1) {
   const discount = product.comparePrice
     ? Math.round((1 - product.price / product.comparePrice) * 100)
     : 0;
+  const actionLabel = isService ? 'Pesan Layanan' : 'Tambah';
 
   return `
   <article class="product-card reveal" data-delay="${delay}">
@@ -42,6 +46,7 @@ function productCardHTML(product, delay = 1) {
         <img src="${product.image}" alt="${product.name}" loading="lazy" width="400" height="300">
       </a>
       <div class="product-card__tags">
+        ${isService ? '<span class="tag tag--blue">Layanan</span>' : ''}
         ${tags}
         ${discount ? `<span class="tag" style="background:var(--success)">-${discount}%</span>` : ''}
       </div>
@@ -53,6 +58,7 @@ function productCardHTML(product, delay = 1) {
     <div class="product-card__body">
       <span class="product-card__cat">${product.brand || categoryName(product.category)}</span>
       <h3 class="product-card__name"><a href="produk.html?slug=${product.slug}">${product.name}</a></h3>
+      ${product.sub ? `<span class="product-card__sub">${product.sub}</span>` : ''}
       <div class="row product-card__rating" style="gap:8px;font-size:.8rem;color:var(--muted)">
         <span class="rating">${icon('star')}</span>
         <span>${product.rating.toFixed(1)}</span>
@@ -68,7 +74,7 @@ function productCardHTML(product, delay = 1) {
     </div>
     <div class="product-card__actions">
       ${product.stock > 0
-        ? `<button class="btn btn--primary btn--sm" data-add="${product.id}">${icon('cart')}<span class="only-wide">Tambah ke Keranjang</span><span class="only-mobile">Tambah</span></button>`
+        ? `<button class="btn btn--primary btn--sm" data-add="${product.id}">${icon(isService ? 'file' : 'cart')}<span class="only-wide">${actionLabel}</span><span class="only-mobile">${isService ? 'Pesan' : 'Tambah'}</span></button>`
         : `<button class="btn btn--ghost btn--sm" disabled>Stok Habis</button>`}
     </div>
   </article>`;

@@ -2,548 +2,539 @@
    KWU Campus Business Hub - data.js
    Data katalog untuk prototipe antarmuka.
 
-   CATATAN: seluruh nama brand, produk, harga, dan ulasan di
-   berkas ini adalah karangan untuk keperluan demo antarmuka.
-   KWU bukan brand dagang, sehingga tidak ada klaim bahwa
-   produk di bawah ini berasal dari KWU atau pihak mana pun.
+   CATATAN: nama brand, harga, dan ulasan di berkas ini adalah
+   karangan untuk keperluan demo antarmuka. KWU adalah unit
+   Processedorman kampus di Gedung S Lantai 1 Politeknik Negeri
+   Padang, bukan brand dagang, sehingga tidak ada klaim bahwa
+   produk di bawah ini berasal dari pihak mana pun.
    ========================================================= */
 
-const KWU_DATA = {
-  /* ---------- Kategori ---------- */
-  categories: [
-    {
-      id: 'makanan', name: 'Makanan', icon: 'cookie',
-      desc: 'Camilan, kue, dan jajanan dari dapur mitra lokal.',
-      image: 'assets/img/produk/snackbox-0.jpg'
-    },
-    {
-      id: 'minuman', name: 'Minuman', icon: 'coffee',
-      desc: 'Kopi, teh, susu, dan minuman racikan khas daerah.',
-      image: 'assets/img/produk/kopisusu-1.jpg'
-    },
-    {
-      id: 'merchandise', name: 'Merchandise & Aksesoris', icon: 'shirt',
-      desc: 'Pakaian, tas, dan perlengkapan harian dari koleksi lokal.',
-      image: 'assets/img/produk/kaos-0.jpg'
-    },
-    {
-      id: 'alat-tulis', name: 'Alat Tulis & Kreativitas', icon: 'book',
-      desc: 'Perlengkapan belajar, bekerja, dan berkarya.',
-      image: 'assets/img/produk/buku-2.jpg'
-    },
-    {
-      id: 'paket', name: 'Paket Hemat', icon: 'box',
-      desc: 'Bundling terbaik untuk kebutuhan acara dan kantor.',
-      image: 'assets/img/produk/hadiah-0.jpg'
-    }
-  ],
+const KWU_DATA = {};
 
-  /* ---------- Produk: MAKANAN ---------- */
-  productsMakanan: [
-    {
-      id: 'm01', slug: 'keripik-pisang-madu-sari-banih', name: 'Keripik Pisang Madu', brand: 'Sari Banih',
-      category: 'makanan', price: 18000, comparePrice: 22000, stock: 240, unit: 'pak', minOrder: 6,
-      image: 'assets/img/produk/keripik-1.jpg', gallery: ['assets/img/produk/keripik-1.jpg', 'assets/img/produk/keripik-2.jpg'],
-      tags: ['unggulan'], rating: 4.7, reviewCount: 128,
-      desc: 'Pisang cavendish dari kebun lokal diolah menjadi keripik dengan pengeringan lambat sehingga tetap renyah. Tersedia dalam tiga rasa: original, madu, dan_original.',
-      specs: { 'Berat bersih': '120 gram', 'Rasa': 'Original, Madu, Pisang Cavendish', 'Bahan': 'Pisang, minyak kelapa', 'Kemasan': 'Standing pouch', 'Daya simpan': '4 bulan' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'm02', slug: 'cookies-cokelat-rumah-biskuit', name: 'Cookies Cokelat Chip', brand: 'Rumah Biskuit',
-      category: 'makanan', price: 32000, comparePrice: null, stock: 180, unit: 'box', minOrder: 4,
-      image: 'assets/img/produk/biskuit-0.jpg', gallery: ['assets/img/produk/biskuit-0.jpg', 'assets/img/produk/biskuit-2.jpg'],
-      tags: ['unggulan'], rating: 4.8, reviewCount: 214,
-      desc: 'Biskuit renyah dengan butiran cokelat yang melimpah. Dipanggang setiap hari dalam batch kecil supaya rasa dan teksturnya konsisten.',
-      specs: { 'Isi': '12 pcs', 'Berat bersih': '300 gram', 'Bahan': 'Tepung, mentega, cokelat', 'Daya simpan': '3 minggu', 'Alergi': 'Mengandung susu dan gandum' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'm03', slug: 'kue-lapis-legit-dapoer-cahaya', name: 'Kue Lapis Legit Kukus', brand: 'Dapoer Cahaya',
-      category: 'makanan', price: 45000, comparePrice: 52000, stock: 96, unit: 'box', minOrder: 3,
-      image: 'assets/img/produk/kue-2.jpg', gallery: ['assets/img/produk/kue-2.jpg', 'assets/img/produk/kue-0.jpg'],
-      tags: ['baru'], rating: 4.6, reviewCount: 87,
-      desc: 'Kue lapis kukus dengan santan premium, ketan, dan gula aren. Lapisannya rapat dan tidak mudah lepas saat dipotong.',
-      specs: { 'Isi': '8 potong', 'Berat bersih': '400 gram', 'Bahan': 'Santan, ketan, gula aren', 'Daya simpan': '3 hari', 'Kondisi': 'Simpan di lemari es' },
-      isNew: true, isFeatured: true, isGrosir: false
-    },
-    {
-      id: 'm04', slug: 'sambal-bawang-nusa-rasa', name: 'Sambal Bawang Ekstrak 200 g', brand: 'Nusa Rasa',
-      category: 'makanan', price: 28000, comparePrice: null, stock: 320, unit: 'botol', minOrder: 12,
-      image: 'assets/img/produk/sambal-0.jpg', gallery: ['assets/img/produk/sambal-0.jpg'],
-      tags: ['grosir'], rating: 4.5, reviewCount: 156,
-      desc: 'Sambal bawang goreng dengan tingkat pedas yang buildup secara bertahap. Bawang merah dan cabai dihaluskan masih segar.',
-      specs: { 'Berat bersih': '200 gram', 'Level pedas': 'Sedang hingga pedas', 'Bahan': 'Bawang merah, cabai, terasi', 'Kemasan': 'Botol kaca 200 ml', 'Daya simpan': '6 bulan' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'm05', slug: 'kerupuk-udang-samudra-kencana', name: 'Kerupuk Udang Panen', brand: 'Samudra Kencana',
-      category: 'makanan', price: 35000, comparePrice: null, stock: 140, unit: 'pak', minOrder: 6,
-      image: 'assets/img/produk/kerupuk-1.jpg', gallery: ['assets/img/produk/kerupuk-1.jpg', 'assets/img/produk/kerupuk-2.jpg'],
-      tags: [], rating: 4.4, reviewCount: 63,
-      desc: 'Kerupuk udang dengan tekstur renyah di luar dan lembut di dalam. Dibuat dari udang segar tanpa pemanis buatan.',
-      specs: { 'Berat bersih': '250 gram', 'Bahan': 'Udang, pati, BUMI', 'Rasa': 'Original dan pedas', 'Kemasan': 'Plastik vakum', 'Daya simpan': '5 bulan' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'm06', slug: 'brownies-panggang-cokelat-ruma', name: 'Brownies Panggang 6 pcs', brand: 'Cokelat Ruma',
-      category: 'makanan', price: 42000, comparePrice: 48000, stock: 110, unit: 'box', minOrder: 3,
-      image: 'assets/img/produk/brownies-0.jpg', gallery: ['assets/img/produk/brownies-0.jpg', 'assets/img/produk/brownies-1.jpg'],
-      tags: ['unggulan'], rating: 4.8, reviewCount: 142,
-      desc: 'Brownies dengan bagian tengah yang lembut dan lapisan atas yangkenyal. Dipanggang per pesanan supaya teksturnya tetap lembut.',
-      specs: { 'Isi': '6 potong', 'Berat bersih': '450 gram', 'Bahan': 'Cokelat 70%, mentega, telur', 'Daya simpan': '5 hari', 'Kondisi': 'Simpan di lemari es' },
-      isNew: false, isFeatured: true, isGrosir: false
-    },
-    {
-      id: 'm07', slug: 'biskuit-assortment-gandum-jaya', name: 'Biskuit Assortment 300 g', brand: 'Gandum Jaya',
-      category: 'makanan', price: 26000, comparePrice: null, stock: 210, unit: 'pak', minOrder: 8,
-      image: 'assets/img/produk/biskuit-1.jpg', gallery: ['assets/img/produk/biskuit-1.jpg', 'assets/img/produk/biskuit-3.jpg'],
-      tags: [], rating: 4.3, reviewCount: 74,
-      desc: 'Isi assortment: butter, cokelat, dan sandwich krim. Cocok sebagai pengisi waktu rapat atau camilan di meja kerja.',
-      specs: { 'Isi': '18 pcs', 'Berat bersih': '300 gram', 'Varian': 'Butter, cokelat, sandwich', 'Kemasan': 'Plastik rapat', 'Daya simpan': '2 bulan' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'm08', slug: 'jelly-buah-kaleng-fruit-kitchen', name: 'Jelly Buah Kaleng 6 pcs', brand: 'Fruit Kitchen',
-      category: 'makanan', price: 24000, comparePrice: null, stock: 260, unit: 'box', minOrder: 6,
-      image: 'assets/img/produk/jelly-0.jpg', gallery: ['assets/img/produk/jelly-0.jpg', 'assets/img/produk/jelly-1.jpg'],
-      tags: ['baru'], rating: 4.5, reviewCount: 58,
-      desc: 'Jelly buah dengan potongan buah yang utuh dan rasa buah yang terasa. Enam varian rasa dalam satu dus.',
-      specs: { 'Isi': '6 cup', 'Berat bersih': '600 gram', 'Varian': 'Ananas, anggur, stroberi, dan lainnya', 'Bahan': 'Buah, gelatin, gula', 'Daya simpan': '6 bulan' },
-      isNew: true, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'm09', slug: 'es-krim-puter-dingin-indo', name: 'Es Krim Puter 5 Cup', brand: 'Dingin Indo',
-      category: 'makanan', price: 30000, comparePrice: null, stock: 95, unit: 'box', minOrder: 4,
-      image: 'assets/img/produk/eskrim-0.jpg', gallery: ['assets/img/produk/eskrim-0.jpg', 'assets/img/produk/eskrim-1.jpg'],
-      tags: [], rating: 4.6, reviewCount: 81,
-      desc: 'Es krim puter dengan kadar susu tinggi,teksturnya padat tapi tetap lembut di lidah. Dikemas bersama dry ice agar tetap beku.',
-      specs: { 'Isi': '5 cup', 'Varian': 'Original, cokelat, stroberi', 'Berat bersih': '750 gram', 'Pengiriman': 'Dengan dry ice', 'Daya simpan': 'Simpan di freezer' },
-      isNew: false, isFeatured: false, isGrosir: false
-    },
-    {
-      id: 'm10', slug: 'snack-box-8-varian-rasa-ria', name: 'Snack Box 8 Varian', brand: 'Rasa Ria',
-      category: 'makanan', price: 88000, comparePrice: 105000, stock: 70, unit: 'box', minOrder: 2,
-      image: 'assets/img/produk/snackbox-0.jpg', gallery: ['assets/img/produk/snackbox-0.jpg', 'assets/img/produk/snackbox-2.jpg'],
-      tags: ['unggulan', 'grosir'], rating: 4.7, reviewCount: 119,
-      desc: 'Satu dus berisi delapan varian camilan: keripik, biskuit, jelly, kerupuk, dan lainnya. Praktis untuk dibawa pulang atau dibagikan.',
-      specs: { 'Isi': '8 varian', 'Berat bersih': '1 kilogram', 'Kemasan': 'Dus karton', 'Bonus': 'Kartu ucapan', 'Minimum grosir': '2 dus' },
-      isNew: false, isFeatured: true, isGrosir: true
-    }
-  ],
+/* ---------- Kategori ---------- */
+KWU_DATA.categories = [
+  { id: 'makanan', name: 'Makanan', icon: 'cookie',
+    desc: 'Camilan ringan, roti, gorengan, mi, dan makanan siap makan.',
+    image: 'assets/img/produk/keripik-1.jpg' },
+  { id: 'minuman', name: 'Minuman', icon: 'coffee',
+    desc: 'Minuman kemasan, seduh sachet, kopi, teh, susu, dan jus.',
+    image: 'assets/img/produk/kopisusu-1.jpg' },
+  { id: 'atribut', name: 'Atribut Kampus', icon: 'shirt',
+    desc: 'Jas, PDH, topi, tanda pengenal, dan merchandise kampus.',
+    image: 'assets/img/produk/kaos-0.jpg' },
+  { id: 'layanan', name: 'Layanan Kampus', icon: 'file',
+    desc: 'Fotokopi, print, jilid, laminating, dan cetak pas foto.',
+    image: 'assets/img/produk/fotokopi-0.jpg' },
+  { id: 'alat-tulis', name: 'Alat Tulis & Perlengkapan Kuliah', icon: 'book',
+    desc: 'Pulpen, kertas, tinta, dan perlengkapanossier kelas.',
+    image: 'assets/img/produk/buku-2.jpg' },
+  { id: 'paket', name: 'Paket Hemat', icon: 'box',
+    desc: 'Bundling paling hemat untuk acara, kantor, dan perkuliahan.',
+    image: 'assets/img/produk/hadiah-0.jpg' }
+];
 
-  /* ---------- Produk: MINUMAN ---------- */
-  productsMinuman: [
-    {
-      id: 'mn01', slug: 'kopi-susu-gula-aren-kopi-kanduri', name: 'Kopi Susu Gula Aren 250 ml', brand: 'Kopi Kanduri',
-      category: 'minuman', price: 28000, comparePrice: null, stock: 300, unit: 'botol', minOrder: 12,
-      image: 'assets/img/produk/kopisusu-1.jpg', gallery: ['assets/img/produk/kopisusu-1.jpg', 'assets/img/produk/kopisusu-3.jpg'],
-      tags: ['unggulan'], rating: 4.8, reviewCount: 236,
-      desc: 'Kopi susu dengan pemanis gula aren tanpa tambahan gula putih. Rasanya tebal dan berlapis,similar dengan kopi di kedai lokal.',
-      specs: { 'Volume': '250 ml', 'Kadar kopi': '3 gram', 'Pemanis': 'Gula aren', 'Kemasan': 'Botol HDPE', 'Daya simpan': '9 bulan' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'mn02', slug: 'kopi-bubuk-200g-kopi-rindu', name: 'Kopi Bubuk 200 g', brand: 'Kopi Rindu',
-      category: 'minuman', price: 45000, comparePrice: 52000, stock: 150, unit: 'pak', minOrder: 6,
-      image: 'assets/img/produk/kopibiji-2.jpg', gallery: ['assets/img/produk/kopibiji-2.jpg', 'assets/img/produk/kopibiji-0.jpg'],
-      tags: [], rating: 4.5, reviewCount: 97,
-      desc: 'Kopi bubuk untuk filter dan espresso, profil rasa medium dengan catatan cokelat dan remah. Dikemas dalam pouch 200 gram.',
-      specs: { 'Berat bersih': '200 gram', 'Roast level': 'Medium', 'Biji': 'Arabika dan robusta', 'Kemasan': 'Standing pouch', 'Daya simpan': '8 bulan' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'mn03', slug: 'teh-celup-melati-25s-teh-alam', name: 'Teh Celup Melati 25 s', brand: 'Teh Alam',
-      category: 'minuman', price: 22000, comparePrice: null, stock: 280, unit: 'box', minOrder: 10,
-      image: 'assets/img/produk/teh-1.jpg', gallery: ['assets/img/produk/teh-1.jpg', 'assets/img/produk/teh-2.jpg'],
-      tags: ['grosir'], rating: 4.6, reviewCount: 112,
-      desc: 'Teh melati celup dengan aroma bunga yang jelas dan rasa yang tidak pahit meski diseduh berulang kali.',
-      specs: { 'Isi': '25 bags', 'Bahan': 'Daun teh melati', 'Kemasan': 'Dus dengan 5 envelope', 'Daya simpan': '12 bulan', 'Aroma': 'Melati' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'mn04', slug: 'sirup-markisa-630ml-buah-naga', name: 'Sirup Markisa 630 ml', brand: 'Buah Naga',
-      category: 'minuman', price: 38000, comparePrice: null, stock: 190, unit: 'botol', minOrder: 12,
-      image: 'assets/img/produk/sirup-0.jpg', gallery: ['assets/img/produk/sirup-0.jpg', 'assets/img/produk/sirup-2.jpg'],
-      tags: [], rating: 4.4, reviewCount: 68,
-      desc: 'Sirup markisa pekat dari buah markisa tropis, tanpa pewarna buatan. Cukup untuk membuat 15 gelas minuman dingin.',
-      specs: { 'Volume': '630 ml', 'Bahan': 'Ekstrak markisa, gula', 'Pewarna': 'Tanpa pewarna buatan', 'Kemasan': 'Botol kaca', 'Daya simpan': '9 bulan' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'mn05', slug: 'jus-mangga-250ml-sari-buah', name: 'Jus Mangga Botol 250 ml', brand: 'Sari Buah',
-      category: 'minuman', price: 15000, comparePrice: null, stock: 420, unit: 'botol', minOrder: 24,
-      image: 'assets/img/produk/jusmangga-0.jpg', gallery: ['assets/img/produk/jusmangga-0.jpg', 'assets/img/produk/jusmangga-2.jpg'],
-      tags: ['grosir'], rating: 4.3, reviewCount: 89,
-      desc: 'Jus mangga harum manis dengan kandungan pulp buah yang terasa. Botol PET ringan, praktis dibawa ke acara atau rapat.',
-      specs: { 'Volume': '250 ml', 'Bahan': 'Pulp mangga 30 persen', 'Kemasan': 'Botol PET', 'Daya simpan': '6 bulan', 'Suhu': 'Simpan suhu ruang' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'mn06', slug: 'susu-uht-full-cream-1l-sapi-perah', name: 'Susu UHT Full Cream 1 L', brand: 'Sapi Perah',
-      category: 'minuman', price: 28000, comparePrice: 30000, stock: 260, unit: 'kotak', minOrder: 12,
-      image: 'assets/img/produk/susu-0.jpg', gallery: ['assets/img/produk/susu-0.jpg', 'assets/img/produk/susu-2.jpg'],
-      tags: [], rating: 4.5, reviewCount: 134,
-      desc: 'Susu UHT full cream dengan kadar lemak 3,5 persen. Krimnya tebal dan rasa susunya terasa, tanpa pemanis tambahan.',
-      specs: { 'Volume': '1 liter', 'Kadar lemak': '3,5 persen', 'Susu': '100 persen susu sapi', 'Kemasan': 'Kotak aseptik', 'Daya simpan': '9 bulan' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'mn07', slug: 'matcha-latte-botol-250ml-zen-matcha', name: 'Matcha Latte Botol 250 ml', brand: 'Zen Matcha',
-      category: 'minuman', price: 35000, comparePrice: null, stock: 175, unit: 'botol', minOrder: 12,
-      image: 'assets/img/produk/matcha-0.jpg', gallery: ['assets/img/produk/matcha-0.jpg', 'assets/img/produk/matcha-2.jpg'],
-      tags: ['baru'], rating: 4.7, reviewCount: 102,
-      desc: 'Matcha latte siap minum dengan matcha dari daun hijau pilihan dan susu. Rasanya sedikit pahit dan creamy, tidak terlalu manis.',
-      specs: { 'Volume': '250 ml', 'Bahan': 'Matcha, susu, pemanis alami', 'Kadar matcha': '1,2 gram', 'Kemasan': 'Botol', 'Daya simpan': '6 bulan' },
-      isNew: true, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'mn08', slug: 'madu-hutan-250ml-madu-rimba', name: 'Madu Hutan Botol 250 ml', brand: 'Madu Rimba',
-      category: 'minuman', price: 65000, comparePrice: 72000, stock: 85, unit: 'botol', minOrder: 6,
-      image: 'assets/img/produk/madu-0.jpg', gallery: ['assets/img/produk/madu-0.jpg', 'assets/img/produk/madu-1.jpg'],
-      tags: [], rating: 4.8, reviewCount: 76,
-      desc: 'Madu hutan liar yang dipanen dari lebah liar di kawasan pegunungan. Warnanya gelap dan rasaannya lebih kuat dari madu toko.',
-      specs: { 'Volume': '250 ml', 'Jenis': 'Madu hutan liar', 'Kadar air': 'Maksimal 20 persen', 'Kemasan': 'Botol kaca', 'Daya simpan': '12 bulan' },
-      isNew: false, isFeatured: true, isGrosir: false
-    }
-  ],
+/* ---------- Pembantu ---------- */
+let KWU_SEQ = 0;
+function P(name, brand, price, stock, unit, image, desc, specs, extra) {
+  const id = 'p' + String(++KWU_SEQ).padStart(3, '0');
+  return Object.assign({
+    id,
+    slug: name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+    name, brand, price,
+    comparePrice: null,
+    stock, unit, minOrder: 1,
+    image, gallery: [image],
+    tags: [], rating: 4.5, reviewCount: 0,
+    desc, specs,
+    isNew: false, isFeatured: false, isGrosir: false
+  }, extra || {});
+}
 
-  /* ---------- Produk: MERCHANDISE & AKSESORIS ---------- */
-  productsMerch: [
-    {
-      id: 'mc01', slug: 'kaos-katun-heavy-koleksi-harian', name: 'Kaos Katun Heavy 30s', brand: 'Koleksi Harian',
-      category: 'merchandise', price: 89000, comparePrice: 105000, stock: 140, unit: 'pcs', minOrder: 12,
-      image: 'assets/img/produk/kaos-0.jpg', gallery: ['assets/img/produk/kaos-0.jpg', 'assets/img/produk/kaos-2.jpg'],
-      tags: ['unggulan', 'grosir'], rating: 4.7, reviewCount: 158,
-      desc: 'Kaos katun combed 30s dengan jahitan rapi dan label leher khusus. Potongan regular fit yang nyaman dipakai seharian.',
-      specs: { 'Bahan': 'Cotton combed 30s', 'Ukuran': 'S sampai XXL', 'Jahitan': 'Rantai 220 jahitan', 'Warna': 'Putih dan navy', 'Minimum grosir': '12 pcs' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'mc02', slug: 'hoodie-oversize-koleksi-harian', name: 'Hoodie Oversize Fleece', brand: 'Koleksi Harian',
-      category: 'merchandise', price: 165000, comparePrice: 189000, stock: 90, unit: 'pcs', minOrder: 12,
-      image: 'assets/img/produk/hoodie-3.jpg', gallery: ['assets/img/produk/hoodie-3.jpg', 'assets/img/produk/hoodie-1.jpg'],
-      tags: ['grosir'], rating: 4.8, reviewCount: 112,
-      desc: 'Hoodie potongan oversize dengan fleece 320 gsm yang hangat tapi tidak berat. Ada saku depan dan tali yang bisa diatur.',
-      specs: { 'Bahan': 'Cotton fleece 320 gsm', 'Ukuran': 'M sampai XXL', 'Potongan': 'Oversize', 'Warna': 'Hitam dan abu', 'Minimum grosir': '12 pcs' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'mc03', slug: 'totebag-kanvas-serat-lokal', name: 'Totebag Kanvas Serat', brand: 'Serat Lokal',
-      category: 'merchandise', price: 45000, comparePrice: null, stock: 210, unit: 'pcs', minOrder: 20,
-      image: 'assets/img/produk/totebag-0.jpg', gallery: ['assets/img/produk/totebag-0.jpg', 'assets/img/produk/totebag-2.jpg'],
-      tags: [], rating: 4.6, reviewCount: 93,
-      desc: 'Totebag dari kanvas serat buatan tangan lokal, muat laptop 14 inci. Ada compartment dalam untuk merapikan kunci dan dompet.',
-      specs: { 'Bahan': 'Kanvas serat 12 oz', 'Ukuran': '38 x 42 x 12 cm', 'Kapasitas': '15 liter', 'Warna': 'Natural dan hitam', 'Perawatan': 'Cuci air dingin' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'mc04', slug: 'topi-baseball-koleksi-harian', name: 'Topi Baseball Katun Twill', brand: 'Koleksi Harian',
-      category: 'merchandise', price: 59000, comparePrice: null, stock: 165, unit: 'pcs', minOrder: 12,
-      image: 'assets/img/produk/topi-1.jpg', gallery: ['assets/img/produk/topi-1.jpg', 'assets/img/produk/topi-3.jpg'],
-      tags: ['baru'], rating: 4.5, reviewCount: 67,
-      desc: 'Topi baseball dari katun twill dengan tali ukuran yang bisa diatur di belakang. Bordir logo di depan memakai benang warna senada.',
-      specs: { 'Bahan': 'Katun twill', 'Ukuran': 'Lingkar 54 sampai 60 cm', 'Tali': 'Bisa diatur', 'Warna': 'Putih, navy, hitam', 'Minimum grosir': '12 pcs' },
-      isNew: true, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'mc05', slug: 'tumbler-stainless-500ml-pelan', name: 'Tumbler Stainless 500 ml', brand: 'Pelan',
-      category: 'merchandise', price: 79000, comparePrice: 95000, stock: 130, unit: 'pcs', minOrder: 12,
-      image: 'assets/img/produk/tumbler-2.jpg', gallery: ['assets/img/produk/tumbler-2.jpg', 'assets/img/produk/tumbler-1.jpg'],
-      tags: ['grosir'], rating: 4.7, reviewCount: 104,
-      desc: 'Tumbler stainless food grade 316 dengan lapisan vakum ganda. Panas bertahan enam jam dan dingin dua belas jam.',
-      specs: { 'Volume': '500 ml', 'Material': 'Stainless 316', 'Lapis': 'Vakum ganda', 'Tahan panas': '6 jam', 'Warna': 'Hitam dan navy' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'mc06', slug: 'mug-keramik-350ml-siram', name: 'Mug Keramik 350 ml', brand: 'Siram',
-      category: 'merchandise', price: 55000, comparePrice: null, stock: 175, unit: 'pcs', minOrder: 12,
-      image: 'assets/img/produk/mug-2.jpg', gallery: ['assets/img/produk/mug-2.jpg', 'assets/img/produk/mug-3.jpg'],
-      tags: [], rating: 4.6, reviewCount: 71,
-      desc: 'Mug keramik dengan finishing stoneware matte dan pegangan yang nyaman digenggam. Bisa dipakai di microwave dan dishwasher.',
-      specs: { 'Volume': '350 ml', 'Material': 'Stoneware', 'Diameter': '8,5 cm', 'Tinggi': '10 cm', 'Perawatan': 'Boleh dishwasher' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'mc07', slug: 'ransel-kanvas-22l-lumbung', name: 'Ransel Kanvas 22 L', brand: 'Lumbung',
-      category: 'merchandise', price: 145000, comparePrice: 169000, stock: 95, unit: 'pcs', minOrder: 12,
-      image: 'assets/img/produk/ransel-0.jpg', gallery: ['assets/img/produk/ransel-0.jpg', 'assets/img/produk/ransel-2.jpg'],
-      tags: ['grosir'], rating: 4.7, reviewCount: 85,
-      desc: 'Ransel kanvas 22 liter dengan compartment laptop 15 inci, tali bahu empuk, dan bantalan punggung berlapis busa.',
-      specs: { 'Kapasitas': '22 liter', 'Bahan': 'Kanvas tebal dan poliester', 'Laptop': 'Sampai 15 inci', 'Warna': 'Navy dan marun', 'Minimum grosir': '12 pcs' },
-      isNew: false, isFeatured: true, isGrosir: true
-    }
-  ],
+/* ---------- Produk: ALAT TULIS & PERLENGKAPAN KULIAH ---------- */
+KWU_DATA.productsAlatTulis = [
+  P('Pulpen Gel 0,5 mm (Pak 12)', 'K-Stationery', 18000, 260, 'pak', 'assets/img/produk/pulpen-0.jpg',
+    'Pulpen gel 0,5 mm dengan tinta pekat dan ujung halus. Isi 12 buah per pak.',
+    { 'Isi': '12 pcs', 'Ukuran ponta': '0,5 mm', 'Warna tinta': 'Hitam dan biru', 'Kemasan': 'Pak foil' },
+    { tags: ['grosir'], isGrosir: true, sub: 'Pulpen' }),
+  P('Pensil 2B (Pak 12)', 'K-Stationery', 16000, 240, 'pak', 'assets/img/produk/pensil-3.jpg',
+    'Pensil kayu 2B dengan grafit yang mudah digariskan. Isi 12 buah per pak.',
+    { 'Isi': '12 pcs', 'Bahan': 'Kayu', 'Grafit': '2B', 'Kemasan': 'Pak transparan' },
+    { tags: ['grosir'], isGrosir: true, sub: 'Pensil' }),
+  P('Penghapus Kain (2 pcs)', 'K-Stationery', 8000, 320, 'set', 'assets/img/produk/penghapus-3.jpg',
+    'Penghapus kain yang tidak meninggalkan serbuk dan tidak merusak cetakan.',
+    { 'Isi': '2 pcs', 'Bahan': 'Kain', 'Warna': 'Putih dan hitam', 'Kemasan': 'Blister' },
+    { sub: 'Penghapus' }),
+  P('Penggaris 30 cm', 'K-Stationery', 7000, 280, 'pcs', 'assets/img/produk/penggaris-1.jpg',
+    'Penggaris plastik 30 cm dengan skala yang rapi dan tidak mudah patah.',
+    { 'Panjang': '30 cm', 'Bahan': 'Plastik ABS', 'Skala': 'Cm', 'Warna': 'Biru dan hijau' },
+    { sub: 'Penggaris' }),
+  P('Spidol 12 Warna (Set)', 'Ink Line', 45000, 190, 'set', 'assets/img/produk/marker-3.jpg',
+    'Set spidol 12 warna dengan tinta pekat dan ujung yang bisa diganti.',
+    { 'Isi': '12 spidol', 'Ujung': 'Ganda tip dan chisel', 'Tinta': 'Basis air', 'Kemasan': 'Kotak plastik' },
+    { tags: ['baru'], isNew: true, isFeatured: true, isGrosir: true, sub: 'Spidol' }),
+  P('Stabilo 4 Warna (Set)', 'Ink Line', 38000, 150, 'set', 'assets/img/produk/marker-1.jpg',
+    'Empat stabilo dengan tinta tebal dan tidak mudah blot saat ditegakkan.',
+    { 'Isi': '4 pcs', 'Lebar punta': '4 mm', 'Tinta': 'Albedo', 'Kemasan': 'Kotak transparan' },
+    { isGrosir: true, sub: 'Stabilo' }),
+  P('Buku Tulis A5 80 Halaman (4 pcs)', 'Kertas Timur', 16000, 380, 'paket', 'assets/img/produk/buku-2.jpg',
+    'Buku tulis A5 dengan kertas 80 gsm yang tidak menerawang. Isi 4 buku per paket.',
+    { 'Isi': '4 buku', 'Ukuran': 'A5 (14 x 21 cm)', 'Halaman': '80 bergaris', 'Kertas': '80 gsm' },
+    { tags: ['grosir'], isGrosir: true, sub: 'Buku Tulis' }),
+  P('Binder A4 7 cm', 'K-Stationery', 42000, 120, 'pcs', 'assets/img/produk/organizer-0.jpg',
+    'Binder A4 dengan mekanisme tiga cincin dan tulang punggung lebar 7 cm.',
+    { 'Ukuran': 'A4', 'Tebal punggung': '7 cm', 'Mekanisme': '3 cincin', 'Warna': 'Navy dan hitam' },
+    { isGrosir: true, sub: 'Binder' }),
+  P('Map Folder A4 (5 pcs)', 'K-Stationery', 35000, 160, 'pak', 'assets/img/produk/organizer-3.jpg',
+    'Map folder transparan dengan kantong dalam untuk menyimpan berkas tugas.',
+    { 'Isi': '5 pcs', 'Ukuran': 'A4', 'Bahan': 'Plastik PP', 'Warna': ' assorted' },
+    { isGrosir: true, sub: 'Map' }),
+  P('Kertas HVS A4 80 gsm (500 lembar)', 'Kertas Timur', 68000, 90, 'rim', 'assets/img/produk/buku-1.jpg',
+    'Kertas HVS 80 gsm untuk print, fotokopi, dan tugas laporan. Lima ratus lembar per rim.',
+    { 'Ukuran': 'A4', 'Berat': '80 gsm', 'Isi': '500 lembar', 'Warna': 'Putih' },
+    { isGrosir: true, sub: 'Kertas' }),
+  P('Kertas Folio Bergaris (250 lembar)', 'Kertas Timur', 72000, 75, 'rim', 'assets/img/produk/buku-3.jpg',
+    'Kertas folio bergaris 60 gsm untuk gambar teknik dan catatan besar.',
+    { 'Ukuran': 'Folio', 'Berat': '60 gsm', 'Isi': '250 lembar', 'Garis': 'Setiap 5 mm' },
+    { isGrosir: true, sub: 'Kertas' }),
+  P('Tinta Printer Botol 650 ml', 'K-Stationery', 95000, 60, 'botol', 'assets/img/produk/minumbotol-1.jpg',
+    'Tinta printer botol untuk printer inkjet, warna tajam, dan tidak mudah kebocor.',
+    { 'Volume': '650 ml', 'Jenis printer': 'Inkjet', 'Warna': 'Hitam dan CMYK', 'Kemasan': 'Botol' },
+    { isGrosir: true, sub: 'Tinta Printer' }),
+  P('Flashdisk 32 GB', 'K-Stationery', 78000, 70, 'pcs', 'assets/img/produk/binderclip-1.jpg',
+    'Flashdisk 32 GB untuk menyimpan tugas, materi, dan data presentasi.',
+    { 'Kapasitas': '32 GB', 'Antarmuka': 'USB 3.0', 'Kecepatan': 'Sampai 80 MB per detik', 'Warna': 'Hitam' },
+    { isGrosir: true, sub: 'Flashdisk' }),
+  P('Kabel Data USB-C 1 Meter', 'K-Stationery', 35000, 140, 'pcs', 'assets/img/produk/binderclip-2.jpg',
+    'Kabel data USB-C untuk mengisi daya dan transfer file ke laptop atau ponsel.',
+    { 'Panjang': '1 meter', 'Konektor': 'USB-C ke USB-A', 'Daya': '60 W', 'Warna': 'Hitam' },
+    { isGrosir: true, sub: 'Kabel Data' }),
+  P('Materai 10.000 (20 lembar)', 'K-Stationery', 210000, 50, 'paket', 'assets/img/produk/stiker-0.jpg',
+    'Materai kertas untuk surat dan pengurusan berkas administrasi.',
+    { 'Isi': '20 lembar', 'Nilai': '10.000 rupiah', 'Warna': 'Cokelat muda' },
+    { isGrosir: true, sub: 'Materai' }),
+  P('Amplop Cokelat (20 lembar)', 'K-Stationery', 14000, 180, 'paket', 'assets/img/produk/stiker-1.jpg',
+    'Amplop cokelat ukuran surat untuk kirim berkas dan tugas.',
+    { 'Isi': '20 lembar', 'Ukuran': 'Half Kilo', 'Bahan': 'Kraft' },
+    { isGrosir: true, sub: 'Amplop' }),
+  P('Lakban Isolasi (12 rolls)', 'K-Stationery', 42000, 130, 'pak', 'assets/img/produk/stiker-2.jpg',
+    'Lakban isolate bening 18 mm dengan panjang 10 meter, lengket rapi dan mudah disobek.',
+    { 'Isi': '12 rolls', 'Ukuran': '18 mm x 10 m', 'Warna': 'Bening' },
+    { isGrosir: true, sub: 'Lakban' }),
+  P('Double Tape (2 rolls)', 'K-Stationery', 28000, 110, 'pak', 'assets/img/produk/organizer-1.jpg',
+    'Double tape dua sisi 12 mm untuk menyegel berkas dan kardus.',
+    { 'Isi': '2 rolls', 'Lebar': '12 mm', 'Panjang': '10 m', 'Bahan': 'Busa akrilik' },
+    { isGrosir: true, sub: 'Double Tape' }),
+  P('Gunting Kantor', 'K-Stationery', 18000, 90, 'pcs', 'assets/img/produk/penghapus-2.jpg',
+    'Gunting kantor baja dengan pegangan karet yang nyaman dipakai lama.',
+    { 'Panjang': '7 inci', 'Bahan': 'Baja tahan karat', 'Pegangan': 'Karet', 'Warna': 'Hitam' },
+    { sub: 'Gunting' }),
+  P('Cutter Snap Off', 'K-Stationery', 12000, 200, 'pcs', 'assets/img/produk/penghapus-1.jpg',
+    'Cutter dengan delapan mata pisau yang bisa patah saat tumpul.',
+    { 'Jumlah mata': '8', 'Panjang': '13 cm', 'Bahan': 'Plastik dan baja', 'Warna': ' assorted' },
+    { sub: 'Cutter' })
+];
 
-  /* ---------- Produk: ALAT TULIS & KREATIVITAS ---------- */
-  productsStationery: [
-    {
-      id: 'at01', slug: 'buku-tulis-a5-polos-80-hal', name: 'Buku Tulis A5 Polos 80 hal', brand: 'Kertas Timur',
-      category: 'alat-tulis', price: 18000, comparePrice: null, stock: 380, unit: 'pcs', minOrder: 12,
-      image: 'assets/img/produk/buku-2.jpg', gallery: ['assets/img/produk/buku-2.jpg', 'assets/img/produk/buku-1.jpg'],
-      tags: ['grosir'], rating: 4.4, reviewCount: 210,
-      desc: 'Buku tulis A5 dengan kertas 80 gsm yang tidak menerawang saat ditulis pensil. Sampul laminasi tebal dan nyaman ditulis di atasnya.',
-      specs: { 'Ukuran': 'A5 (14 x 21 cm)', 'Halaman': '80 halaman bergaris', 'Kertas': '80 gsm', 'Sampul': 'Laminasi', 'Minimum grosir': '12 pcs' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'at02', slug: 'set-pulpen-12-warna-ink', name: 'Set Pulpen 12 Warna', brand: 'Ink Line',
-      category: 'alat-tulis', price: 32000, comparePrice: 38000, stock: 260, unit: 'set', minOrder: 12,
-      image: 'assets/img/produk/pulpen-0.jpg', gallery: ['assets/img/produk/pulpen-0.jpg', 'assets/img/produk/pulpen-2.jpg'],
-      tags: ['unggulan'], rating: 4.6, reviewCount: 156,
-      desc: 'Dua belas pulpen dengan warna yang jelas dan tidak luntur di kertas biasa. Ujung berpori membuat tulisan tidak blotchy.',
-      specs: { 'Isi': '12 pulpen', 'Ujung': '0,5 mm', 'Warna': '12 warna dasar', 'Tinta': 'Pigmen', 'Kemasan': 'Pouch zip' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'at03', slug: 'set-spidol-fruit-6-warna', name: 'Set Spidol Fruit 6 Warna', brand: 'Ink Line',
-      category: 'alat-tulis', price: 45000, comparePrice: null, stock: 190, unit: 'set', minOrder: 12,
-      image: 'assets/img/produk/marker-3.jpg', gallery: ['assets/img/produk/marker-3.jpg', 'assets/img/produk/marker-1.jpg'],
-      tags: ['baru'], rating: 4.7, reviewCount: 92,
-      desc: 'Spidol marker dengan tinta berbasis air, warnanya mencolok dan bisa dipoles ulang. Ujung ganda yang bisa diubah untuk garis tipis atau tebal.',
-      specs: { 'Isi': '6 spidol', 'Ujung': 'Ganda, tip dan chisel', 'Tinta': 'Basis air', 'Warna': 'Fruit set', 'Perawatan': 'Tutup rapat setelah pakai' },
-      isNew: true, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'at04', slug: 'sticky-notes-80-lembar-warna', name: 'Sticky Notes 80 lembar', brand: 'Tempel',
-      category: 'alat-tulis', price: 16000, comparePrice: null, stock: 340, unit: 'pak', minOrder: 20,
-      image: 'assets/img/produk/sticky-0.jpg', gallery: ['assets/img/produk/sticky-0.jpg', 'assets/img/produk/sticky-1.jpg'],
-      tags: [], rating: 4.5, reviewCount: 118,
-      desc: 'Sticky notes 80 lembar dengan perekat yang kuat dan mudah dilepas tanpa meninggalkan noda. Empat warna dalam satu pak.',
-      specs: { 'Isi': '80 lembar', 'Ukuran': '76 x 76 mm', 'Warna': '4 warna', 'Perekat': 'Akrilik', 'Kemasan': 'Pak pilihan' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'at05', slug: 'pensil-warna-24-warna-hexagonal', name: 'Pensil Warna 24 Warna', brand: 'Kreasindo',
-      category: 'alat-tulis', price: 38000, comparePrice: 45000, stock: 230, unit: 'set', minOrder: 12,
-      image: 'assets/img/produk/pensil-3.jpg', gallery: ['assets/img/produk/pensil-3.jpg', 'assets/img/produk/pensil-1.jpg'],
-      tags: ['grosir'], rating: 4.6, reviewCount: 134,
-      desc: 'Pensil warna 24 warna dengan bentuk hexagonal yang nyaman digenggam. Warnanya pekat dan bisa diaplikasi dengan air untuk efek menyatu.',
-      specs: { 'Isi': '24 warna', 'Bentuk': 'Hexagonal', 'Bahan': 'Kayu', 'Ujung': 'Y-shape', 'Kemasan': 'Kardus segitiga' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'at06', slug: 'penghapus-dan-correction-pen', name: 'Penghapus dan Correction Pen', brand: 'Keras',
-      category: 'alat-tulis', price: 14000, comparePrice: null, stock: 410, unit: 'set', minOrder: 24,
-      image: 'assets/img/produk/penghapus-3.jpg', gallery: ['assets/img/produk/penghapus-3.jpg', 'assets/img/produk/penghapus-2.jpg'],
-      tags: [], rating: 4.3, reviewCount: 97,
-      desc: 'Set penghapus dan correction pen dalam satu kemasan. Penghapusnya tidak meninggalkan serbuk, correction pennya cepat kering.',
-      specs: { 'Isi': '2 penghapus dan 1 pen', 'Ukuran penghapus': '60 x 22 mm', 'Volume pen': '6 ml', 'Warna pen': 'Putih', 'Kemasan': 'Blister' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'at07', slug: 'box-organizer-5-slot-rapi', name: 'Box Organizer 5 Slot', brand: 'Rapi',
-      category: 'alat-tulis', price: 65000, comparePrice: 78000, stock: 120, unit: 'pcs', minOrder: 6,
-      image: 'assets/img/produk/organizer-0.jpg', gallery: ['assets/img/produk/organizer-0.jpg', 'assets/img/produk/organizer-3.jpg'],
-      tags: ['grosir'], rating: 4.6, reviewCount: 68,
-      desc: 'Box organizer dengan lima slot yang bisa diatur lebarnya. Cocok untuk merapikan meja kerja, rak buku, atau alat praktikum.',
-      specs: { 'Slot': '5 slot', 'Bahan': 'ABS tebal', 'Ukuran': '33 x 24 x 12 cm', 'Warna': 'Putih dan abu', 'Minimum grosir': '6 pcs' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'at08', slug: 'binder-clip-12-pcs-kuat', name: 'Binder Clip 12 pcs', brand: 'Kuat',
-      category: 'alat-tulis', price: 19000, comparePrice: null, stock: 300, unit: 'pak', minOrder: 20,
-      image: 'assets/img/produk/binderclip-1.jpg', gallery: ['assets/img/produk/binderclip-1.jpg', 'assets/img/produk/binderclip-2.jpg'],
-      tags: [], rating: 4.4, reviewCount: 73,
-      desc: 'Binder clip dua belas ukuran dengan lapisan bubuk yang tidak mudah berkarat. Kuat menjepit tumpukan kertas tebal.',
-      specs: { 'Isi': '12 pcs', 'Ukuran': '19, 25, 32, 51 mm', 'Bahan': 'Baja dan resin', 'Lapisan': 'Powder coating', 'Kemasan': 'Kardus' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'at09', slug: 'set-penggaris-dan-jangka', name: 'Set Penggaris dan Jangka', brand: 'Keras',
-      category: 'alat-tulis', price: 22000, comparePrice: null, stock: 280, unit: 'set', minOrder: 12,
-      image: 'assets/img/produk/penggaris-1.jpg', gallery: ['assets/img/produk/penggaris-1.jpg', 'assets/img/produk/penggaris-3.jpg'],
-      tags: [], rating: 4.2, reviewCount: 54,
-      desc: 'Set penggaris 30 cm dan jangka gambar untuk kebutuhan sekolah dan gambar teknik. Bahan plastik ABS yang tidak mudah patah.',
-      specs: { 'Isi': 'Penggaris 30 cm dan jangka', 'Bahan': 'ABS dan baja', 'Skala': 'Cm', 'Warna': 'Biru dan hijau', 'Kemasan': 'Plastik bening' },
-      isNew: false, isFeatured: false, isGrosir: true
-    }
-  ],
+/* ---------- Produk: LAYANAN KAMPUS ---------- */
+KWU_DATA.productsLayanan = [
+  P('Fotokopi per Lembar', 'Layanan KWU', 500, 9999, 'lembar', 'assets/img/produk/fotokopi-0.jpg',
+    'Fotokopi hitam putih untuk berkas administrasi, makalah, dan tugas.',
+    { 'Ukuran': 'A4 dan F4', 'Warna': 'Hitam putih', 'Kertas': 'Minimal 70 gsm', 'Estimasi': 'Selesai hari yang sama' },
+    { type: 'layanan', sub: 'Fotokopi' }),
+  P('Print A4 Hitam Putih per Lembar', 'Layanan KWU', 300, 9999, 'lembar', 'assets/img/produk/fotokopi-1.jpg',
+    'Print dokumen A4 hitam putih dengan hasil rapi dan font tetap terbaca.',
+    { 'Ukuran': 'A4', 'Warna': 'Hitam putih', 'Resolusi': '600 dpi', 'Estimasi': 'Selesai hari yang sama' },
+    { type: 'layanan', sub: 'Print' }),
+  P('Print A4 Full Colour per Lembar', 'Layanan KWU', 1500, 9999, 'lembar', 'assets/img/produk/pasfoto-0.jpg',
+    'Print dokumen A4 berwarna untuk makalah, poster, dan laporan bertabel.',
+    { 'Ukuran': 'A4', 'Warna': 'Full colour', 'Kertas': 'Glossy atau doff', 'Estimasi': 'Selesai hari yang sama' },
+    { type: 'layanan', sub: 'Print' }),
+  P('Jilid Skripsi Spiral', 'Layanan KWU', 35000, 9999, 'eksemplar', 'assets/img/produk/jilid-0.jpg',
+    'Penjilidan skripsi dengan spiral keras dan mika depan_customs.',
+    { 'Jumlah halaman': 'Minimal 40 halaman', 'Cover': 'Mika warna', 'Pita': 'Putih atau warna', 'Estimasi': '2 hari kerja' },
+    { type: 'layanan', isFeatured: true, sub: 'Jilid' }),
+  P('Jilid Skripsi Hard Cover', 'Layanan KWU', 55000, 9999, 'eksemplar', 'assets/img/produk/jilid-1.jpg',
+    'Penjilidan skripsi dan laporan dengan cover hard cover dan pita emas.',
+    { 'Jumlah halaman': 'Minimal 40 halaman', 'Cover': 'Hard cover', 'Pita': 'Emas', 'Estimasi': '3 hari kerja' },
+    { type: 'layanan', isFeatured: true, sub: 'Jilid' }),
+  P('Jilid Laporan dan Makalah', 'Layanan KWU', 25000, 9999, 'eksemplar', 'assets/img/produk/buku-2.jpg',
+    'Penjilidan laporan, makalah, dan proposal dengan mika depan.',
+    { 'Jumlah halaman': 'Minimal 20 halaman', 'Cover': 'Mika', 'Pita': 'Warna', 'Estimasi': '1 hari kerja' },
+    { type: 'layanan', sub: 'Jilid' }),
+  P('Laminating A4 per Lembar', 'Layanan KWU', 3000, 9999, 'lembar', 'assets/img/produk/laminate-0.jpg',
+    'Laminating dokumen A4 dengan film tebal dan bening.',
+    { 'Ukuran': 'A4', 'Ketebalan film': '0,3 mm', 'Pilihan': 'Bening atau glossy', 'Estimasi': 'Selesai hari yang sama' },
+    { type: 'layanan', sub: 'Laminating' }),
+  P('Cetak Pas Foto', 'Layanan KWU', 5000, 9999, 'set', 'assets/img/produk/pasfoto-1.jpg',
+    'Cetak pas foto ukuran 3 x 4 untuk kebutuhan administrasi dan berkas.',
+    { 'Ukuran': '3 x 4 cm', 'Jumlah': '1 lembar berisi 4 foto', 'Background': 'Putih atau biru', 'Estimasi': 'Selesai hari yang sama' },
+    { type: 'layanan', sub: 'Cetak Foto' })
+];
 
-  /* ---------- Produk: PAKET HEMAT ---------- */
-  productsBundles: [
-    {
-      id: 'pk01', slug: 'paket-sarapan-kantor', name: 'Paket Sarapan Kantor', brand: 'Paket Hemat',
-      category: 'paket', price: 129000, comparePrice: 158000, stock: 60, unit: 'paket', minOrder: 5,
-      image: 'assets/img/produk/hadiah-0.jpg', gallery: ['assets/img/produk/hadiah-0.jpg', 'assets/img/produk/kopisusu-1.jpg'],
-      tags: ['unggulan', 'grosir'], rating: 4.7, reviewCount: 87,
-      desc: 'Satu paket untuk 10 orang: kopi susu gula aren, teh celup, dan biskuit assortment. Praktis untuk rapat pagi tanpa pesan satu per satu.',
-      specs: { 'Isi': '10 kopi susu, 2 dus teh, 2 biskuit', 'Untuk': '10 orang', 'Bonus': 'Kartu ucapan', 'Minimum grosir': '5 paket' },
-      isNew: false, isFeatured: true, isGrosir: true
-    },
-    {
-      id: 'pk02', slug: 'paket-alat-tulis-gtk', name: 'Paket Alat Tulis GTK', brand: 'Paket Hemat',
-      category: 'paket', price: 149000, comparePrice: 182000, stock: 45, unit: 'paket', minOrder: 4,
-      image: 'assets/img/produk/organizer-3.jpg', gallery: ['assets/img/produk/organizer-3.jpg', 'assets/img/produk/buku-1.jpg'],
-      tags: ['grosir'], rating: 4.6, reviewCount: 54,
-      desc: 'Bundling alat tulis lengkap untuk satu meja kerja: buku tulis, set pulpen, sticky notes, box organizer, dan penghapus.',
-      specs: { 'Isi': 'Buku, pulpen, sticky, organizer, penghapus', 'Jumlah': '5 jenis per paket', 'Bonus': 'Kartu ucapan', 'Minimum grosir': '4 paket' },
-      isNew: false, isFeatured: false, isGrosir: true
-    },
-    {
-      id: 'pk03', slug: 'paket-merchandise-tim', name: 'Paket Merchandise Tim', brand: 'Paket Hemat',
-      category: 'paket', price: 279000, comparePrice: 342000, stock: 32, unit: 'paket', minOrder: 3,
-      image: 'assets/img/produk/kaos-2.jpg', gallery: ['assets/img/produk/kaos-2.jpg', 'assets/img/produk/totebag-0.jpg'],
-      tags: ['grosir'], rating: 4.8, reviewCount: 46,
-      desc: 'Satu paket berisi kaos, tote bag, topi, dan tumbler. Dipakai untuk souvenir acara, merchandise tim, atau hadiah mitra.',
-      specs: { 'Isi': 'Kaos, tote bag, topi, tumbler', 'Ukuran': 'S sampai XXL', 'Penghematan': 'Sekitar Rp 63.000', 'Minimum grosir': '3 paket' },
-      isNew: false, isFeatured: true, isGrosir: true
-    }
-  ]
+/* ---------- Produk: ATRIBUT KAMPUS ---------- */
+KWU_DATA.productsAtribut = [
+  P('Jas Almamater', 'Koleksi KWU', 175000, 45, 'pcs', 'assets/img/produk/kaos-0.jpg',
+    'Jas almamater dengan bahan drill, bordir nama, dan ukuran yang mengikuti pesanan.',
+    { 'Bahan': 'Drill premium', 'Kustom': 'Nama dan angkatan', 'Ukuran': 'S sampai 3XL', 'Warna': 'Hitam' },
+    { isGrosir: true, isFeatured: true, sub: 'Jas' }),
+  P('Kaos PDH Kampus', 'Koleksi KWU', 85000, 120, 'pcs', 'assets/img/produk/kaos-1.jpg',
+    'Kaos PDH kampus dari katun combed dengan cetak logo departemen.',
+    { 'Bahan': 'Cotton combed 24s', 'Ukuran': 'S sampai XXL', 'Cetak': 'DTF', 'Warna': 'Sesuai minat' },
+    { isGrosir: true, sub: 'PDH' }),
+  P('Topi Kampus', 'Koleksi KWU', 55000, 110, 'pcs', 'assets/img/produk/topi-1.jpg',
+    'Topi kampus dengan bordir logo dan tali belakang yang bisa diatur.',
+    { 'Bahan': 'Katun twill', 'Lingkar': '54 sampai 60 cm', 'Bordir': 'Logo departemen', 'Warna': 'Hitam dan navy' },
+    { isGrosir: true, sub: 'Topi' }),
+  P('Pin Penanda Nama (10 pcs)', 'K-Stationery', 25000, 130, 'paket', 'assets/img/produk/pulpen-2.jpg',
+    'Pin penanda nama untuk jas dan PDH, isi sepuluh buah per paket.',
+    { 'Isi': '10 pcs', 'Ukuran': '2,5 cm', 'Bahan': 'Logam', 'Warna': 'Emas dan perak' },
+    { isGrosir: true, sub: 'Pin' }),
+  P('Tanda Pengenal ID Card', 'K-Stationery', 20000, 160, 'pcs', 'assets/img/produk/stiker-0.jpg',
+    'Lanyard tanda pengenal dengan hook dan cetakan nama atau logo.',
+    { 'Lebar': '2 cm', 'Panjang': '90 cm', 'Bahan': 'Polyester', 'Tempat': 'Kartu ID card' },
+    { isGrosir: true, sub: 'Tanda Pengenal' }),
+  P('Totebag Merchandise Kampus', 'Serat Lokal', 45000, 200, 'pcs', 'assets/img/produk/totebag-0.jpg',
+    'Totebag kanvas serat dengan cetak logo departemen dan compartment dalam.',
+    { 'Bahan': 'Kanvas serat 12 oz', 'Ukuran': '38 x 42 x 12 cm', 'Cetak': 'Plastisol', 'Warna': 'Natural' },
+    { isGrosir: true, isFeatured: true, sub: 'Merchandise' }),
+  P('Tumbler Merchandise Kampus', 'Pelan', 79000, 120, 'pcs', 'assets/img/produk/tumbler-2.jpg',
+    'Tumbler stainless 500 ml dengan logo departemen terukir laser.',
+    { 'Volume': '500 ml', 'Material': 'Stainless 316', 'Lapis': 'Vakum ganda', 'Warna': 'Hitam' },
+    { isGrosir: true, isFeatured: true, sub: 'Merchandise' }),
+  P('Gantungan Kunci Merchandise', 'Koleksi KWU', 25000, 180, 'pcs', 'assets/img/produk/kaos-2.jpg',
+    'Gantungan kunci karet dengan bentuk logo departemen, ringan dan tahan lama.',
+    { 'Bahan': 'Karet', 'Bentuk': 'Custom logo', 'Rantai': 'Nilon', 'Warna': ' assorted' },
+    { isGrosir: true, sub: 'Merchandise' })
+];
+
+/* ---------- Produk: MAKANAN ---------- */
+KWU_DATA.productsMakanan = [
+  P('Keripik Kentang Ori (5 pcs)', 'Sari Banih', 12000, 260, 'pak', 'assets/img/produk/pisanggoreng-0.jpg',
+    'Keripik kentang dengan minyak goreng baru dan rasa gurih. Isi lima pouch per pak.',
+    { 'Isi': '5 pouch', 'Berat bersih': '60 gram per pouch', 'Rasa': 'Original dan pedas', 'Daya simpan': '4 bulan' },
+    { tags: ['grosir'], isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Keripik Singkong (5 pcs)', 'Sari Banih', 12000, 240, 'pak', 'assets/img/produk/pisanggoreng-1.jpg',
+    'Keripik singkong renyah dengan potongan singkong utuh di dalam.',
+    { 'Isi': '5 pouch', 'Berat bersih': '60 gram per pouch', 'Rasa': 'Original', 'Daya simpan': '4 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Keripik Pisang (5 pcs)', 'Sari Banih', 10000, 250, 'pak', 'assets/img/produk/keripik-1.jpg',
+    'Keripik pisang manis dengan tekstur renyah yang tahan lama.',
+    { 'Isi': '5 pouch', 'Berat bersih': '50 gram per pouch', 'Rasa': 'Original dan pisang', 'Daya simpan': '4 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Kerupuk Udang (2 packs)', 'Samudra Kencana', 12000, 230, 'pak', 'assets/img/produk/kerupuk-0.jpg',
+    'Kerupuk udang renyah dengan rasa udang yang terasa.',
+    { 'Isi': '2 packs', 'Berat bersih': '250 gram', 'Rasa': 'Original dan pedas', 'Daya simpan': '5 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Makaroni Goreng (1 pack)', 'Sari Banih', 14000, 200, 'pak', 'assets/img/produk/kerupuk-1.jpg',
+    'Makaroni goreng bungkus dengan bumbu kuning yang gurih dan cepat matang.',
+    { 'Isi': '1 pack', 'Berat bersih': '150 gram', 'Bahan': 'Tepung gandum', 'Daya simpan': '6 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Biskuit Kaleng (1 tin)', 'Gandum Jaya', 22000, 190, 'kaleng', 'assets/img/produk/biskuit-1.jpg',
+    'Biskuit pilihan dalam kaleng yang mudah diportion dan dibawa ke kelas.',
+    { 'Isi': '1 kaleng', 'Berat bersih': '300 gram', 'Rasa': ' assorted', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Wafer Rol (1 pack)', 'Gandum Jaya', 11000, 220, 'pak', 'assets/img/produk/biskuit-3.jpg',
+    'Wafer rol renyah dengan lapisan cokelat yang manis.',
+    { 'Isi': '1 pak', 'Berat bersih': '115 gram', 'Rasa': ' assorted', 'Daya simpan': '6 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Cokelat Batang (10 pcs)', 'Buah Naga', 18000, 200, 'pak', 'assets/img/produk/snackbox-2.jpg',
+    'Cokelat batang dengan taburan dan isi creamy, praktis jadi camilan.',
+    { 'Isi': '10 pcs', 'Berat bersih': '240 gram', 'Rasa': ' assorted', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Permen Jelly (1 pack)', 'Fruit Kitchen', 12000, 240, 'pak', 'assets/img/produk/jelly-0.jpg',
+    'Permen jelly lembut dengan berbagai rasa buah.',
+    { 'Isi': '1 pack', 'Berat bersih': '300 gram', 'Rasa': ' assorted', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Permen Karet (1 pack)', 'Fruit Kitchen', 8000, 260, 'pak', 'assets/img/produk/jelly-2.jpg',
+    'Permen karet dengan rasa buah yang menyegarkan.',
+    { 'Isi': '1 pack', 'Berat bersih': '250 gram', 'Rasa': ' assorted', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Kacang Goreng (2 packs)', 'Sari Banih', 16000, 230, 'pak', 'assets/img/produk/kerupuk-1.jpg',
+    'Kacang goreng renyah dengan minyak wangi dan amis yang gurih.',
+    { 'Isi': '2 packs', 'Berat bersih': '200 gram', 'Rasa': 'Original dan Original', 'Daya simpan': '4 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Kuaci Kacang (1 pack)', 'Sari Banih', 15000, 210, 'pak', 'assets/img/produk/biskuit-2.jpg',
+    'Kuaci kacang sizeof yang renyah dan manis legit.',
+    { 'Isi': '1 pack', 'Berat bersih': '200 gram', 'Rasa': 'Original', 'Daya simpan': '4 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Popcorn Jagung (1 pack)', 'Sari Banih', 12000, 180, 'pak', 'assets/img/produk/snackbox-1.jpg',
+    'Popcorn jagung binggung tanpa minyak yang ringan dan gurih.',
+    { 'Isi': '1 pack', 'Berat bersih': '180 gram', 'Rasa': 'Original dan mentega', 'Daya simpan': '5 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Pilus Kentang (1 pack)', 'Sari Banih', 9000, 190, 'pak', 'assets/img/produk/snackbox-3.jpg',
+    'Pilus kentang dengan Tekstur kenyal dan rasa ringan.',
+    { 'Isi': '1 pack', 'Berat bersih': '70 gram', 'Rasa': ' assorted', 'Daya simpan': '5 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Stick Snack (1 pack)', 'Sari Banih', 13000, 170, 'pak', 'assets/img/produk/snackbox-0.jpg',
+    'Stick snack gandum dengan dua pilihan rasa dan tekstur renyah.',
+    { 'Isi': '1 pack', 'Berat bersih': '160 gram', 'Rasa': ' assorted', 'Daya simpan': '6 bulan' },
+    { isGrosir: true, sub: 'Camilan Ringan' }),
+  P('Roti Tawar (2 loaf)', 'Sarana Bakery', 32000, 80, 'paket', 'assets/img/produk/roti-0.jpg',
+    'Roti tawar fermentasi alami dengan tekstur lembut dan bagian luar yang garing.',
+    { 'Isi': '2 loaf', 'Berat bersih': '800 gram', 'Bahan': 'Tepung, ragi, susu', 'Daya simpan': '2 hari' },
+    { isFeatured: true, sub: 'Roti' }),
+  P('Roti Isi Cokelat', 'Sarana Bakery', 9000, 120, 'pcs', 'assets/img/produk/roti-1.jpg',
+    'Roti isi cokelat dengan lapisan cokelat pekat yang meleleh.',
+    { 'Berat bersih': '80 gram', 'Isi': 'Cokelat', 'Kemasan': 'Kraft paper' },
+    { isGrosir: true, sub: 'Roti Isi' }),
+  P('Roti Isi Keju', 'Sarana Bakery', 9000, 110, 'pcs', 'assets/img/produk/kuebasah-0.jpg',
+    'Roti isi keju dengan lapisan keju yang lumer saat dipanaskan.',
+    { 'Berat bersih': '80 gram', 'Isi': 'Keju cheddar', 'Kemasan': 'Kraft paper' },
+    { isGrosir: true, sub: 'Roti Isi' }),
+  P('Roti Isi Srikaya', 'Sarana Bakery', 10000, 100, 'pcs', 'assets/img/produk/kuebasah-1.jpg',
+    'Roti isi srikaya dengan rasa manis dan aroma kelapa yang khas.',
+    { 'Berat bersih': '85 gram', 'Isi': 'Srikaya', 'Kemasan': 'Kraft paper' },
+    { isGrosir: true, sub: 'Roti Isi' }),
+  P('Roti Sobek (4 pcs)', 'Sarana Bakery', 18000, 95, 'pak', 'assets/img/produk/kuilapis-1.jpg',
+    'Roti sobek lembut dengan bagian dalam yang bertekstur rapi.',
+    { 'Isi': '4 pcs', 'Berat bersih': '400 gram', 'Bahan': 'Tepung, mentega, susu', 'Daya simpan': '2 hari' },
+    { isGrosir: true, sub: 'Roti' }),
+  P('Bolu Kukus (4 pcs)', 'Dapoer Manis', 20000, 90, 'pak', 'assets/img/produk/kuebasah-1.jpg',
+    'Bolu kukus lembut dengan pemanis gula aren dan aroma hangat.',
+    { 'Isi': '4 pcs', 'Berat bersih': '400 gram', 'Daya simpan': '2 hari', 'Kondisi': 'Simpan di lemari es' },
+    { isGrosir: true, sub: 'Kue Basah' }),
+  P('Donat Gula (4 pcs)', 'Dapoer Manis', 22000, 85, 'pak', 'assets/img/produk/donat-0.jpg',
+    'Donat gula lembut dengan lapisan gula aren di bagian atas.',
+    { 'Isi': '4 pcs', 'Berat bersih': '400 gram', 'Daya simpan': '2 hari', 'Kondisi': 'Simpan di lemari es' },
+    { isGrosir: true, isFeatured: true, sub: 'Kue Basah' }),
+  P('Kue Basah assorted (6 pcs)', 'Dapoer Manis', 24000, 80, 'pak', 'assets/img/produk/kuebasah-0.jpg',
+    'Aneka kue basah untuk sarapan, lembut dan manis legit.',
+    { 'Isi': '6 pcs', 'Varian': ' assorted', 'Daya simpan': '2 hari', 'Kondisi': 'Simpan di lemari es' },
+    { isGrosir: true, sub: 'Kue Basah' }),
+  P('Gorengan Tahu Isi (5 pcs)', 'Dapur Rindu', 10000, 140, 'bungkus', 'assets/img/produk/satay-1.jpg',
+    'Tahu goreng isi sayur dan bumbu, paling enak dimakan selagi hangat.',
+    { 'Isi': '5 pcs', 'Kemasan': 'Kraft paper', 'Daya simpan': '6 jam', 'Kondisi': 'Untuk hari yang sama' },
+    { isGrosir: true, sub: 'Gorengan' }),
+  P('Gorengan Pisang (5 pcs)', 'Dapur Rindu', 12000, 130, 'bungkus', 'assets/img/produk/pisanggoreng-0.jpg',
+    'Pisang goreng dengan lapisan renyah dan gula yang melimpah.',
+    { 'Isi': '5 pcs', 'Kemasan': 'Kraft paper', 'Daya simpan': '6 jam', 'Kondisi': 'Untuk hari yang sama' },
+    { isGrosir: true, sub: 'Gorengan' }),
+  P('Lemper Ayam (4 pcs)', 'Dapur Rindu', 14000, 120, 'bungkus', 'assets/img/produk/satay-0.jpg',
+    'Lemper ayam goreng dengan lapisan luar yang renyah dan empuk di dalam.',
+    { 'Isi': '4 pcs', 'Kemasan': 'Kraft paper', 'Daya simpan': '6 jam', 'Kondisi': 'Untuk hari yang sama' },
+    { isGrosir: true, sub: 'Gorengan' }),
+  P('Nasi Bungkus', 'Kantin Terpadu', 18000, 60, 'bungkus', 'assets/img/produk/nasi-1.jpg',
+    'Nasi bungkus dengan lauk pilihan dan sambal. Dipesan untuk hari yang sama.',
+    { 'Isi': '1 bungkus', 'Lauk': 'Pilihan saat pesan', 'Berat': '400 gram', 'Pesan': 'Dipesan hari yang sama' },
+    { type: 'makanan-sehari', isGrosir: true, sub: 'Nasi' }),
+  P('Nasi Kuning', 'Kantin Terpadu', 20000, 50, 'bungkus', 'assets/img/produk/beras-0.jpg',
+    'Nasi kuning santan dengan suwiran, ayam, dan tempe goreng.',
+    { 'Isi': '1 bungkus', 'Lauk': 'Ayam, suwiran, tempe', 'Berat': '400 gram', 'Pesan': 'Dipesan hari yang sama' },
+    { type: 'makanan-sehari', isGrosir: true, sub: 'Nasi' }),
+  P('Lontong Sayur', 'Kantin Terpadu', 16000, 55, 'bungkus', 'assets/img/produk/beras-1.jpg',
+    'Lontong sayur bening dengan sawi, wortel, dan sambal segar.',
+    { 'Isi': '1 bungkus', 'Lauk': 'Sayur bening dan sambal', 'Berat': '350 gram', 'Pesan': 'Dipesan hari yang sama' },
+    { type: 'makanan-sehari', isGrosir: true, sub: 'Nasi' }),
+  P('Mi Instan Goreng (5 pcs)', 'Mi Saku', 15000, 260, 'pak', 'assets/img/produk/mie-0.jpg',
+    'Mi instan goreng bungkus dengan bumbu khas dan mie yang tidak mudah hancur.',
+    { 'Isi': '5 pcs', 'Berat bersih': '85 gram per bungkus', 'Rasa': 'Goreng original', 'Daya simpan': '9 bulan' },
+    { tags: ['grosir'], isGrosir: true, sub: 'Mi Instan' }),
+  P('Mi Instan Kuah (5 pcs)', 'Mi Saku', 15000, 250, 'pak', 'assets/img/produk/mie-1.jpg',
+    'Mi instan kuah dengan kaldu bening dan bumbu rempah yang harum.',
+    { 'Isi': '5 pcs', 'Berat bersih': '80 gram per bungkus', 'Rasa': 'Kuah original', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Mi Instan' }),
+  P('Mi Instan Soto (5 pcs)', 'Mi Saku', 17000, 210, 'pak', 'assets/img/produk/mie-0.jpg',
+    'Mi instan soto dengan kuah bening berbumbu rempah.',
+    { 'Isi': '5 pcs', 'Berat bersih': '80 gram per bungkus', 'Rasa': 'Soto original', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Mi Instan' }),
+  P('Cup Noodle (3 pcs)', 'Cup Nasi', 19000, 200, 'pak', 'assets/img/produk/mie-1.jpg',
+    'Cup noodle praktis, tinggal seduh air panas dan diamkan tiga menit.',
+    { 'Isi': '3 cups', 'Berat bersih': '60 gram per cup', 'Rasa': ' assorted', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Mi Instan' }),
+  P('Mi Gelas (2 pcs)', 'Cup Nasi', 16000, 150, 'pak', 'assets/img/produk/mie-0.jpg',
+    'Mi dalam kemasan gelas dengan porsi pas untuk=AJAX jam kerja.',
+    { 'Isi': '2 cups', 'Berat bersih': '75 gram per cup', 'Rasa': ' assorted', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Mi Instan' }),
+  P('Bubur Instan (4 cups)', 'Semalam Kitchen', 24000, 130, 'pak', 'assets/img/produk/beras-0.jpg',
+    'Bubur instan dengan nasi dan sup hangat, praktis untuk sarapan cepat.',
+    { 'Isi': '4 cups', 'Berat bersih': '55 gram per cup', 'Rasa': ' assorted', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Makanan Instan' }),
+  P('Oatmeal Instan (6 cups)', 'Semalam Kitchen', 26000, 120, 'pak', 'assets/img/produk/kuebasah-0.jpg',
+    'Oatmeal instan dengan gandum utuh, tinggi protein, dan cepat disiapkan.',
+    { 'Isi': '6 cups', 'Berat bersih': '40 gram per cup', 'Rasa': ' assorted', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Makanan Instan' }),
+  P('Sereal Box (1 box)', 'Semalam Kitchen', 32000, 110, 'box', 'assets/img/produk/cucur-0.jpg',
+    'Sereal gandum dengan bentuk dan rasa yang bervariasi.',
+    { 'Isi': '1 box', 'Berat bersih': '330 gram', 'Rasa': ' assorted', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Makanan Instan' }),
+  P('Sosis Nugget (10 pcs)', 'Dapur Rindu', 28000, 90, 'pak', 'assets/img/produk/nugget-0.jpg',
+    'Sosis dan nugget beku siap goreng, disimpan di freezer Benefit.',
+    { 'Isi': '10 pcs', 'Berat bersih': '500 gram', 'Penyimpanan': 'Freezer', 'Daya simpan': '3 bulan' },
+    { isGrosir: true, sub: 'Makanan Instan' })
+];
+
+/* ---------- Produk: MINUMAN ---------- */
+KWU_DATA.productsMinuman = [
+  P('Air Mineral Botol 600 ml (2 pcs)', 'Air Murni', 8000, 320, 'pak', 'assets/img/produk/minumbotol-0.jpg',
+    'Air mineral dalam kemasan botol, dingin dan siap diminum.',
+    { 'Volume': '600 ml per botol', 'Isi': '2 botol', 'Kemasan': 'Botol PET', 'Kondisi': 'Dingin atau suhu ruang' },
+    { tags: ['grosir'], isGrosir: true, sub: 'Air Mineral' }),
+  P('Air Mineral Galon 19 L', 'Air Murni', 28000, 40, 'galon', 'assets/img/produk/minumbotol-1.jpg',
+    'Air mineral isi ulang dalam galon 19 liter, praktis untuk kebutuhan rumah atau kos.',
+    { 'Volume': '19 liter', 'Isi': '1 galon', 'Layanan': 'Pengisian ulang', 'Tersedia': 'Setiap hari kerja' },
+    { isGrosir: true, sub: 'Air Mineral' }),
+  P('Teh Botol 350 ml (4 pcs)', 'Teh Sari Padang', 20000, 240, 'pak', 'assets/img/produk/tehdingin-1.jpg',
+    'Teh botol pahit yang menyegarkan, kemasan plastik ringan.',
+    { 'Volume': '350 ml per botol', 'Isi': '4 botol', 'Rasa': 'Pahit dan gurih', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Teh Kemasan' }),
+  P('Teh Kotak 250 ml (6 pcs)', 'Teh Sari Padang', 24000, 210, 'pak', 'assets/img/produk/tehdingin-0.jpg',
+    'Teh kotak siap minum dengan gula aren, praktis dibawa ke kelas.',
+    { 'Volume': '250 ml per kotak', 'Isi': '6 kotak', 'Pemanis': 'Gula aren', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Teh Kemasan' }),
+  P('Minuman Soda (2 bottles)', 'Fizz Lokal', 16000, 230, 'pak', 'assets/img/produk/minumbotol-1.jpg',
+    'Minuman soda berkarbonasi dalam kemasan botol, dingin lebih enak.',
+    { 'Volume': '390 ml per botol', 'Isi': '2 botol', 'Rasa': ' assorted', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Soda' }),
+  P('Minuman Isotonik (2 bottles)', 'Isotonik', 20000, 220, 'pak', 'assets/img/produk/minumbotol-0.jpg',
+    'Minuman isotonik untuk’électrolit setelah aktivitas berat.',
+    { 'Volume': '500 ml per botol', 'Isi': '2 botol', 'Rasa': ' assorted', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Isotonik' }),
+  P('Jus Kemasan (3 bottles)', 'Sari Buah', 24000, 200, 'pak', 'assets/img/produk/jusmangga-0.jpg',
+    'Jus buah kemasan dengan rasa manis dan kadar pulp yang terasa.',
+    { 'Volume': '250 ml per botol', 'Isi': '3 botol', 'Rasa': ' assorted', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Jus Kemasan' }),
+  P('Susu UHT Full Cream 1 L', 'Sapi Perah', 28000, 200, 'kotak', 'assets/img/produk/susu-0.jpg',
+    'Susu UHT full cream dengan kadar lemak 3,5 persen dan rasa susu yang pekat.',
+    { 'Volume': '1 liter', 'Kadar lemak': '3,5 persen', 'Susu': '100 persen susu sapi', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Susu Kemasan' }),
+  P('Susu Kotak (6 boxes)', 'Sapi Perah', 27000, 190, 'pak', 'assets/img/produk/susu-2.jpg',
+    'Susu kotak siap minum untuk_stock di kelas atau rapat.',
+    { 'Volume': '250 ml per kotak', 'Isi': '6 kotak', 'Rasa': 'Full cream', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Susu Kemasan' }),
+  P('Susu Cokelat Botol (2 bottles)', 'Cokelat Ruma', 14000, 230, 'pak', 'assets/img/produk/susu-1.jpg',
+    'Susu cokelat minum packaged dengan rasa cokelat pekat.',
+    { 'Volume': '200 ml per botol', 'Isi': '2 botol', 'Rasa': 'Cokelat', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Susu Kemasan' }),
+  P('Kopi Siap Minum Botol (2 bottles)', 'Kopi Kanduri', 18000, 210, 'pak', 'assets/img/produk/kopisusu-0.jpg',
+    'Kopi susu siap minum dalam botol, dingin langsung diminum.',
+    { 'Volume': '250 ml per botol', 'Isi': '2 botol', 'Kadar kopi': '1,5 gram', 'Daya simpan': '6 bulan' },
+    { isGrosir: true, sub: 'Kopi Kemasan' }),
+  P('Kopi Kaleng (2 cans)', 'Kopi Kanduri', 22000, 190, 'pak', 'assets/img/produk/kopibiji-0.jpg',
+    'Kopi susu dalam kaleng, praktis untuk dibawa atau disimpan di tas.',
+    { 'Volume': '250 ml per kaleng', 'Isi': '2 kaleng', 'Rasa': 'Full cream', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Kopi Kemasan' }),
+  P('Minuman Energi Kaleng (4 cans)', 'Krating Joss', 20000, 170, 'pak', 'assets/img/produk/minumbotol-1.jpg',
+    'Minuman energi dalam kaleng untuk menjaga stamina saat mengejar deadline.',
+    { 'Volume': '250 ml per kaleng', 'Isi': '4 kaleng', 'Rasa': ' assorted', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Minuman Energi' }),
+  P('Kopi Sachet 20 g (10 pcs)', 'Kapal Api', 22000, 250, 'pak', 'assets/img/produk/gulaaren-0.jpg',
+    'Kopi sachet untuk diseduh cepat di kos atau kantor, satu sachet satu gelas.',
+    { 'Isi': '10 sachet', 'Berat bersih': '20 gram per sachet', 'Rasa': ' assorted', 'Daya simpan': '12 bulan' },
+    { tags: ['grosir'], isGrosir: true, sub: 'Kopi Sachet' }),
+  P('Kopi Special Sachet (10 pcs)', 'Torabika', 18000, 240, 'pak', 'assets/img/produk/gulaaren-1.jpg',
+    'Kopi sachet dengan aroma kuat dan sedikit manis khas.',
+    { 'Isi': '10 sachet', 'Berat bersih': '20 gram per sachet', 'Rasa': ' assorted', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Kopi Sachet' }),
+  P('Teh Celup Melati (25 bags)', 'Teh Alam', 22000, 230, 'box', 'assets/img/produk/teh-1.jpg',
+    'Teh celup melati dengan aroma bunga yang jelas dan tidak pahit.',
+    { 'Isi': '25 bags', 'Bahan': 'Daun teh melati', 'Kemasan': 'Dus dengan 5 envelope', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Teh Seduh' }),
+  P('Teh Sari Sachet (10 pcs)', 'Teh Sari Padang', 15000, 260, 'pak', 'assets/img/produk/tehdingin-0.jpg',
+    'Teh sari pahit khas Minang dalam sachet, diseduh dengan air panas.',
+    { 'Isi': '10 sachet', 'Berat bersih': '2 gram per sachet', 'Rasa': 'Pahit gurih', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Teh Seduh' }),
+  P('Cokelat Bubuk (6 sachets)', 'Milo', 28000, 220, 'pak', 'assets/img/produk/cucur-1.jpg',
+    'Cokelat bubuk untuk diseduh hangat, rasa cokelatnya pekat.',
+    { 'Isi': '6 sachet', 'Berat bersih': '25 gram per sachet', 'Rasa': 'Cokelat', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Cokelat Bubuk' }),
+  P('Susu Bubuk Sachet (6 pcs)', 'Sapi Perah', 24000, 210, 'pak', 'assets/img/produk/santan-0.jpg',
+    'Susu bubuk sachet untuk ditambahkan ke kopi atauarosidfide.',
+    { 'Isi': '6 sachet', 'Berat bersih': '30 gram per sachet', 'Rasa': 'Full cream', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Susu Bubuk' }),
+  P('Jahe Merah Instan (5 pcs)', 'Wedang Cap', 15000, 200, 'pak', 'assets/img/produk/cabe-0.jpg',
+    'Jahe merah instan untuk diminum hangat, berasa hangat dan menghangatkan.',
+    { 'Isi': '5 sachet', 'Berat bersih': '25 gram per sachet', 'Rasa': 'Jahe merah', 'Daya simpan': '12 bulan' },
+    { isGrosir: true, sub: 'Jahe' }),
+  P('Wedang Jahe (6 pcs)', 'Wedang Cap', 16000, 190, 'pak', 'assets/img/produk/tehdingin-1.jpg',
+    'Wedang jahe siap minum, hangat dan mudah dibawa ke kelas.',
+    { 'Isi': '6 pcs', 'Volume': '250 ml per botol', 'Rasa': 'Jahe', 'Daya simpan': '9 bulan' },
+    { isGrosir: true, sub: 'Jahe' })
+];
+
+/* ---------- Produk: PAKET HEMAT ---------- */
+KWU_DATA.productsPaket = [
+  P('Paket Sarapan Kantor', 'Paket Hemat', 129000, 60, 'paket', 'assets/img/produk/hadiah-0.jpg',
+    'Satu paket untuk sepuluh orang: kopi susu, teh celup, dan biskuit. Praktis untuk rapat pagi.',
+    { 'Isi': '10 kopi susu, 2 dus teh, 2 biskuit', 'Untuk': '10 orang', 'Bonus': 'Kartu ucapan', 'Minimum grosir': '5 paket' },
+    { tags: ['unggulan', 'grosir'], isGrosir: true, isFeatured: true, sub: 'Paket' }),
+  P('Paket Alat Tulis Perkuliahan', 'Paket Hemat', 149000, 45, 'paket', 'assets/img/produk/organizer-3.jpg',
+    'Bundling alat tulis untuk satu meja kuliah: buku tulis, pulpen, sticky notes, organizer, dan penghapus.',
+    { 'Isi': 'Buku, pulpen, sticky, organizer, penghapus', 'Jumlah': '5 jenis per paket', 'Bonus': 'Kartu ucapan', 'Minimum grosir': '4 paket' },
+    { tags: ['grosir'], isGrosir: true, sub: 'Paket' }),
+  P('Paket Atribut Tim', 'Paket Hemat', 279000, 32, 'paket', 'assets/img/produk/kaos-2.jpg',
+    'Satu paket berisi kaos PDH, tote bag, topi, dan tumbler. Cocok untuk merchandise tim atau acara.',
+    { 'Isi': 'Kaos, tote bag, topi, tumbler', 'Ukuran': 'S sampai XXL', 'Penghematan': 'Sekitar Rp 63.000', 'Minimum grosir': '3 paket' },
+    { tags: ['grosir'], isGrosir: true, isFeatured: true, sub: 'Paket' })
+];
+
+/* ---------- Gabungkan produk ke satu daftar ---------- */
+const CATEGORY_OF = {
+  productsMakanan: 'makanan',
+  productsMinuman: 'minuman',
+  productsAtribut: 'atribut',
+  productsLayanan: 'layanan',
+  productsAlatTulis: 'alat-tulis',
+  productsPaket: 'paket'
 };
 
-/* Gabungkan seluruh produk ke satu daftar */
-KWU_DATA.products = KWU_DATA.productsMakanan
-  .concat(KWU_DATA.productsMinuman, KWU_DATA.productsMerch, KWU_DATA.productsStationery, KWU_DATA.productsBundles);
-delete KWU_DATA.productsMakanan;
-delete KWU_DATA.productsMinuman;
-delete KWU_DATA.productsMerch;
-delete KWU_DATA.productsStationery;
-delete KWU_DATA.productsBundles;
+KWU_DATA.products = [];
+Object.keys(CATEGORY_OF).forEach(key => {
+  (KWU_DATA[key] || []).forEach(product => {
+    product.category = CATEGORY_OF[key];
+    if (product.isGrosir && product.minOrder === 1) product.minOrder = 6;
+    KWU_DATA.products.push(product);
+  });
+  delete KWU_DATA[key];
+});
 
-/* ---------- Ulasan contoh (untuk tampilan antarmuka) ---------- */
-KWU_DATA.reviews = {
-  m01: [
-    { author: 'Rani P.', rating: 5, date: '2026-10-12', title: 'Renyah beneran', text: 'Keny crunch-nya tebal banget. Kukus dua kali pun keripiknya tetap renyah.' },
-    { author: 'Bagus W.', rating: 4, date: '2026-09-28', title: 'Enak, sedikit asin', text: 'Rasa pisangnya terasa. Agak asin di ujung, tapi overall enak buat nonton.' },
-    { author: 'Sinta W.', rating: 5, date: '2026-09-09', title: 'Paket biar hemat', text: 'Ambil 6 pcs sekaligus buat angkatan. Packing rapih dan sampai cepat.' }
-  ],
-  m02: [
-    { author: 'Dimas A.', rating: 5, date: '2026-10-15', title: 'Bikin nagih', text: 'Cokelatnya melimpah dan teksturnya lembut di tengah. Satu box habis dalam sehari.' },
-    { author: 'Nadia H.', rating: 5, date: '2026-10-02', title: 'Enak banget buat ngopi', text: 'Dipakai buat sarapan bareng kopi susu. Crisp di luar dan tidak keras sama sekali.' },
-    { author: 'Taufik R.', rating: 4, date: '2026-09-12', title: 'Lumayan worth it', text: 'Harganya masih masuk akal. Karena dipanggang kecil, jadi selalu segar.' }
-  ],
-  m03: [
-    { author: 'Putri A.', rating: 5, date: '2026-10-08', title: 'Kuenya lembut', text: 'Lapisannya rapih dan tidak mudah lepas. Rasa santannya kuat, enak dimakan sore.' },
-    { author: 'Andi M.', rating: 4, date: '2026-09-19', title: 'Perlu disimpan di kulkas', text: 'Enak, tapi cepat keras kalau tidak langsung dimakan. Simpan di kulkas ya.' }
-  ],
-  m04: [
-    { author: 'Fajar S.', rating: 5, date: '2026-10-11', title: 'Pedasnya nagih', text: 'Pedasnya naik perlahan, tidak langsung bikin kering. Botol kacanya rapi dan bahannya berasa homemade.' },
-    { author: 'Mega L.', rating: 4, date: '2026-09-22', title: 'Sambal wajib punya', text: 'Agak menggurig di awal, tapi sambalnya masih ada wangi bawang. Wajib stok di dapur.' }
-  ],
-  m05: [
-    { author: 'Rizky N.', rating: 4, date: '2026-09-30', title: 'Kriuk di tempat', text: 'Teksturnya pas, renyah dan tidak keras. Rasa udangnya terasa. Bagus buat cocol sambal.' },
-    { author: 'Intan D.', rating: 5, date: '2026-09-05', title: 'Anak-anak suka', text: 'Paling suka yang dicocol. Halaman belajarnya penuh dengan pelangi.' }
-  ],
-  m06: [
-    { author: 'Yoga P.', rating: 5, date: '2026-10-17', title: 'Tengahnya lembut', text: 'Bagian tengahnya lembut banget dan pinggirannya tidak kering. Ukurannya pas, tidak bikin kenyang.' },
-    { author: 'Lia K.', rating: 5, date: '2026-10-06', title: 'Paling enak yang pernah coba', text: 'Ini yang bikin aku balik lagi. Suka bagian pinggir yang masih lembut.' },
-    { author: 'Doni S.', rating: 4, date: '2026-09-14', title: 'Enak, perlu di kulkas', text: 'Kalau keluar dari kulkas lama, teksturnya jadi agak keras. Segera dimakan saja.' }
-  ],
-  m07: [
-    { author: 'Tika E.', rating: 4, date: '2026-09-26', title: 'Cukup buat rapat', text: 'Variasinya enak buat di meja. Biskuit sandwich yang paling sering diburu.' },
-    { author: 'Bayu G.', rating: 4, date: '2026-09-01', title: 'Lumayan', text: 'Harganya ramah untuk ukuran 300 gram. Biskuitnya renyah dan tidak gampang remuk.' }
-  ],
-  m08: [
-    { author: 'Sarah T.', rating: 5, date: '2026-10-10', title: 'Anak-anak suka', text: 'Buahnya nyata, bukan cuma gula. Enam rasa dalam satu dus, semua enak.' },
-    { author: 'Gilang R.', rating: 4, date: '2026-09-18', title: 'Kemasannya rapi', text: 'Cupnya rapi, tidak pecah. Jelly-nya agak lembut buat yang suka kenyal.' }
-  ],
-  m09: [
-    { author: 'Nur A.', rating: 5, date: '2026-10-03', title: 'Sampai dalam keadaan beku', text: 'Dry ice-nya masih ada saat tiba. Enak banget, puternya tidak terlalu manis.' },
-    { author: 'Reza F.', rating: 4, date: '2026-09-11', title: 'Porsinya kecil', text: 'Rasanya creamy, tapi cup-nya kecil. Kalau buat acara besar, ambil dua box.' }
-  ],
-  m10: [
-    { author: 'Farhan Z.', rating: 5, date: '2026-10-16', title: 'Praktis buat acara', text: 'Satu dus langsung untuk delapan orang. Variasinya lengkap, tidak ada yang dobel.' },
-    { author: 'Citra D.', rating: 4, date: '2026-10-04', title: 'Lucu dikasih teman', text: 'Kartu ucapan lucunya bikin betis. Isinya sudah siap untuk diberikan.' }
-  ],
-  mn01: [
-    { author: 'Alif P.', rating: 5, date: '2026-10-18', title: 'Gula arennya kerasa', text: 'Enak, manisnya pas dan tidak ada rasa linger. Botolnya juga dingin masih di kulkas.' },
-    { author: 'Sasha N.', rating: 5, date: '2026-10-09', title: 'Poinnya tinggi', text: 'Ini yang sering dibeliin. Rasanya kental dan aroma kopinya nyata.' },
-    { author: 'Joko M.', rating: 4, date: '2026-09-23', title: 'Bagus untuk harian', text: 'Kadang suka kurang dingin pas sampai, tapi ujungnya tidak masalah.' }
-  ],
-  mn02: [
-    { author: 'Hana K.', rating: 5, date: '2026-10-07', title: 'Puasain', text: 'Aromanya kuat, rasa medium yang seimbang. Saya pakai untuk V60 dan espresso, sama-sama bisa.' },
-    { author: 'Arif B.', rating: 4, date: '2026-09-20', title: 'Kemasannya oke', text: 'Aroma dan rasa enak. Kemasan pouch-nya praktis buat disimpan.' }
-  ],
-  mn03: [
-    { author: 'Maya L.', rating: 5, date: '2026-10-13', title: 'Enak buat rapat', text: 'Aromanya melati banget dan tidak pahit walau diseduh dua kali. Dusnya banyak.' },
-    { author: 'Rudi H.', rating: 4, date: '2026-09-16', title: 'Standar teh melati', text: 'Puasain. Yang suka teh melati pasti suka. Envelope di dalam dus gampang diambil.' }
-  ],
-  mn04: [
-    { author: 'Eka S.', rating: 4, date: '2026-10-05', title: 'Markisa-nya berasa', text: 'Sirnya pekat, jelas rasa markisanya. Enak dicampur sama teh dingin.' },
-    { author: 'Vino A.', rating: 4, date: '2026-09-09', title: 'Aromanya kuat', text: 'Agak kental, tapi itu wajar untuk sirup pekat. Botol kacanya bagus.' }
-  ],
-  mn05: [
-    { author: 'Wulan S.', rating: 4, date: '2026-10-01', title: 'Manisnya pas', text: 'Pulp mangga-nya kerasa dan tidak terlalu manis. Botolnya ringan, praktis dibawa.' },
-    { author: 'Agus P.', rating: 4, date: '2026-09-08', title: 'Bagus buat acara', text: 'Ambil per dus untuk acara. Praktis dan harganya masuk akal.' }
-  ],
-  mn06: [
-    { author: 'Rani N.', rating: 5, date: '2026-10-14', title: 'Susu beneran susu', text: 'Krimnya tebal dan rasa susunya berasa. Minum langsung dari kotak juga enak.' },
-    { author: 'Bayu W.', rating: 4, date: '2026-09-25', title: 'Standar susu UHT', text: 'Puasain buat kebutuhan harian. Kadang suka yang lebih kental, tapi harganya masuk akal.' }
-  ],
-  mn07: [
-    { author: 'Dewi A.', rating: 5, date: '2026-10-19', title: 'Matchanya bukan yang manis', text: 'Enak, rasa matchanya terasa dan ada sedikit pahit yang enak. Botolnya praktis dibawa.' },
-    { author: 'Rico J.', rating: 4, date: '2026-10-02', title: 'Enak buat pagi', text: 'Alternatif dari kopi biasa. Kadang suka yang lebih dingin dan kental.' }
-  ],
-  mn08: [
-    { author: 'Fitri D.', rating: 5, date: '2026-10-11', title: 'Madu hutan beneran', text: 'Warnanya gelap dan rasaannya lebih kuat. Enak dicampur ke teh dan granola.' },
-    { author: 'Galuh P.', rating: 5, date: '2026-09-15', title: 'Worth the price', text: 'Cuma ada di tempat tertentu, tapi rasa dan aromanya beda banget dari madu toko.' }
-  ],
-  mc01: [
-    { author: 'Gilang T.', rating: 5, date: '2026-10-06', title: 'Bahannya adem', text: 'Katunnya adem dipakai seharian, tidak gerah. Jahitan rapi dan labelnya rapi.' },
-    { author: 'Ayu P.', rating: 4, date: '2026-09-17', title: 'Ukurannya pas', text: 'Regular fit seperti yang dijanjikan. Dicuci beberapa kali tidak melar.' }
-  ],
-  mc02: [
-    { author: 'Rizky E.', rating: 5, date: '2026-10-12', title: 'Hangat tapi ringan', text: 'Fleece-nya tebal tapi tidak berat. Potongan oversize-nya enak dipakai buat hangout.' },
-    { author: 'Maya S.', rating: 5, date: '2026-09-21', title: 'Bagus buat acara', text: 'Beli 12 pcs buat angkatan, semua pada suka. Bordir logonya rapi.' }
-  ],
-  mc03: [
-    { author: 'Bima L.', rating: 5, date: '2026-10-09', title: 'Kuat banget', text: 'Kanvasnya tebal, laptop aman di dalam. Compartiment dalam sangat membantu.' },
-    { author: 'Nadia F.', rating: 4, date: '2026-09-19', title: 'Bagus dan rapi', text: 'Warna naturalnya menarik. Tali kadang bisa lebih panjang untuk orang tinggi.' }
-  ],
-  mc04: [
-    { author: 'Yudha G.', rating: 4, date: '2026-10-08', title: 'Nyaman dipakai', text: 'Topinya ringan dan talinya bisa diatur. Bordir logo rapi, tidak ada benang berantakan.' },
-    { author: 'Ayu M.', rating: 4, date: '2026-09-24', title: 'Warnanya tahan lama', text: 'Warna putihnya tidak langsung kuningan. Bagus untuk acara kantor.' }
-  ],
-  mc05: [
-    { author: 'Bagus P.', rating: 5, date: '2026-10-15', title: 'Esnya tidak meleleh', text: 'Bisa tahan es seharian penuh. Botolnya tidak bocor di tas.' },
-    { author: 'Rani T.', rating: 5, date: '2026-10-03', title: 'Bagus buat kantor', text: 'Dipakai tiap hari buat kopi. Finishing-nya rapi dan tidak licin.' }
-  ],
-  mc06: [
-    { author: 'Intan D.', rating: 5, date: '2026-10-10', title: 'Nyaman digenggam', text: 'Pegangannya pas di tangan dan finishing matte-nya cantik. Minum kopi jadi lebih terasa.' },
-    { author: 'Deni S.', rating: 4, date: '2026-09-26', title: 'Bagus dan tebal', text: 'Keramiknya tebal, tidak retak. Warnanya netral, tapi worth it.' }
-  ],
-  mc07: [
-    { author: 'Riko H.', rating: 5, date: '2026-10-13', title: 'Nyaman dipakai lama', text: 'Bantalan punggungalnya empuk, bahunya tidak bikin gerah. Compartmen laptopnya pas.' },
-    { author: 'Tia W.', rating: 4, date: '2026-09-28', title: 'Bagus buat acara', text: 'Warna marunnya menarik. Saku depan cukup untuk botol dan charger.' }
-  ],
-  at01: [
-    { author: 'Sari A.', rating: 5, date: '2026-10-06', title: 'Kertasnya bagus', text: 'Tidak menerawang waktu ditulis pensil, dan halamannya banyak. Cover-nya agak licin.' },
-    { author: 'Doni P.', rating: 4, date: '2026-09-22', title: 'Buku tulis yang bagus', text: 'Harga tidak mahal, kertasnya enak ditulis. Sampulnya agak licin tapi aman.' }
-  ],
-  at02: [
-    { author: 'Fajar N.', rating: 5, date: '2026-10-12', title: 'Warnanya berani', text: 'Warna-warnanya jelas dan tidak luntur di kertas biasa. Ujungnya enak ditulis.' },
-    { author: 'Maya L.', rating: 4, date: '2026-09-29', title: 'Puasain', text: 'Isinya lengkap 12 warna. Pouch zip-nya agak ketat untuk dibuka pertama kali.' }
-  ],
-  at03: [
-    { author: 'Bayu K.', rating: 5, date: '2026-10-16', title: 'Warnanya mencolok', text: 'Spidolnya vibrant, dan bisa dipoles ulang kalau salah. Ujung ganda sangat membantu.' },
-    { author: 'Nana R.', rating: 4, date: '2026-10-04', title: 'Bagus buat poster', text: 'Tinta tidak bleed di kertas karton. Tutupnya perlu ditutup rapat setelah pakai.' }
-  ],
-  at04: [
-    { author: 'Fajar A.', rating: 4, date: '2026-09-30', title: 'Nempelnya kuat', text: 'Tidak lepas sendiri dan tidak meninggalkan noda. Empat warnanya lengkap.' },
-    { author: 'Citra W.', rating: 4, date: '2026-09-10', title: 'Praktis', text: 'Ukurannya pas untuk ditempel di monitor atau dinding. Harganya murah.' }
-  ],
-  at05: [
-    { author: 'Eka P.', rating: 5, date: '2026-10-14', title: 'Warnanya pekat', text: 'Pensilnya enak digenggam dan warnanya kuat. Bisa dicampur dengan air.' },
-    { author: 'Rian S.', rating: 4, date: '2026-09-27', title: 'Lengkap', text: '24 warna sekaligus memenuhi. Ujung runcing membantu untuk detail.' }
-  ],
-  at07: [
-    { author: 'Indah M.', rating: 5, date: '2026-10-05', title: 'Meja jadi rapi', text: 'Lima slot-nya lebar dan bisa diatur. Plastiknya tebal, tidak penyok.' },
-    { author: 'Bambang T.', rating: 4, date: '2026-09-19', title: 'Berguna', text: 'Dipakai untuk alat praktikum di kelas. Harganya masuk akal.' }
-  ],
-  pk01: [
-    { author: 'Riani T.', rating: 5, date: '2026-10-11', title: 'Praktis banget', text: 'Sampai sepuluh orang sekali pesan. Kartunya rapi dan kotaknya terasa rapi.' },
-    { author: 'Farhan D.', rating: 4, date: '2026-09-23', title: 'Hemat untuk rapat', text: 'Kalau dihitung per orang, jauh lebih murah. Kofeinya dingin masih enak.' }
-  ],
-  pk02: [
-    { author: 'Maya S.', rating: 5, date: '2026-10-07', title: 'Tinggal pakai', text: 'Semua yang dibutuhin buat meja kerja sudah ada. Organizernya jadi sorotan.' },
-    { author: 'Gilang A.', rating: 4, date: '2026-09-21', title: 'Bonusnya manis', text: 'Kartu ucapan lucu. Isinya lengkap buat kebutuhan sekolah.' }
-  ],
-  pk03: [
-    { author: 'Rani F.', rating: 5, date: '2026-10-18', title: 'Souvenir yang beres', text: 'Empat item dalam satu paket, semuanya dipakai. Cocok buat souvenir acara.' },
-    { author: 'Dono K.', rating: 4, date: '2026-10-01', title: 'Harga bersaing', text: 'Jauh lebih murah daripada beli satuan. Pengemasannya rapi dan aman.' }
-  ]
-};
+/* ---------- Ulasan contoh (dibuat dari templat, tetap konsisten) ---------- */
+const REVIEW_TEMPLATES = [
+  { r: 5, t: 'Sesuai harapan', x: '{name} datang cepat dan pengemasannya rapi. Isinya persis seperti yang tertulis di katalog.' },
+  { r: 5, t: 'Puasain', x: 'Sudah beberapa kali ambil {name} dari {brand}. Kualitasnya konsisten dan harganya masuk akal.' },
+  { r: 4, t: 'Bagus, sedikit catatan', x: 'Barang {name} oke, cuma pengemasannya bisa lebih rapat lagi biar aman di tas.' },
+  { r: 5, t: 'Recommended', x: 'Recommended untuk {sub} di kampus. Pemakaiannya praktis dan tidak ribet.' },
+  { r: 4, t: 'Nilai,oke', x: 'Harga {name}phenolsinin alright untuk kebutuhan {sub}. Pengirimannya juga tepat waktu.' },
+  { r: 5, t: 'Puasain buat kelas', x: 'Dibeli buat kebutuhan {sub} angkatan, semuanya sampai dan dalam kondisi baik.' },
+  { r: 3, t: 'Lumayan', x: '{name} berfungsi normal, tapi ada bagian yang bisa lebih rapi dari ConquerExpired.' },
+  { r: 5, t: 'Tepat untuk kebutuhan', x: 'Harganya masuk akal, isi {name} juga lebih dari cukup buat dipakai {sub}.' },
+  { r: 4, t: 'Enak dan praktis', x: 'Pakai {name} tiap hari, praktis dan tidak bikin ribet. Recommended.' },
+  { r: 5, t: 'Worth it', x: 'Dengan harga segini, {name} jelas worth it. Sudah re-order dua kali.' },
+  { r: 4, t: 'Bagus untuk hadiah', x: 'Cocok dipakai sebagai hadiah buat teman, {_name} yang kami belirono di fronteras lain.' },
+  { r: 5, t: 'Kualitas oke', x: 'Kualitas {name} di atas ekspektasi untuk harga {sub} yang ditawarkan.' }
+];
+
+const REVIEW_NAMES = ['Rani P.', 'Bagus W.', 'Sinta W.', 'Dimas A.', 'Nadia H.', 'Taufik R.', 'Putri A.', 'Andi M.', 'Fajar S.', 'Mega L.', 'Rizky N.', 'Intan D.', 'Yoga P.', 'Lia K.', 'Doni S.', 'Fajar N.', 'Nana R.', 'Indah M.', 'Riko H.', 'Tia W.'];
+
+const REVIEW_DATES = ['2026-10-18', '2026-10-11', '2026-10-04', '2026-09-27', '2026-09-19', '2026-09-08', '2026-08-29', '2026-08-14', '2026-07-30', '2026-07-12', '2026-06-24', '2026-06-05'];
+
+KWU_DATA.reviews = {};
+KWU_DATA.products.forEach((product, index) => {
+  const count = 3 + (index % 5);
+  const list = [];
+  for (let i = 0; i < count; i++) {
+    const tpl = REVIEW_TEMPLATES[(index * 3 + i * 5) % REVIEW_TEMPLATES.length];
+    list.push({
+      author: REVIEW_NAMES[(index * 5 + i * 3) % REVIEW_NAMES.length],
+      rating: tpl.r,
+      date: REVIEW_DATES[(index + i * 5) % REVIEW_DATES.length],
+      title: tpl.t,
+      text: tpl.x
+        .replace(/\{name\}/g, product.name)
+        .replace(/\{brand\}/g, product.brand)
+        .replace(/\{unit\}/g, product.unit)
+        .replace(/\{sub\}/g, product.sub || categoryNameFallback(product.category))
+        .replace(/\{_name\}/g, product.name)
+    });
+  }
+  KWU_DATA.reviews[product.id] = list;
+  const total = list.reduce((sum, r) => sum + r.rating, 0);
+  product.rating = Math.round((total / list.length) * 10) / 10;
+  product.reviewCount = list.length + 40 + (index % 7) * 23;
+});
+
+function categoryNameFallback(id) {
+  const cat = KWU_DATA.categories.find(c => c.id === id);
+  return cat ? cat.name.toLowerCase() : 'kebutuhan kampus';
+}
 
 /* ---------- Aktivitas dan berita ---------- */
 KWU_DATA.activities = [
@@ -566,10 +557,10 @@ KWU_DATA.activities = [
     body: 'Sesi berbagi dari alumni usaha dan pembicara dari lingkungan industri. Ringkasan materi tersedia setelah acara.'
   },
   {
-    id: 'a4', slug: 'pelatihan-penjualan-online', title: 'Pelatihan Penjualan Online untuk Mitra',
-    excerpt: 'Cara menampilkan produk, menjelaskan manfaat, dan menangani pertanyaan pembeli.',
-    date: '2026-07-12', category: 'Pelatihan', readTime: 7, image: 'assets/img/produk/scene-usaha-0.jpg',
-    body: 'Pelatihan dua sesi dengan latihan langsung pada katalog KWU.'
+    id: 'a4', slug: 'pelayanan-jilid-skripsi', title: 'Pelayanan Jilid Skripsi Dibuka Serentak',
+    excerpt: 'Layanan jilid spiral dan hard cover untuk skripsi, laporan, dan makalah mahasiswa.',
+    date: '2026-07-12', category: 'Layanan', readTime: 7, image: 'assets/img/produk/jilid-0.jpg',
+    body: 'Layanan jilid dibuka dengan antrean di loket KWU. Pengambilan maksimal tiga hari kerja setelah berkas lengkap.'
   },
   {
     id: 'a5', slug: 'program-pendampingan-produk', title: 'Program Pendampingan Produk Unggulan',
@@ -618,10 +609,12 @@ KWU_DATA.paths = [
 /* ---------- FAQ ---------- */
 KWU_DATA.faqs = [
   { q: 'Apakah saya harus login untuk melihat katalog?', a: 'Tidak. Katalog, kategori, dan detail produk dapat diakses tanpa login. Login dibutuhkan saat menyimpan wishlist, mengisi formulir kerja sama, dan menyelesaikan transaksi.' },
+  { q: 'Di mana lokasi KWU?', a: 'Layanan KWU berada di Gedung S Lantai 1 Politeknik Negeri Padang. Buka halaman Bantuan untuk memuat peta dan lokasi lengkap.' },
   { q: 'Berapa lama pesanan diproses?', a: 'Waktu proses dan serah terima mengikuti prosedur resmi KWU Administrasi Niaga. Nomor transaksi dipakai sebagai rujukan saat konfirmasi.' },
   { q: 'Bagaimana produk diambil setelah pesanan diproses?', a: 'Jadwal pengambilan atau pengiriman disepakati bersama admin KWU setelah pesanan berstatus Diproses. Simpan nomor transaksi sebagai bukti pemesanan.' },
+  { q: 'Apakah KWU menyediakan layanan fotokopi dan jilid?', a: 'Ya. Fotokopi, print, jilid spiral dan hard cover, laminating, serta cetak pas foto tersedia sebagai layanan di kategori Layanan Kampus.' },
   { q: 'Bagaimana cara mengajukan pembelian grosir?', a: 'Gunakan formulir RFQ pada halaman Kolaborasi Grosir. Isi data organisasi, daftar produk, jumlah, dan tanggal kebutuhan. Nomor pengajuan muncul setelah formulir dikirim.' },
-  { q: 'Berapa minimum pembelian grosir?', a: 'Setiap produk memiliki minimum pembelian berbeda, umumnya mulai dari 4 sampai 24 pcs. Detail minimum tampil pada setiap halaman produk.' },
+  { q: 'Berapa minimum pembelian grosir?', a: 'Setiap produk punya minimum pembelian sendiri, umumnya mulai dari 6 pcs. Detailnya tampil di bagian Jumlah pada halaman produk.' },
   { q: 'Metode pembayaran apa saja yang didukung?', a: 'Pilihan metode ditampilkan sebagai contoh pada tahap ini. Metode pembayaran final mengikuti prosedur resmi KWU Administrasi Niaga.' },
   { q: 'Bisakah melacak status pengajuan kerja sama?', a: 'Ya. Setiap pengajuan yang tersimpan memiliki nomor dan status di halaman Akun, menu Pengajuan.' },
   { q: 'Apakah data transaksi saya aman?', a: 'Frontend ini belum terhubung ke server. Data tersimpan secara lokal di peramban Anda dan akan hilang saat cache browser dibersihkan.' },
@@ -654,3 +647,4 @@ KWU_DATA.requestStatus = [
 ];
 
 if (typeof window !== 'undefined') window.KWU_DATA = KWU_DATA;
+

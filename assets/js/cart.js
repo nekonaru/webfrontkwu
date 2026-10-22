@@ -40,7 +40,7 @@ function initCart() {
         <div>
           <a class="cart-item__name" href="produk.html?slug=${item.slug}">${item.name}</a>
           <div class="small muted" style="margin-top:4px">
-            ${categoryName(item.category)} · ${KWU.rupiah(item.price)} / ${item.unit}
+            ${item.type === 'layanan' ? 'Layanan kampus' : categoryName(item.category)} · ${KWU.rupiah(item.price)} / ${item.unit}
           </div>
           <div class="cart-item__controls">
             <div class="qty">

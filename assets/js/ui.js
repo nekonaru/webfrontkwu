@@ -422,12 +422,20 @@ const CHAT_RULES = [
     reply: 'Pusat bantuan ada di <a href="bantuan.html">Pusat Bantuan</a>. Isinya panduan transaksi, FAQ, dan formulir kontak untuk menghubungi admin KWU.'
   },
   {
-    keys: ['admin', 'kontak', 'hubungi', 'telp', 'telepon', 'email', 'alamat', 'lokasi', 'jam buka'],
-    reply: 'Untuk menghubungi admin KWU, isi formulir kontak di <a href="bantuan.html#kontak">Pusat Bantuan</a>. Alamat dan nomor resmi belum dipublikasikan, jadi pesanmu tersimpan di peramban.'
+    keys: ['admin', 'kontak', 'hubungi', 'telp', 'telepon', 'email', 'jam buka'],
+    reply: 'Untuk menghubungi admin KWU, isi formulir kontak di <a href="bantuan.html#kontak">Pusat Bantuan</a>. Layanan KWU berada di <b>Gedung S Lantai 1, Politeknik Negeri Padang</b>. Nomor telepon resmi belum dipublikasikan, jadi pesanmu tersimpan di peramban.'
+  },
+  {
+    keys: ['alamat', 'lokasi', 'dimana', 'gedung', 'pnp', 'politeknik', 'lokasi layanan', 'alamat kwu', 'tempatnya'],
+    reply: 'Layanan KWU ada di <b>Gedung S Lantai 1, Politeknik Negeri Padang</b>. Buka <a href="bantuan.html#kontak">Pusat Bantuan</a> untuk peta dan jam buka loket.'
+  },
+  {
+    keys: ['fotokopi', 'print', 'jilid', 'laminating', 'cetak pas foto', 'layanan kampus', 'scan', 'spiral', 'hard cover'],
+    reply: 'Layanan kampus tersedia di kategori <b>Layanan Kampus</b>: fotokopi, print hitam putih dan full colour, jilid skripsi spiral maupun hard cover, laminating, dan cetak pas foto. Buka <a href="katalog.html?kategori=layanan">katalog layanan</a> untuk daftar lengkap.'
   },
   {
     keys: ['tentang', 'profil', 'kwu', 'sejarah', 'visi', 'misi', 'unit', 'administrasi niaga'],
-    reply: 'Profil KWU Administrasi Niaga ada di <a href="tentang.html">Tentang KWU</a>. Isinya identitas, tujuan, layanan, dan kontribusi KWU bagi kewirausahaan kampus.'
+    reply: 'Profil KWU Administrasi Niaga ada di <a href="tentang.html">Tentang KWU</a>. KWU melayani mahasiswa, mitra usaha, dan institusi dari <b>Gedung S Lantai 1, Politeknik Negeri Padang</b> dengan katalog, layanan kampus, dan jalur kerja sama.'
   },
   {
     keys: ['aktivitas', 'berita', 'cerita', 'kegiatan', 'agenda', 'kalender', 'jadwal', 'event terdekat'],

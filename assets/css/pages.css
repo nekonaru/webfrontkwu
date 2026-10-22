@@ -136,6 +136,7 @@
 .product-card__wish svg { width: 18px; height: 18px; }
 .product-card__body { padding: 18px; display: flex; flex-direction: column; flex: 1; gap: 8px; }
 .product-card__cat { font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); }
+.product-card__sub { font-size: .74rem; color: var(--muted-2); font-weight: 600; }
 .product-card__name { font-size: 1rem; font-weight: 700; color: var(--navy); line-height: 1.35; }
 .product-card__meta { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: auto; padding-top: 8px; }
 .product-card__price { font-size: 1.12rem; font-weight: 800; color: var(--navy); letter-spacing: -.02em; }

@@ -343,6 +343,9 @@
   background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
   font-size: .8rem; color: rgba(255,255,255,.6);
 }
+.footer-contact { margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.1); }
+.footer-contact__label { display: block; font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); font-weight: 800; margin-bottom: 3px; }
+.footer-contact__value { display: block; color: #fff; font-weight: 700; font-size: .88rem; line-height: 1.5; }
 
 /* ---------------- Forms ---------------- */
 .field { display: block; margin-bottom: 18px; }
