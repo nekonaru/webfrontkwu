@@ -11,8 +11,6 @@
 
 <br />
 
-[English](README.md) | **Bahasa Indonesia**
-
 > [!IMPORTANT]
 > KWU bukan brand dagang. Seluruh brand, produk, harga, dan ulasan di katalog ini adalah karangan untuk keperluan demonstrasi antarmuka, bukan barang asli maupun penawaran resmi.
 
