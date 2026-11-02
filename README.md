@@ -1,13 +1,100 @@
-# KWU Campus Business Hub
+<div align="center">
+  <h1>KWU Campus Business Hub</h1>
+  <p><b>Website frontend KWU Administrasi Niaga yang dibangun hanya dengan HTML, CSS, dan JavaScript<br/>
+  (tanpa framework, tanpa proses build wajib).</b></p>
 
-Website frontend **KWU Administrasi Niaga** yang dibangun hanya dengan **HTML, CSS, dan JavaScript**
-(tanpa framework, tanpa proses build wajib). Seluruh halaman dibuat statis, cepat, dan bisa langsung
-dibuka di peramban.
+  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5" />
+  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3" />
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" alt="JavaScript" />
+  <img src="https://img.shields.io/badge/Build-Opsional-lightgrey?style=flat-square" alt="Build opsional" />
+</div>
 
-Tagline: **Tempat Ide Bertemu Peluang.** · Hero: **IDE BESAR. PELUANG NYATA.**
+<br />
 
-> KWU bukan brand dagang. Seluruh brand, produk, harga, dan ulasan di katalog ini adalah karangan
-> untuk keperluan demonstrasi antarmuka, bukan barang asli maupun penawaran resmi.
+[English](README.md) | **Bahasa Indonesia**
+
+> [!IMPORTANT]
+> KWU bukan brand dagang. Seluruh brand, produk, harga, dan ulasan di katalog ini adalah karangan untuk keperluan demonstrasi antarmuka, bukan barang asli maupun penawaran resmi.
+
+---
+
+## Daftar Isi
+
+- [Tentang](#tentang)
+- [Fitur](#fitur)
+- [Persyaratan](#persyaratan)
+- [Menjalankan](#menjalankan)
+- [Struktur Berkas](#struktur-berkas)
+- [Peta Halaman](#peta-halaman)
+- [Katalog](#katalog)
+- [Catatan Kejujuran Data](#catatan-kejujuran-data)
+- [Mengubah Isi Halaman](#mengubah-isi-halaman)
+- [Kredit](#kredit)
+
+---
+
+## Tentang
+
+Website frontend **KWU Administrasi Niaga** yang dibangun hanya dengan **HTML, CSS, dan JavaScript** (tanpa framework, tanpa proses build wajib). Seluruh halaman dibuat statis, cepat, dan bisa langsung dibuka di peramban.
+
+| | |
+|---|---|
+| **Tagline** | Tempat Ide Bertemu Peluang. |
+| **Hero** | IDE BESAR. PELUANG NYATA. |
+
+---
+
+## Fitur
+
+### Sistem desain
+
+| Aspek | Detail |
+|-------|--------|
+| **Palet** | KWU Orange `#F47721`, KWU Blue `#1756A9`, Deep Navy `#102D50`, putih |
+| **Font** | Plus Jakarta Sans dengan fallback sistem |
+| **Bentuk dan ruang** | Sudut kartu 10 sampai 18 px, bayangan lembut, ruang lega, tipografi besar dan tegas |
+| **Wordmark** | "KWU" dengan teks kecil "Administrasi Niaga" |
+
+### Animasi
+
+- Reveal berjenjang saat elemen masuk layar.
+- Hero melayang, blob bergerak, marquee kategori.
+- Tombol lift dan sheen, keadaan loading.
+- Header menyusut saat digulir, drawer dan panel filter meluncur.
+- Angka statistik menghitung naik, toast masuk halus, transisi halaman.
+
+### Fungsional
+
+| Fitur | Keterangan |
+|-------|------------|
+| **Katalog** | Pencarian langsung, filter kategori, rentang harga, filter stok, lima pilihan urutan, tampilan grid dan list, URL ikut berubah, empty state, skeleton loading |
+| **Detail produk** | Galeri, stepper jumlah, tambah ke keranjang, wishlist, bagikan, tab, produk terkait, prefill RFQ |
+| **Ulasan** | Ringkasan rating dengan grafik batang, daftar ulasan, form tulis ulasan yang tersimpan di peramban dan langsung tampil di daftar |
+| **Keranjang** | Ubah jumlah, hapus dengan dialog konfirmasi, simpan ke wishlist, subtotal transparan |
+| **Checkout** | Validasi inline, metode pembayaran, ringkasan, nomor transaksi, status |
+| **Tiga formulir kerja sama** | Indikator langkah, validasi inline, halaman tinjauan, nomor pengajuan |
+| **Akun** | Profil, riwayat transaksi, status pengajuan, wishlist, pengaturan, hapus data lokal |
+| **FAQ** | Dengan pencarian dan filter, akordeon |
+| **Chatbot** | 28 topik, tombol mengambang, quick replies, typing indicator |
+| **Utilitas** | Toast, ConfirmDialog, tombol kembali ke atas, pencarian cepat `Ctrl+K` |
+
+### Desain khusus layar kecil
+
+- Navigasi bawah dengan empat menu utama, bukan hanya hamburger.
+- Panel aksi produk yang menempel di bawah layar, menggantikan navigasi bawah.
+- Kartu produk jadi dua kolom dengan tombol ringkas, rating disembunyikan.
+- Tipografi, jarak, dan target sentuh diatur ulang, bukan sekadar dikecilkan.
+- Formulir memakai font 16 px agar tidak memicu zoom otomatis di iOS.
+- Panel filter jadi sheet layar penuh dengan header dan footer menempel.
+
+---
+
+## Persyaratan
+
+| Dependensi | Catatan |
+|------------|---------|
+| **Peramban** | Peramban modern apa pun. `index.html` bisa dibuka langsung dengan klik dua kali karena tidak memakai modul ES |
+| **Node.js** | Opsional, hanya untuk membangun ulang halaman (`node build.js`) dan menjalankan server statis (`node tools/serve.js`) |
 
 ---
 
@@ -21,12 +108,14 @@ node build.js
 node tools/serve.js 8080
 ```
 
-Buka `http://localhost:8080`. Situs juga tetap berjalan dengan klik dua kali `index.html`
-karena tidak memakai modul ES.
+Buka `http://localhost:8080`.
+
+> [!TIP]
+> Situs juga tetap berjalan dengan klik dua kali `index.html` karena tidak memakai modul ES.
 
 ---
 
-## Struktur berkas
+## Struktur Berkas
 
 ```
 ├── index.html ... 22 halaman hasil build (langsung bisa dipakai)
@@ -70,7 +159,7 @@ karena tidak memakai modul ES.
 
 ---
 
-## Peta halaman
+## Peta Halaman
 
 | Halaman | Berkas | Isi |
 | --- | --- | --- |
@@ -100,8 +189,7 @@ karena tidak memakai modul ES.
 
 ## Katalog
 
-Lima kategori, 37 produk dengan brand fiktif seperti *Sari Banih*,
-*Rumah Biskuit*, *Kopi Kanduri*, *Ink Line*, dan *Serat Lokal*.
+Lima kategori, 37 produk dengan brand fiktif seperti *Sari Banih*, *Rumah Biskuit*, *Kopi Kanduri*, *Ink Line*, dan *Serat Lokal*.
 
 | Kategori | Isi |
 | --- | --- |
@@ -115,58 +203,17 @@ Setiap produk punya foto, harga, minimum pembelian, spesifikasi, rating, dan ula
 
 ---
 
-## Fitur
-
-**Sistem desain**
-- Palet: KWU Orange `#F47721`, KWU Blue `#1756A9`, Deep Navy `#102D50`, putih.
-- Font Plus Jakarta Sans dengan fallback sistem.
-- Sudut kartu 10 sampai 18 px, bayangan lembut, ruang lega, tipografi besar dan tegas.
-- Wordmark "KWU" dengan teks kecil "Administrasi Niaga".
-
-**Animasi**
-- Reveal berjenjang saat elemen masuk layar.
-- Hero melayang, blob bergerak, marquee kategori.
-- Tombol lift dan sheen, keadaan loading.
-- Header menyusut saat digulir, drawer dan panel filter meluncur.
-- Angka statistik menghitung naik, toast masuk halus, transisi halaman.
-
-**Fungsional**
-- Katalog: pencarian langsung, filter kategori, rentang harga, filter stok, lima pilihan urutan,
-  tampilan grid dan list, URL ikut berubah, empty state, skeleton loading.
-- Detail produk: galeri, stepper jumlah, tambah ke keranjang, wishlist, bagikan, tab,
-  produk terkait, prefill RFQ.
-- Ulasan: ringkasan rating dengan grafik batang, daftar ulasan, form tulis ulasan yang
-  tersimpan di peramban dan langsung tampil di daftar.
-- Keranjang: ubah jumlah, hapus dengan dialog konfirmasi, simpan ke wishlist, subtotal transparan.
-- Checkout: validasi inline, metode pembayaran, ringkasan, nomor transaksi, status.
-- Tiga formulir kerja sama: indikator langkah, validasi inline, halaman tinjauan, nomor pengajuan.
-- Akun: profil, riwayat transaksi, status pengajuan, wishlist, pengaturan, hapus data lokal.
-- FAQ dengan pencarian dan filter, akordeon.
-- Chatbot dengan 28 topik, tombol mengambang, quick replies, typing indicator.
-- Toast, ConfirmDialog, tombol kembali ke atas, pencarian cepat `Ctrl+K`.
-
-**Desain khusus layar kecil**
-- Navigasi bawah dengan empat menu utama, bukan hanya hamburger.
-- Panel aksi produk yang menempel di bawah layar, menggantikan navigasi bawah.
-- Kartu produk jadi dua kolom dengan tombol ringkas, rating disembunyikan.
-- Tipografi, jarak, dan target sentuh diatur ulang, bukan sekadar dikecilkan.
-- Formulir memakai font 16 px agar tidak memicu zoom otomatis di iOS.
-- Panel filter jadi sheet layar penuh dengan header dan footer menempel.
-
----
-
-## Catatan kejujuran data
+## Catatan Kejujuran Data
 
 - Brand, produk, harga, ulasan, dan isi halaman adalah karangan untuk demonstrasi antarmuka.
 - Login, pembayaran, dan pengiriman pengajuan belum terhubung ke server.
 - Data tersimpan di `localStorage` peramban saja.
-- Logo resmi, alamat, nomor kontak, media sosial, visi-misi, dan naskah kebijakan resmi
-  belum dipublikasikan, bagian tersebut sengaja tidak dikarang.
+- Logo resmi, alamat, nomor kontak, media sosial, visi-misi, dan naskah kebijakan resmi belum dipublikasikan, bagian tersebut sengaja tidak dikarang.
 - Tidak ada fitur antar-jemput.
 
 ---
 
-## Mengubah isi halaman
+## Mengubah Isi Halaman
 
 1. Edit partial terkait di `src/partials/`.
 2. Jalankan `node build.js`.
@@ -177,3 +224,9 @@ Pemeriksaan cepat karakter asing atau em dash:
 ```bash
 node tools/scan-text.js
 ```
+
+---
+
+## Kredit
+
+Foto produk dan suasana berasal dari Unsplash, daftar lengkapnya ada di [`CREDITS.md`](CREDITS.md). Logo, favicon, dan ilustrasi vektor di `assets/img/*.svg` dibuat sendiri.
